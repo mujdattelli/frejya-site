@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Frejya — Yavaş Flört, Gerçek Bağ</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta name="description" content="Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Yavaş flört felsefesiyle kurulmuş tanışma uygulaması." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: #C0A080;
+    --gold-dark: #A78A6E;
+    --ink: #2D2B2A;
+    --cream: #F9F8F6;
+    --soft: #EFEbE4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+
+  /* HERO */
+  header {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF8 55%, #FFF6E4 100%);
+    padding: 70px 0 90px;
+    text-align: center;
+  }
+  .brand { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--gold); letter-spacing: 2px; display: inline-flex; align-items: center; gap: 10px; }
+  .hero-title { font-size: clamp(38px, 7vw, 64px); margin: 38px 0 18px; color: var(--ink); }
+  .hero-sub { font-size: clamp(15px, 2.4vw, 19px); color: #6b665f; max-width: 560px; margin: 0 auto 38px; }
+  .badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: #fff; padding: 13px 22px; border-radius: 40px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+  }
+  .badge small { display: block; font-size: 10px; opacity: .6; font-weight: 400; }
+  .badge .big { font-size: 15px; font-weight: 600; }
+  .badge.soon { background: #ECE6DD; color: #8a8278; }
+
+  /* MANIFESTO */
+  .manifesto { background: var(--ink); color: #E8E1D6; text-align: center; padding: 96px 0; }
+  .manifesto .section-tag { color: var(--gold); }
+  .manifesto .m-title { color: #fff; font-size: clamp(24px, 4vw, 34px); margin: 14px 0 46px; }
+  .manifesto .stanza {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(16.5px, 2.3vw, 20px); line-height: 1.9;
+    color: #D7CFC1; max-width: 600px; margin: 0 auto 28px;
+  }
+  .manifesto .stanza.accent { color: var(--gold); font-weight: 600; }
+  .manifesto .m-close {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(22px, 3.6vw, 32px); color: var(--gold); margin-top: 38px;
+  }
+
+  /* SECTIONS */
+  section { padding: 76px 0; }
+  .section-tag { color: var(--gold-dark); font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; }
+  .section-title { font-size: clamp(26px, 4vw, 38px); margin: 12px 0 14px; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; margin-top: 44px; }
+  .card {
+    background: #fff; border: 1px solid var(--soft); border-radius: 20px;
+    padding: 30px 26px; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(45,43,42,.07); }
+  .card .ic {
+    width: 46px; height: 46px; border-radius: 13px;
+    background: #FBF3E6; color: var(--gold-dark);
+    display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 20px; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: #6b665f; }
+
+  .alt { background: var(--soft); }
+
+  /* HOW */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 44px; }
+  .step .num {
+    font-family: 'Playfair Display', serif; font-size: 40px; color: var(--gold); font-weight: 700;
+  }
+  .step h3 { font-size: 18px; margin: 6px 0 6px; }
+  .step p { font-size: 14px; color: #6b665f; }
+
+  /* CLOSING */
+  .closing { text-align: center; }
+  .closing h2 { font-size: clamp(28px, 5vw, 44px); }
+  .closing p { color: #6b665f; max-width: 500px; margin: 16px auto 34px; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: #cfc9c0; padding: 50px 0 38px; font-size: 13.5px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; }
+  footer .brand { color: var(--gold); font-size: 22px; }
+  footer a { color: #cfc9c0; text-decoration: none; opacity: .85; }
+  footer a:hover { opacity: 1; color: #fff; }
+  .flinks { display: flex; flex-direction: column; gap: 9px; }
+  .fcopy { width: 100%; border-top: 1px solid rgba(255,255,255,.08); margin-top: 30px; padding-top: 22px; font-size: 12px; opacity: .55; }
+  .age { display: inline-block; margin-top: 6px; border: 1px solid var(--gold); color: var(--gold); border-radius: 6px; padding: 1px 7px; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
+      FREJYA
+    </div>
+    <h1 class="hero-title">Yavaş flört.<br />Gerçek bağ.</h1>
+    <p class="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
+    <div class="badges">
+      <span class="badge soon"><span><small>Yakında</small><span class="big">App Store</span></span></span>
+      <span class="badge soon"><span><small>Yakında</small><span class="big">Google Play</span></span></span>
+    </div>
+  </div>
+</header>
+
+<section class="manifesto">
+  <div class="wrap">
+    <div class="section-tag">Manifesto</div>
+    <h2 class="m-title">Frejya Manifestosu</h2>
+
+    <p class="stanza">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />
+      Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />
+      Biz buna inanmıyoruz.</p>
+
+    <p class="stanza">Hızlı beğenilenin hızlı unutulduğuna,<br />
+      tanınmadan sevilenin sevilmediğine,<br />
+      ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.</p>
+
+    <p class="stanza accent">Frejya bir flört uygulaması değildir.<br />
+      Frejya, bir kapı eşiğidir.</p>
+
+    <p class="stanza">Burada yüzler bir anda görünmez.<br />
+      Çünkü bir insan, bir fotoğraftan büyüktür.</p>
+
+    <p class="stanza">Konuştukça tanırsın. Tanıdıkça görürsün.<br />
+      Gördükçe kalırsın — ya da gidersin.<br />
+      Ama bu kez, bilerek.</p>
+
+    <p class="stanza">Diğerleri seni acele ettirir.<br />
+      Diğerleri seni bir fotoğrafta yargılatır.<br />
+      Diğerleri sana onlarca seçenek sunar — ama hiçbirini tanıma fırsatı vermez.</p>
+
+    <p class="stanza accent">Frejya, sana zaman tanır.</p>
+
+    <p class="stanza">Çünkü zili çalmak kolaydır.<br />
+      İçeri davet edilmek, bambaşka bir şeydir.</p>
+
+    <p class="stanza">Burada anlık beğeni yok.<br />
+      Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />
+      Burada acele yok.</p>
+
+    <p class="stanza">Burada bir kapı var —<br />
+      ve doğru anahtar bulunduğunda,<br />
+      yavaşça, açılacak.</p>
+
+    <p class="stanza">Çünkü artık bir gece değil, bir sabah arıyoruz.<br />
+      Bir kahve fincanının iki yanı.<br />
+      Bir anahtarın iki sahibi.<br />
+      Bir evin içindeki iki nefes.</p>
+
+    <p class="stanza">Eğer sen de yorulduysan<br />
+      hızlı olandan, yüzeysel olandan, sahte olandan —<br />
+      hoş geldin.</p>
+
+    <p class="stanza">Burada bir yuva kurulur,<br />
+      bir oyun değil.</p>
+
+    <p class="m-close">Frejya. Aşkın eşiğinde.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag">Neden Frejya</div>
+    <h2 class="section-title">Tanışmanın sakin hâli</h2>
+    <div class="features">
+      <div class="card">
+        <div class="ic">🐾</div>
+        <h3>Anonimlikle başlar</h3>
+        <p>Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.</p>
+      </div>
+      <div class="card">
+        <div class="ic">✨</div>
+        <h3>Sohbet ettikçe keşfedersin</h3>
+        <p>Eşleştiğin kişinin fotoğrafı karanlık bir perdenin arkasında. Karşılıklı sohbet ettikçe perdeyi azar azar kazıyıp onu ortaya çıkarırsın.</p>
+      </div>
+      <div class="card">
+        <div class="ic">💬</div>
+        <h3>Tek sohbet, tam odak</h3>
+        <p>Frejya'da aynı anda yalnızca bir kişiyle sohbet edersin. Dikkat dağınıklığı yok — karşındaki kişiye gerçekten odaklanırsın.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔣</div>
+        <h3>Hiyeroglif paylaşımlar</h3>
+        <p>Akışta metin yoktur. Düşünceni ikonlardan oluşan sembolik bir dille paylaşırsın. Frejya Aura — sessiz ama anlamlı bir alan.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🔔</div>
+        <h3>Zil çal</h3>
+        <p>Birini beğendiysen kapısının zilini çalarsın. O da senin zilini duyar — ve dilerse kapıyı açar.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🛡️</div>
+        <h3>Güvenli ve saygılı</h3>
+        <p>Her profil fotoğrafı yapay zekâ ile denetlenir. Şikayet ve engelleme her an elinin altında. İstediğin an hesabını tamamen silebilirsin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-tag">Nasıl Çalışır</div>
+    <h2 class="section-title">Üç adımda gerçek bir bağ</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Kendini anlat</h3>
+        <p>Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Zile bas</h3>
+        <p>Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>Kazıyarak keşfet</h3>
+        <p>Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Acele etme.</h2>
+    <p>Gerçek bağ zamanla kurulur. Frejya 18 yaş ve üzeri içindir.</p>
+    <div class="badges">
+      <span class="badge soon"><span><small>Yakında</small><span class="big">App Store</span></span></span>
+      <span class="badge soon"><span><small>Yakında</small><span class="big">Google Play</span></span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
+        FREJYA
+      </div>
+      <p style="margin-top:8px;max-width:260px;opacity:.7;">Yavaş flört felsefesiyle kurulmuş tanışma uygulaması.</p>
+      <span class="age">18+</span>
+    </div>
+    <div class="flinks">
+      <strong style="color:#fff;font-family:'Playfair Display',serif;">Yasal</strong>
+      <a href="https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html">Gizlilik Politikası</a>
+      <a href="https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html">Kullanıcı Sözleşmesi</a>
+    </div>
+    <div class="flinks">
+      <strong style="color:#fff;font-family:'Playfair Display',serif;">İletişim</strong>
+      <a href="mailto:tellimujdat@gmail.com">tellimujdat@gmail.com</a>
+      <span style="opacity:.6;">Hizmet sağlayıcı: Müjdat Telli</span>
+    </div>
+    <div class="fcopy">© 2026 Frejya · Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+</body>
+</html>
