@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Frejya — Yavaş Flört, Gerçek Bağ</title>
+<title data-i18n="title">Frejya — Yavaş Flört, Gerçek Bağ</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<meta name="description" content="Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Yavaş flört felsefesiyle kurulmuş tanışma uygulaması." />
+<meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Yavaş flört felsefesiyle kurulmuş tanışma uygulaması." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -29,6 +29,18 @@
   h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
   a { color: inherit; }
+
+  /* LANG TOGGLE */
+  .lang-toggle {
+    position: fixed; top: 18px; right: 22px;
+    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+    border: 1px solid var(--soft); color: var(--ink);
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    cursor: pointer; z-index: 100; font-family: inherit;
+    transition: background .15s ease;
+  }
+  .lang-toggle:hover { background: #fff; }
 
   /* HERO */
   header {
@@ -111,111 +123,113 @@
 </head>
 <body>
 
+<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">EN</button>
+
 <header>
   <div class="wrap">
     <div class="brand">
       <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
       FREJYA
     </div>
-    <h1 class="hero-title">Yavaş flört.<br />Gerçek bağ.</h1>
-    <p class="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
+    <h1 class="hero-title" data-i18n="hero-title">Yavaş flört.<br />Gerçek bağ.</h1>
+    <p class="hero-sub" data-i18n="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
     <div class="badges">
-      <span class="badge soon"><span><small>Yakında</small><span class="big">App Store</span></span></span>
-      <span class="badge soon"><span><small>Yakında</small><span class="big">Google Play</span></span></span>
+      <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span></span>
+      <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span></span>
     </div>
   </div>
 </header>
 
 <section class="manifesto">
   <div class="wrap">
-    <div class="section-tag">Manifesto</div>
-    <h2 class="m-title">Frejya Manifestosu</h2>
+    <div class="section-tag" data-i18n="manifesto-tag">Manifesto</div>
+    <h2 class="m-title" data-i18n="manifesto-title">Frejya Manifestosu</h2>
 
-    <p class="stanza">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />
+    <p class="stanza" data-i18n="m1">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />
       Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />
       Biz buna inanmıyoruz.</p>
 
-    <p class="stanza">Hızlı beğenilenin hızlı unutulduğuna,<br />
+    <p class="stanza" data-i18n="m2">Hızlı beğenilenin hızlı unutulduğuna,<br />
       tanınmadan sevilenin sevilmediğine,<br />
       ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.</p>
 
-    <p class="stanza accent">Frejya bir flört uygulaması değildir.<br />
+    <p class="stanza accent" data-i18n="m3">Frejya bir flört uygulaması değildir.<br />
       Frejya, bir kapı eşiğidir.</p>
 
-    <p class="stanza">Burada yüzler bir anda görünmez.<br />
+    <p class="stanza" data-i18n="m4">Burada yüzler bir anda görünmez.<br />
       Çünkü bir insan, bir fotoğraftan büyüktür.</p>
 
-    <p class="stanza">Konuştukça tanırsın. Tanıdıkça görürsün.<br />
+    <p class="stanza" data-i18n="m5">Konuştukça tanırsın. Tanıdıkça görürsün.<br />
       Gördükçe kalırsın — ya da gidersin.<br />
       Ama bu kez, bilerek.</p>
 
-    <p class="stanza">Diğerleri seni acele ettirir.<br />
+    <p class="stanza" data-i18n="m6">Diğerleri seni acele ettirir.<br />
       Diğerleri seni bir fotoğrafta yargılatır.<br />
       Diğerleri sana onlarca seçenek sunar — ama hiçbirini tanıma fırsatı vermez.</p>
 
-    <p class="stanza accent">Frejya, sana zaman tanır.</p>
+    <p class="stanza accent" data-i18n="m7">Frejya, sana zaman tanır.</p>
 
-    <p class="stanza">Çünkü zili çalmak kolaydır.<br />
+    <p class="stanza" data-i18n="m8">Çünkü zili çalmak kolaydır.<br />
       İçeri davet edilmek, bambaşka bir şeydir.</p>
 
-    <p class="stanza">Burada anlık beğeni yok.<br />
+    <p class="stanza" data-i18n="m9">Burada anlık beğeni yok.<br />
       Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />
       Burada acele yok.</p>
 
-    <p class="stanza">Burada bir kapı var —<br />
+    <p class="stanza" data-i18n="m10">Burada bir kapı var —<br />
       ve doğru anahtar bulunduğunda,<br />
       yavaşça, açılacak.</p>
 
-    <p class="stanza">Çünkü artık bir gece değil, bir sabah arıyoruz.<br />
+    <p class="stanza" data-i18n="m11">Çünkü artık bir gece değil, bir sabah arıyoruz.<br />
       Bir kahve fincanının iki yanı.<br />
       Bir anahtarın iki sahibi.<br />
       Bir evin içindeki iki nefes.</p>
 
-    <p class="stanza">Eğer sen de yorulduysan<br />
+    <p class="stanza" data-i18n="m12">Eğer sen de yorulduysan<br />
       hızlı olandan, yüzeysel olandan, sahte olandan —<br />
       hoş geldin.</p>
 
-    <p class="stanza">Burada bir yuva kurulur,<br />
+    <p class="stanza" data-i18n="m13">Burada bir yuva kurulur,<br />
       bir oyun değil.</p>
 
-    <p class="m-close">Frejya. Aşkın eşiğinde.</p>
+    <p class="m-close" data-i18n="m-close">Frejya. Aşkın eşiğinde.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="section-tag">Neden Frejya</div>
-    <h2 class="section-title">Tanışmanın sakin hâli</h2>
+    <div class="section-tag" data-i18n="why-tag">Neden Frejya</div>
+    <h2 class="section-title" data-i18n="why-title">Tanışmanın sakin hâli</h2>
     <div class="features">
       <div class="card">
         <div class="ic">🐾</div>
-        <h3>Anonimlikle başlar</h3>
-        <p>Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.</p>
+        <h3 data-i18n="f1-title">Anonimlikle başlar</h3>
+        <p data-i18n="f1-desc">Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.</p>
       </div>
       <div class="card">
         <div class="ic">✨</div>
-        <h3>Sohbet ettikçe keşfedersin</h3>
-        <p>Eşleştiğin kişinin fotoğrafı karanlık bir perdenin arkasında. Karşılıklı sohbet ettikçe perdeyi azar azar kazıyıp onu ortaya çıkarırsın.</p>
+        <h3 data-i18n="f2-title">Sohbet ettikçe keşfedersin</h3>
+        <p data-i18n="f2-desc">Eşleştiğin kişinin fotoğrafı karanlık bir perdenin arkasında. Karşılıklı sohbet ettikçe perdeyi azar azar kazıyıp onu ortaya çıkarırsın.</p>
       </div>
       <div class="card">
         <div class="ic">💬</div>
-        <h3>Tek sohbet, tam odak</h3>
-        <p>Frejya'da aynı anda yalnızca bir kişiyle sohbet edersin. Dikkat dağınıklığı yok — karşındaki kişiye gerçekten odaklanırsın.</p>
+        <h3 data-i18n="f3-title">Tek sohbet, tam odak</h3>
+        <p data-i18n="f3-desc">Frejya'da aynı anda yalnızca bir kişiyle sohbet edersin. Dikkat dağınıklığı yok — karşındaki kişiye gerçekten odaklanırsın.</p>
       </div>
       <div class="card">
         <div class="ic">🔣</div>
-        <h3>Hiyeroglif paylaşımlar</h3>
-        <p>Akışta metin yoktur. Düşünceni ikonlardan oluşan sembolik bir dille paylaşırsın. Frejya Aura — sessiz ama anlamlı bir alan.</p>
+        <h3 data-i18n="f4-title">Hiyeroglif paylaşımlar</h3>
+        <p data-i18n="f4-desc">Akışta metin yoktur. Düşünceni ikonlardan oluşan sembolik bir dille paylaşırsın. Frejya Aura — sessiz ama anlamlı bir alan.</p>
       </div>
       <div class="card">
         <div class="ic">🔔</div>
-        <h3>Zil çal</h3>
-        <p>Birini beğendiysen kapısının zilini çalarsın. O da senin zilini duyar — ve dilerse kapıyı açar.</p>
+        <h3 data-i18n="f5-title">Zil çal</h3>
+        <p data-i18n="f5-desc">Birini beğendiysen kapısının zilini çalarsın. O da senin zilini duyar — ve dilerse kapıyı açar.</p>
       </div>
       <div class="card">
         <div class="ic">🛡️</div>
-        <h3>Güvenli ve saygılı</h3>
-        <p>Her profil fotoğrafı yapay zekâ ile denetlenir. Şikayet ve engelleme her an elinin altında. İstediğin an hesabını tamamen silebilirsin.</p>
+        <h3 data-i18n="f6-title">Güvenli ve saygılı</h3>
+        <p data-i18n="f6-desc">Her profil fotoğrafı yapay zekâ ile denetlenir. Şikayet ve engelleme her an elinin altında. İstediğin an hesabını tamamen silebilirsin.</p>
       </div>
     </div>
   </div>
@@ -223,23 +237,23 @@
 
 <section class="alt">
   <div class="wrap">
-    <div class="section-tag">Nasıl Çalışır</div>
-    <h2 class="section-title">Üç adımda gerçek bir bağ</h2>
+    <div class="section-tag" data-i18n="how-tag">Nasıl Çalışır</div>
+    <h2 class="section-title" data-i18n="how-title">Üç adımda gerçek bir bağ</h2>
     <div class="steps">
       <div class="step">
         <div class="num">01</div>
-        <h3>Kendini anlat</h3>
-        <p>Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.</p>
+        <h3 data-i18n="s1-title">Kendini anlat</h3>
+        <p data-i18n="s1-desc">Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.</p>
       </div>
       <div class="step">
         <div class="num">02</div>
-        <h3>Zile bas</h3>
-        <p>Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.</p>
+        <h3 data-i18n="s2-title">Zile bas</h3>
+        <p data-i18n="s2-desc">Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.</p>
       </div>
       <div class="step">
         <div class="num">03</div>
-        <h3>Kazıyarak keşfet</h3>
-        <p>Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
+        <h3 data-i18n="s3-title">Kazıyarak keşfet</h3>
+        <p data-i18n="s3-desc">Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
       </div>
     </div>
   </div>
@@ -247,11 +261,11 @@
 
 <section class="closing">
   <div class="wrap">
-    <h2>Acele etme.</h2>
-    <p>Gerçek bağ zamanla kurulur. Frejya 18 yaş ve üzeri içindir.</p>
+    <h2 data-i18n="closing-title">Acele etme.</h2>
+    <p data-i18n="closing-desc">Gerçek bağ zamanla kurulur. Frejya 18 yaş ve üzeri içindir.</p>
     <div class="badges">
-      <span class="badge soon"><span><small>Yakında</small><span class="big">App Store</span></span></span>
-      <span class="badge soon"><span><small>Yakında</small><span class="big">Google Play</span></span></span>
+      <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span></span>
+      <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span></span>
     </div>
   </div>
 </section>
@@ -263,21 +277,219 @@
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
         FREJYA
       </div>
-      <p style="margin-top:8px;max-width:260px;opacity:.7;">Yavaş flört felsefesiyle kurulmuş tanışma uygulaması.</p>
+      <p style="margin-top:8px;max-width:260px;opacity:.7;" data-i18n="footer-tag">Yavaş flört felsefesiyle kurulmuş tanışma uygulaması.</p>
       <span class="age">18+</span>
     </div>
     <div class="flinks">
-      <strong style="color:#fff;font-family:'Playfair Display',serif;">Yasal</strong>
-      <a href="https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html">Gizlilik Politikası</a>
-      <a href="https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html">Kullanıcı Sözleşmesi</a>
+      <strong style="color:#fff;font-family:'Playfair Display',serif;" data-i18n="footer-legal">Yasal</strong>
+      <a id="link-privacy" href="https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a>
+      <a id="link-eula" href="https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html" data-i18n="link-eula">Kullanıcı Sözleşmesi</a>
     </div>
     <div class="flinks">
-      <strong style="color:#fff;font-family:'Playfair Display',serif;">İletişim</strong>
+      <strong style="color:#fff;font-family:'Playfair Display',serif;" data-i18n="footer-contact">İletişim</strong>
       <a href="mailto:iletisim@frejya.app">iletisim@frejya.app</a>
     </div>
-    <div class="fcopy">© 2026 Frejya · Tüm hakları saklıdır.</div>
+    <div class="fcopy" data-i18n="footer-copy">© 2026 Frejya · Tüm hakları saklıdır.</div>
   </div>
 </footer>
+
+<script>
+  // Çift dilli içerik (kural §12.5.0). Tek istisna admin paneli; tanıtım
+  // sitesi (frejya.app) TR + EN destekler. Dil seçimi localStorage'a yazılır,
+  // ilk açılışta tarayıcı diline göre default belirlenir.
+  const I18N = {
+    'title': {
+      tr: 'Frejya — Yavaş Flört, Gerçek Bağ',
+      en: 'Frejya — Slow Dating, Real Connection',
+    },
+    'meta-desc': {
+      tr: 'Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Yavaş flört felsefesiyle kurulmuş tanışma uygulaması.',
+      en: "Frejya: no fast swiping. Meet anonymously and truly discover each other as you talk. A dating app built on the slow-dating philosophy.",
+    },
+    'hero-title': {
+      tr: 'Yavaş flört.<br />Gerçek bağ.',
+      en: 'Slow dating.<br />Real connection.',
+    },
+    'hero-sub': {
+      tr: "Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.",
+      en: "No fast swiping. Meet anonymously and truly discover each other as you talk. On Frejya, a real bond takes time — and it's worth it.",
+    },
+    'soon': { tr: 'Yakında', en: 'Coming soon' },
+    'manifesto-tag': { tr: 'Manifesto', en: 'Manifesto' },
+    'manifesto-title': { tr: 'Frejya Manifestosu', en: 'The Frejya Manifesto' },
+    'm1': {
+      tr: 'Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />Biz buna inanmıyoruz.',
+      en: "There was a time when knowing a person took seasons.<br />Now it takes a second. A photo. A swipe.<br />We don't believe in that.",
+    },
+    'm2': {
+      tr: 'Hızlı beğenilenin hızlı unutulduğuna,<br />tanınmadan sevilenin sevilmediğine,<br />ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.',
+      en: 'We believe what is quickly liked is quickly forgotten,<br />that to be loved without being known is not to be loved,<br />and that a face never tells the story of a person.',
+    },
+    'm3': {
+      tr: 'Frejya bir flört uygulaması değildir.<br />Frejya, bir kapı eşiğidir.',
+      en: 'Frejya is not a dating app.<br />Frejya is a threshold.',
+    },
+    'm4': {
+      tr: "Burada yüzler bir anda görünmez.<br />Çünkü bir insan, bir fotoğraftan büyüktür.",
+      en: "Faces don't appear all at once here.<br />Because a person is bigger than a photograph.",
+    },
+    'm5': {
+      tr: 'Konuştukça tanırsın. Tanıdıkça görürsün.<br />Gördükçe kalırsın — ya da gidersin.<br />Ama bu kez, bilerek.',
+      en: 'The more you speak, the more you know. The more you know, the more you see.<br />The more you see, you stay — or you leave.<br />But this time, knowingly.',
+    },
+    'm6': {
+      tr: 'Diğerleri seni acele ettirir.<br />Diğerleri seni bir fotoğrafta yargılatır.<br />Diğerleri sana onlarca seçenek sunar — ama hiçbirini tanıma fırsatı vermez.',
+      en: 'Others rush you.<br />Others make you judge by a photograph.<br />Others offer you dozens of choices — but no chance to truly know any.',
+    },
+    'm7': { tr: 'Frejya, sana zaman tanır.', en: 'Frejya gives you time.' },
+    'm8': {
+      tr: 'Çünkü zili çalmak kolaydır.<br />İçeri davet edilmek, bambaşka bir şeydir.',
+      en: 'Because ringing the doorbell is easy.<br />Being invited in is another thing entirely.',
+    },
+    'm9': {
+      tr: 'Burada anlık beğeni yok.<br />Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />Burada acele yok.',
+      en: 'No instant likes here.<br />No fake profiles, no fabricated lives, no hearts caught in a game.<br />No rush.',
+    },
+    'm10': {
+      tr: 'Burada bir kapı var —<br />ve doğru anahtar bulunduğunda,<br />yavaşça, açılacak.',
+      en: 'Here is a door —<br />and when the right key is found,<br />it opens, slowly.',
+    },
+    'm11': {
+      tr: 'Çünkü artık bir gece değil, bir sabah arıyoruz.<br />Bir kahve fincanının iki yanı.<br />Bir anahtarın iki sahibi.<br />Bir evin içindeki iki nefes.',
+      en: 'Because we are no longer looking for a night, but a morning.<br />Two sides of a coffee cup.<br />Two owners of one key.<br />Two breaths within one home.',
+    },
+    'm12': {
+      tr: 'Eğer sen de yorulduysan<br />hızlı olandan, yüzeysel olandan, sahte olandan —<br />hoş geldin.',
+      en: 'If you too are tired<br />of the fast, the shallow, the fake —<br />welcome.',
+    },
+    'm13': {
+      tr: 'Burada bir yuva kurulur,<br />bir oyun değil.',
+      en: 'Here a home is built,<br />not a game.',
+    },
+    'm-close': { tr: 'Frejya. Aşkın eşiğinde.', en: 'Frejya. At the threshold of love.' },
+
+    'why-tag': { tr: 'Neden Frejya', en: 'Why Frejya' },
+    'why-title': { tr: 'Tanışmanın sakin hâli', en: 'Meeting, the calm way' },
+
+    'f1-title': { tr: 'Anonimlikle başlar', en: 'It starts with anonymity' },
+    'f1-desc': {
+      tr: 'Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.',
+      en: 'Your profile is told by a psychological depth test, not by a bio. You introduce yourself with an animal avatar, an alias, and a pitch-masked voice.',
+    },
+    'f2-title': { tr: 'Sohbet ettikçe keşfedersin', en: 'You discover by talking' },
+    'f2-desc': {
+      tr: 'Eşleştiğin kişinin fotoğrafı karanlık bir perdenin arkasında. Karşılıklı sohbet ettikçe perdeyi azar azar kazıyıp onu ortaya çıkarırsın.',
+      en: "Your match's photo is hidden behind a dark veil. As you both keep talking, you slowly scratch the veil away to reveal them.",
+    },
+    'f3-title': { tr: 'Tek sohbet, tam odak', en: 'One conversation, full focus' },
+    'f3-desc': {
+      tr: "Frejya'da aynı anda yalnızca bir kişiyle sohbet edersin. Dikkat dağınıklığı yok — karşındaki kişiye gerçekten odaklanırsın.",
+      en: 'On Frejya you talk with only one person at a time. No distractions — you truly focus on the person in front of you.',
+    },
+    'f4-title': { tr: 'Hiyeroglif paylaşımlar', en: 'Hieroglyph posts' },
+    'f4-desc': {
+      tr: 'Akışta metin yoktur. Düşünceni ikonlardan oluşan sembolik bir dille paylaşırsın. Frejya Aura — sessiz ama anlamlı bir alan.',
+      en: 'There is no text in the feed. You share your thoughts in a symbolic language made of icons. Frejya Aura — a quiet but meaningful space.',
+    },
+    'f5-title': { tr: 'Zil çal', en: 'Ring the doorbell' },
+    'f5-desc': {
+      tr: 'Birini beğendiysen kapısının zilini çalarsın. O da senin zilini duyar — ve dilerse kapıyı açar.',
+      en: 'If you like someone, you ring their doorbell. They hear it too — and may choose to open the door.',
+    },
+    'f6-title': { tr: 'Güvenli ve saygılı', en: 'Safe and respectful' },
+    'f6-desc': {
+      tr: 'Her profil fotoğrafı yapay zekâ ile denetlenir. Şikayet ve engelleme her an elinin altında. İstediğin an hesabını tamamen silebilirsin.',
+      en: 'Every profile photo is reviewed by AI. Reporting and blocking are always at hand. You can fully delete your account anytime.',
+    },
+
+    'how-tag': { tr: 'Nasıl Çalışır', en: 'How It Works' },
+    'how-title': { tr: 'Üç adımda gerçek bir bağ', en: 'A real bond in three steps' },
+
+    's1-title': { tr: 'Kendini anlat', en: 'Introduce yourself' },
+    's1-desc': {
+      tr: 'Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.',
+      en: 'Take the depth test, pick your spirit animal, introduce your voice with a mask.',
+    },
+    's2-title': { tr: 'Zile bas', en: 'Ring the bell' },
+    's2-desc': {
+      tr: 'Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.',
+      en: 'Match with someone on the Discover screen, ring their doorbell. If they accept, the chat opens.',
+    },
+    's3-title': { tr: 'Kazıyarak keşfet', en: 'Discover by scratching' },
+    's3-desc': {
+      tr: 'Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.',
+      en: 'As you talk, scratch the veil; the more effort, the more they appear.',
+    },
+
+    'closing-title': { tr: 'Acele etme.', en: "Don't rush." },
+    'closing-desc': {
+      tr: 'Gerçek bağ zamanla kurulur. Frejya 18 yaş ve üzeri içindir.',
+      en: 'A real bond takes time. Frejya is for ages 18 and over.',
+    },
+
+    'footer-tag': {
+      tr: 'Yavaş flört felsefesiyle kurulmuş tanışma uygulaması.',
+      en: 'A dating app built on the slow-dating philosophy.',
+    },
+    'footer-legal': { tr: 'Yasal', en: 'Legal' },
+    'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
+    'link-eula': { tr: 'Kullanıcı Sözleşmesi', en: 'Terms of Use' },
+    'footer-contact': { tr: 'İletişim', en: 'Contact' },
+    'footer-copy': {
+      tr: '© 2026 Frejya · Tüm hakları saklıdır.',
+      en: '© 2026 Frejya · All rights reserved.',
+    },
+  };
+
+  const LEGAL_LINKS = {
+    'link-privacy': {
+      tr: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html',
+      en: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.en.html',
+    },
+    'link-eula': {
+      tr: 'https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html',
+      en: 'https://mujdattelli.github.io/frejya-legal/legal/eula.en.html',
+    },
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.title = I18N['title'][lang];
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const tr = I18N[key];
+      if (!tr) return;
+      const attr = el.getAttribute('data-i18n-attr');
+      if (attr) el.setAttribute(attr, tr[lang]);
+      else el.innerHTML = tr[lang];
+    });
+    // Yasal sayfa linkleri TR/EN sürümlerini gösterecek şekilde değişir.
+    Object.keys(LEGAL_LINKS).forEach((id) => {
+      const a = document.getElementById(id);
+      if (a) a.setAttribute('href', LEGAL_LINKS[id][lang]);
+    });
+    const btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = lang === 'tr' ? 'EN' : 'TR';
+    try { localStorage.setItem('frejya-lang', lang); } catch (_) {}
+  }
+
+  function pickInitialLang() {
+    try {
+      const saved = localStorage.getItem('frejya-lang');
+      if (saved === 'tr' || saved === 'en') return saved;
+    } catch (_) {}
+    const nav = (navigator.language || 'tr').toLowerCase();
+    return nav.startsWith('tr') ? 'tr' : 'en';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    applyLang(pickInitialLang());
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      const current = document.documentElement.lang === 'en' ? 'en' : 'tr';
+      applyLang(current === 'tr' ? 'en' : 'tr');
+    });
+  });
+</script>
 
 </body>
 </html>
