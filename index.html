@@ -45,6 +45,42 @@
       "name": "Frejya",
       "inLanguage": ["tr", "en"],
       "publisher": { "@id": "https://frejya.app/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://frejya.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Frejya ücretsiz mi?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir." }
+        },
+        {
+          "@type": "Question",
+          "name": "Fotoğrafım ne zaman görünür?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün." }
+        },
+        {
+          "@type": "Question",
+          "name": "Gerçekten anonim miyim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mesajlarım ve verilerim güvende mi?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir." }
+        },
+        {
+          "@type": "Question",
+          "name": "Yaş sınırı var mı?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Frejya yalnızca 18 yaş ve üzeri içindir." }
+        },
+        {
+          "@type": "Question",
+          "name": "Aynı anda kaç kişiyle sohbet edebilirim?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın." }
+        }
+      ]
     }
   ]
 }
@@ -168,6 +204,12 @@
   }
   .step h3 { font-size: 18px; margin: 6px 0 6px; }
   .step p { font-size: 14px; color: #6b665f; }
+
+  /* SSS / FAQ */
+  .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+  .faq-item { background: #fff; border: 1px solid var(--soft); border-radius: 16px; padding: 22px 24px; }
+  .faq-item h3 { font-size: 16.5px; margin-bottom: 7px; color: var(--ink); }
+  .faq-item p { font-size: 14.5px; color: #6b665f; }
 
   /* CLOSING */
   .closing { text-align: center; }
@@ -325,6 +367,39 @@
         <div class="num">03</div>
         <h3 data-i18n="s3-title">Kazıyarak keşfet</h3>
         <p data-i18n="s3-desc">Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-tag" data-i18n="faq-tag">Sık Sorulanlar</div>
+    <h2 class="section-title" data-i18n="faq-title">Merak edilenler</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 data-i18n="faq-q1">Frejya ücretsiz mi?</h3>
+        <p data-i18n="faq-a1">Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq-q2">Fotoğrafım ne zaman görünür?</h3>
+        <p data-i18n="faq-a2">Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq-q3">Gerçekten anonim miyim?</h3>
+        <p data-i18n="faq-a3">Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq-q4">Mesajlarım ve verilerim güvende mi?</h3>
+        <p data-i18n="faq-a4">Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq-q5">Yaş sınırı var mı?</h3>
+        <p data-i18n="faq-a5">Frejya yalnızca 18 yaş ve üzeri içindir.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq-q6">Aynı anda kaç kişiyle sohbet edebilirim?</h3>
+        <p data-i18n="faq-a6">Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.</p>
       </div>
     </div>
   </div>
@@ -496,6 +571,39 @@
     's3-desc': {
       tr: 'Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.',
       en: 'As you talk, scratch the veil; the more effort, the more they appear.',
+    },
+
+    'faq-tag': { tr: 'Sık Sorulanlar', en: 'FAQ' },
+    'faq-title': { tr: 'Merak edilenler', en: 'Frequently asked' },
+    'faq-q1': { tr: 'Frejya ücretsiz mi?', en: 'Is Frejya free?' },
+    'faq-a1': {
+      tr: "Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.",
+      en: 'Yes, Frejya is free to use. Optional premium features may be offered later.',
+    },
+    'faq-q2': { tr: 'Fotoğrafım ne zaman görünür?', en: 'When does my photo become visible?' },
+    'faq-a2': {
+      tr: 'Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.',
+      en: "Your match's photo is hidden at first. As you chat, the veil gradually lifts — you see them as you get to know them.",
+    },
+    'faq-q3': { tr: 'Gerçekten anonim miyim?', en: 'Am I really anonymous?' },
+    'faq-a3': {
+      tr: 'Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.',
+      en: 'You start with an animal avatar, a nickname and a masked voice. Your real photo unlocks only through conversation.',
+    },
+    'faq-q4': { tr: 'Mesajlarım ve verilerim güvende mi?', en: 'Are my messages and data safe?' },
+    'faq-a4': {
+      tr: 'Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.',
+      en: 'Messages are end-to-end encrypted; no one — including the Frejya team — can read them. All profile photos are AI-reviewed.',
+    },
+    'faq-q5': { tr: 'Yaş sınırı var mı?', en: 'Is there an age limit?' },
+    'faq-a5': {
+      tr: 'Frejya yalnızca 18 yaş ve üzeri içindir.',
+      en: 'Frejya is for ages 18 and over only.',
+    },
+    'faq-q6': { tr: 'Aynı anda kaç kişiyle sohbet edebilirim?', en: 'How many people can I chat with at once?' },
+    'faq-a6': {
+      tr: 'Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.',
+      en: 'Only one person at a time — so you can truly focus on the person in front of you.',
     },
 
     'closing-title': { tr: 'Acele etme.', en: "Don't rush." },
