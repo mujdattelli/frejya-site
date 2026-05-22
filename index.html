@@ -79,6 +79,24 @@
   .badge .big { font-size: 15px; font-weight: 600; }
   .badge.soon { background: #ECE6DD; color: #8a8278; }
 
+  /* WAITLIST — bekleme listesi e-posta yakalama */
+  .wl-title { margin-top: 34px; font-size: 14px; color: #6b665f; font-weight: 500; }
+  .waitlist { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+  .waitlist input {
+    font-family: inherit; font-size: 14px; padding: 12px 18px; border-radius: 40px;
+    border: 1px solid var(--soft); background: #fff; color: var(--ink); min-width: 240px; outline: none;
+  }
+  .waitlist input:focus { border-color: var(--gold); }
+  .waitlist button {
+    font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 40px;
+    border: none; background: var(--ink); color: #fff; cursor: pointer; transition: opacity .15s ease;
+  }
+  .waitlist button:hover { opacity: .88; }
+  .waitlist button:disabled { opacity: .5; cursor: default; }
+  .wl-msg { margin-top: 10px; font-size: 13px; min-height: 18px; }
+  .wl-msg.ok { color: var(--gold-dark); }
+  .wl-msg.err { color: #b4452f; }
+
   /* MANIFESTO */
   .manifesto { background: var(--ink); color: #E8E1D6; text-align: center; padding: 96px 0; }
   .manifesto .section-tag { color: var(--gold); }
@@ -155,6 +173,13 @@
       <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span></span>
       <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span></span>
     </div>
+    <p class="wl-title" data-i18n="wl-title">Lansmanda ilk sen haberdar ol.</p>
+    <form class="waitlist" id="waitlist-form" novalidate>
+      <input type="email" id="wl-email" required autocomplete="email"
+        data-i18n-attr="placeholder" data-i18n="wl-placeholder" placeholder="E-posta adresin" />
+      <button type="submit" id="wl-btn" data-i18n="wl-btn">Haber ver</button>
+    </form>
+    <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
   </div>
 </header>
 
@@ -333,6 +358,12 @@
       en: "No fast swiping. Meet anonymously and truly discover each other as you talk. On Frejya, a real bond takes time — and it's worth it.",
     },
     'soon': { tr: 'Yakında', en: 'Coming soon' },
+    'wl-title': { tr: 'Lansmanda ilk sen haberdar ol.', en: 'Be the first to know at launch.' },
+    'wl-placeholder': { tr: 'E-posta adresin', en: 'Your email address' },
+    'wl-btn': { tr: 'Haber ver', en: 'Notify me' },
+    'wl-success': { tr: 'Teşekkürler! Lansmanda sana haber vereceğiz.', en: "Thanks! We'll let you know at launch." },
+    'wl-invalid': { tr: 'Lütfen geçerli bir e-posta gir.', en: 'Please enter a valid email.' },
+    'wl-error': { tr: 'Bir şeyler ters gitti, lütfen tekrar dene.', en: 'Something went wrong, please try again.' },
     'manifesto-tag': { tr: 'Manifesto', en: 'Manifesto' },
     'manifesto-title': { tr: 'Frejya Manifestosu', en: 'The Frejya Manifesto' },
     'm1': {
@@ -500,12 +531,59 @@
     return nav.startsWith('tr') ? 'tr' : 'en';
   }
 
+  // Bekleme listesi — e-posta Supabase'e anon-çağrılabilir RPC ile yazılır
+  // (rpc_join_waitlist). Yayın anahtarı zaten herkese açık (anon key).
+  const WL_URL = 'https://fgbnngtsecmxrqjoplmh.supabase.co';
+  const WL_KEY = 'sb_publishable_qHSMPVngoGSBYzOzXUgRsQ_tlBtnt_F';
+  const WL_EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  function initWaitlist() {
+    const form = document.getElementById('waitlist-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+      const emailEl = document.getElementById('wl-email');
+      const btn = document.getElementById('wl-btn');
+      const msg = document.getElementById('wl-msg');
+      const email = (emailEl.value || '').trim();
+      msg.className = 'wl-msg';
+      if (!WL_EMAIL_RE.test(email)) {
+        msg.textContent = I18N['wl-invalid'][lang];
+        msg.classList.add('err');
+        return;
+      }
+      btn.disabled = true;
+      try {
+        const res = await fetch(WL_URL + '/rest/v1/rpc/rpc_join_waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': WL_KEY,
+            'Authorization': 'Bearer ' + WL_KEY,
+          },
+          body: JSON.stringify({ p_email: email, p_lang: lang }),
+        });
+        if (!res.ok) throw new Error('http ' + res.status);
+        msg.textContent = I18N['wl-success'][lang];
+        msg.classList.add('ok');
+        form.reset();
+      } catch (_) {
+        msg.textContent = I18N['wl-error'][lang];
+        msg.classList.add('err');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     applyLang(pickInitialLang());
     document.getElementById('lang-toggle').addEventListener('click', () => {
       const current = document.documentElement.lang === 'en' ? 'en' : 'tr';
       applyLang(current === 'tr' ? 'en' : 'tr');
     });
+    initWaitlist();
   });
 </script>
 
