@@ -8,7 +8,7 @@
 <meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --gold: #C0A080;
@@ -48,7 +48,9 @@
     padding: 70px 0 90px;
     text-align: center;
   }
-  .brand { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 700; color: var(--gold); letter-spacing: 2px; display: inline-flex; align-items: center; gap: 10px; }
+  /* Logo değişmezdir — mobil uygulamadaki FrejyaLogo ile birebir aynı:
+     Playfair Display, normal ağırlık, altın renk, 2px harf aralığı. */
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 400; color: var(--gold); letter-spacing: 2px; display: inline-flex; align-items: center; gap: 10px; }
   .hero-title { font-size: clamp(38px, 7vw, 64px); margin: 38px 0 18px; color: var(--ink); }
   .hero-sub { font-size: clamp(15px, 2.4vw, 19px); color: #6b665f; max-width: 560px; margin: 0 auto 38px; }
   .badges { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
