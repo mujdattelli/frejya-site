@@ -306,9 +306,10 @@
 
     <section class="guide-block" id="ses">
       <h2><span class="step-num">08</span> <span data-i18n="s8-title">Sesli mesaj</span></h2>
-      <span class="sub" data-i18n="s8-sub">Perde açıldıktan sonra</span>
+      <span class="sub" data-i18n="s8-sub">Perde açıldıktan sonra · 15 gün ömür</span>
       <p data-i18n="s8-p1">Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.</p>
       <p data-i18n="s8-p2">Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.</p>
+      <div class="callout" data-i18n="s8-callout"><strong>Süre sınırı:</strong> Sesli mesajlar gönderildikten <strong>15 gün</strong> sonra otomatik olarak silinir; sohbet penceresinde "Sesli mesajın süresi doldu" yazısı görünür. Süresi dolmuş bir sesli mesaja tıklarsan kısa bir uyarı çıkar. Bu kural mahremiyetin için: ses kaydın gereğinden uzun saklanmaz.</div>
     </section>
 
     <section class="guide-block" id="guvenlik">
@@ -366,8 +367,8 @@
       <ul>
         <li data-i18n="s12-l1">Profilin, fotoğraflarının, mesajlarının, paylaşımlarının ve takipçi listenin tamamı <strong>hemen silinir</strong>.</li>
         <li data-i18n="s12-l2">Sonradan fikir değiştirip <strong>aynı hesabı geri alamazsın</strong>; veriler geri dönüşsüz biçimde kaldırılır.</li>
-        <li data-i18n="s12-l3">Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>60 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.</li>
-        <li data-i18n="s12-l4">Frejya'ya tekrar gelmek istersen 60 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.</li>
+        <li data-i18n="s12-l3">Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.</li>
+        <li data-i18n="s12-l4">Frejya'ya tekrar gelmek istersen 15 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.</li>
       </ul>
       <p><span data-i18n="s12-p2">Verilerinin kullanımı hakkında detayları</span> <a id="link-privacy" href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a><span data-i18n="s12-p3">nda bulabilirsin.</span></p>
     </section>
@@ -512,9 +513,10 @@
 
     // 08 — Voice
     's8-title': { tr: 'Sesli mesaj', en: 'Voice messages' },
-    's8-sub': { tr: 'Perde açıldıktan sonra', en: 'Available after the curtain opens' },
+    's8-sub': { tr: 'Perde açıldıktan sonra · 15 gün ömür', en: 'After the curtain opens · 15-day lifespan' },
     's8-p1': { tr: 'Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.', en: 'To send a voice message in a chat, <strong>the photo curtain must be fully open</strong> first. This way your voice gains meaning only after a real acquaintance has been built.' },
     's8-p2': { tr: 'Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.', en: 'Once the curtain is fully open, the microphone icon activates. Voice messages are end-to-end encrypted just like text messages.' },
+    's8-callout': { tr: '<strong>Süre sınırı:</strong> Sesli mesajlar gönderildikten <strong>15 gün</strong> sonra otomatik olarak silinir; sohbet penceresinde "Sesli mesajın süresi doldu" yazısı görünür. Süresi dolmuş bir sesli mesaja tıklarsan kısa bir uyarı çıkar. Bu kural mahremiyetin için: ses kaydın gereğinden uzun saklanmaz.', en: '<strong>Time limit:</strong> Voice messages are automatically deleted <strong>15 days</strong> after they\'re sent; the chat shows a "Voice message expired" label in their place. If you tap an expired voice message you\'ll see a short notice. This rule is for your privacy: voice recordings are not kept longer than necessary.' },
 
     // 09 — Security
     's9-title': { tr: 'Güvenlik ve gizlilik', en: 'Security and privacy' },
@@ -552,12 +554,12 @@
 
     // 12 — Delete
     's12-title': { tr: 'Hesabını silme', en: 'Delete your account' },
-    's12-sub': { tr: 'Hemen silinir · Geri alınamaz', en: 'Immediate · Irreversible' },
+    's12-sub': { tr: 'Hemen silinir · 15 gün anon · Geri alınamaz', en: 'Immediate · 15-day anon · Irreversible' },
     's12-p1': { tr: 'Profil ekranındaki <strong>"Hesabımı Sil"</strong> butonuyla hesabını istediğin an silebilirsin. Silme <strong>kalıcıdır</strong> — onay verdikten sonra geri alınmaz.', en: 'You can delete your account any time with the <strong>"Delete My Account"</strong> button on the profile screen. Deletion is <strong>permanent</strong> — once confirmed, it cannot be undone.' },
     's12-l1': { tr: 'Profilin, fotoğraflarının, mesajlarının, paylaşımlarının ve takipçi listenin tamamı <strong>hemen silinir</strong>.', en: 'Your profile, photos, messages, posts and follower list are <strong>deleted immediately</strong>.' },
     's12-l2': { tr: 'Sonradan fikir değiştirip <strong>aynı hesabı geri alamazsın</strong>; veriler geri dönüşsüz biçimde kaldırılır.', en: "If you later change your mind, you <strong>cannot recover the same account</strong>; the data is removed irreversibly." },
-    's12-l3': { tr: 'Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>60 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.', en: 'For legal obligations (for example to investigate a fraud complaint) the account record is kept <strong>anonymous for 60 days</strong>, then erased entirely. During this period you <strong>cannot re-register with the same email</strong>.' },
-    's12-l4': { tr: "Frejya'ya tekrar gelmek istersen 60 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.", en: 'If you want to come back to Frejya, you can sign up again with a different (or the same) email after 60 days — but your old profile and past chats will not return.' },
+    's12-l3': { tr: 'Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.', en: 'For legal obligations (for example to investigate a fraud complaint) the account record is kept <strong>anonymous for 15 days</strong>, then erased entirely. During this period you <strong>cannot re-register with the same email</strong>.' },
+    's12-l4': { tr: "Frejya'ya tekrar gelmek istersen 15 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.", en: 'If you want to come back to Frejya, you can sign up again with a different (or the same) email after 15 days — but your old profile and past chats will not return.' },
     's12-p2': { tr: 'Verilerinin kullanımı hakkında detayları', en: 'You can find more about how your data is handled in our' },
     's12-p3': { tr: 'nda bulabilirsin.', en: '.' },
     'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
