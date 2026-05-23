@@ -1,88 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Frejya — Open Graph / Twitter Card image (1200 × 630)
-  Sosyal medyada link paylaşıldığında zengin önizleme olarak çıkar.
-  Krema gradient + altın FREJYA wordmark + iki anahtar ikonu + tagline.
-  Renkler ve tipografi index.html'deki marka sistemiyle birebir.
-
-  PNG'ye dönüştürmek için:
-    - Tarayıcıda aç → ekran görüntüsü
-    - veya Figma/Canva'ya SVG olarak yükleyip "Export PNG @1x" (1200×630)
-    - veya CLI: rsvg-convert -w 1200 -h 630 og-image.svg -o og-image.png
+  Sade hâl: tek anahtar üstte, FREJYA wordmark ortada, tek tagline altta.
+  Bolca whitespace. Hero gradient'ı + ince altın çerçeve.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <!-- Hero'daki gradient ile aynı: beyaz → krema → sıcak şampanya -->
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#FFFFFF" />
       <stop offset="55%" stop-color="#FCFBF8" />
       <stop offset="100%" stop-color="#FFF6E4" />
     </linearGradient>
-    <!-- Wordmark için ince altın renk varyasyonu -->
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#C0A080" />
-      <stop offset="100%" stop-color="#A78A6E" />
-    </linearGradient>
-    <!-- Köşelerde çok hafif vinyet — düz arka planı pahalı hissettirir -->
-    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
-      <stop offset="60%" stop-color="#000000" stop-opacity="0" />
-      <stop offset="100%" stop-color="#2D2B2A" stop-opacity="0.06" />
-    </radialGradient>
   </defs>
 
   <!-- ZEMİN -->
   <rect width="1200" height="630" fill="url(#bg)" />
-  <rect width="1200" height="630" fill="url(#vignette)" />
 
-  <!-- Hafif altın çerçeve (1px değil — ince bir lüks vurgu) -->
-  <rect x="32" y="32" width="1136" height="566" rx="18" ry="18"
-        fill="none" stroke="#C0A080" stroke-opacity="0.18" stroke-width="1" />
-
-  <!-- ÜST KÜÇÜK ETİKET — section-tag stili: tracking-widest uppercase -->
-  <text x="600" y="148"
-        font-family="'Inter', 'Helvetica Neue', sans-serif"
-        font-size="14" font-weight="600" letter-spacing="3.5"
-        fill="#A78A6E" text-anchor="middle">
-    AŞKIN EŞİĞİNDE · AT THE THRESHOLD OF LOVE
-  </text>
-
-  <!-- LOGO BLOĞU — sola anahtar, sağa anahtar, ortada FREJYA wordmark -->
-  <!-- index.html'deki SVG yapısının aynısı; viewBox 24×24, scale ile büyütüldü -->
-  <g transform="translate(330, 240)">
-    <!-- Sol anahtar — orijinal SVG'deki sol pencere (path/polygon kompleksi) -->
-    <g transform="scale(5)" fill="none" stroke="#C0A080"
-       stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
-      <path d="M5 21 8 10" />
-      <path d="M8 12 12 16" />
-      <polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none" />
-      <path d="M19 21 16 10" />
-      <path d="M16 12 12 16" />
-      <polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none" />
-      <polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none" />
-    </g>
+  <!-- ANAHTAR (tek, ortalanmış, küçük) -->
+  <!-- viewBox 24×24, scale 3.5 → 84×84 px. Y merkezi ~180. -->
+  <g transform="translate(558, 138) scale(3.5)" fill="none" stroke="#C0A080"
+     stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M5 21 8 10" />
+    <path d="M8 12 12 16" />
+    <polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none" />
+    <path d="M19 21 16 10" />
+    <path d="M16 12 12 16" />
+    <polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none" />
+    <polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none" />
   </g>
 
-  <!-- FREJYA wordmark — Playfair Display 400, 2px letter-spacing (mobil ile birebir) -->
-  <text x="600" y="350"
+  <!-- FREJYA wordmark (Playfair Display 400 — mobil ile aynı) -->
+  <text x="600" y="380"
         font-family="'Playfair Display', Georgia, serif"
-        font-size="98" font-weight="400" letter-spacing="8"
-        fill="url(#gold)" text-anchor="middle">
+        font-size="92" font-weight="400" letter-spacing="8"
+        fill="#C0A080" text-anchor="middle">
     FREJYA
   </text>
 
-  <!-- ANA TAGLINE — Fraunces serif, koyu mürekkep, geniş kerning -->
-  <text x="600" y="450"
+  <!-- Tek tagline — sade -->
+  <text x="600" y="470"
         font-family="'Fraunces', Georgia, serif"
-        font-size="48" font-weight="600" letter-spacing="-0.4"
+        font-size="34" font-weight="500" letter-spacing="0"
         fill="#2D2B2A" text-anchor="middle">
     Derin bağlar. Doğru aşklar.
-  </text>
-
-  <!-- EN ALT — URL şeridi, ince ve sade -->
-  <text x="600" y="540"
-        font-family="'Inter', sans-serif"
-        font-size="20" font-weight="500" letter-spacing="2"
-        fill="#6b665f" text-anchor="middle">
-    frejya.app  ·  Yakında · App Store · Google Play
   </text>
 </svg>
