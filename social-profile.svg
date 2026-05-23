@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Frejya — Sosyal medya profil görseli (1080 × 1080, kare)
+  Instagram, X, Facebook, TikTok profil fotoğrafı için.
+  Sade: ortada büyük altın anahtar + altında FREJYA wordmark.
+
+  PNG'ye dönüştürmek için:
+    - Instagram: 320×320'a kadar küçültülür, SVG → PNG @1x yeterli
+    - rsvg-convert -w 1080 -h 1080 social-profile.svg -o social-profile.png
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#FCFBF8" />
+      <stop offset="100%" stop-color="#FFF6E4" />
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C0A080" />
+      <stop offset="100%" stop-color="#A78A6E" />
+    </linearGradient>
+  </defs>
+
+  <!-- ZEMİN: yumuşak krema gradient -->
+  <rect width="1080" height="1080" fill="url(#bg)" />
+
+  <!-- İnce altın daire çerçeve (Instagram'da yuvarlak crop'lansa bile dengeli durur) -->
+  <circle cx="540" cy="540" r="460"
+          fill="none" stroke="#C0A080" stroke-opacity="0.22" stroke-width="1.5" />
+
+  <!-- Anahtar SVG (orijinal viewBox 24×24, ortalanmış ve büyütülmüş) -->
+  <g transform="translate(540, 460) scale(22) translate(-12, -12)">
+    <g fill="none" stroke="#C0A080" stroke-width="1.5"
+       stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M5 21 8 10" />
+      <path d="M8 12 12 16" />
+      <polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none" />
+      <path d="M19 21 16 10" />
+      <path d="M16 12 12 16" />
+      <polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none" />
+      <polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none" />
+    </g>
+  </g>
+
+  <!-- FREJYA wordmark - büyük, altın, geniş harf aralığı -->
+  <text x="540" y="900"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="92" font-weight="400" letter-spacing="14"
+        fill="url(#gold)" text-anchor="middle">
+    FREJYA
+  </text>
+</svg>
