@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Frejya — Open Graph / Twitter Card image (1200 × 630)
-  Sade hâl: tek anahtar üstte, FREJYA wordmark ortada, tek tagline altta.
-  Bolca whitespace. Hero gradient'ı + ince altın çerçeve.
+  Frejya — Open Graph image (1200 × 630)
+  Tek anahtar üstte (küçük, geniş boşluk), FREJYA wordmark ortada,
+  tek tagline altta. Hiçbir öğe birbirine değmez.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
@@ -16,9 +16,12 @@
   <!-- ZEMİN -->
   <rect width="1200" height="630" fill="url(#bg)" />
 
-  <!-- ANAHTAR (tek, ortalanmış, küçük) -->
-  <!-- viewBox 24×24, scale 3.5 → 84×84 px. Y merkezi ~180. -->
-  <g transform="translate(558, 138) scale(3.5)" fill="none" stroke="#C0A080"
+  <!--
+    ANAHTAR (sade ince logo)
+    viewBox 24×24, scale 3 → 72×72 px görsel
+    translate (564, 130) → x 564..636 (ortalanmış), y 130..202
+  -->
+  <g transform="translate(564, 130) scale(3)" fill="none" stroke="#C0A080"
      stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
     <path d="M5 21 8 10" />
     <path d="M8 12 12 16" />
@@ -29,18 +32,25 @@
     <polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none" />
   </g>
 
-  <!-- FREJYA wordmark (Playfair Display 400 — mobil ile aynı) -->
-  <text x="600" y="380"
+  <!--
+    FREJYA wordmark
+    baseline y=370, font-size 88 → glyph top ~290, glyph bottom ~378
+    Logo bottom 202 ile FREJYA top ~290 arasında 88px boşluk → temiz.
+  -->
+  <text x="600" y="370"
         font-family="'Playfair Display', Georgia, serif"
-        font-size="92" font-weight="400" letter-spacing="8"
+        font-size="88" font-weight="400" letter-spacing="8"
         fill="#C0A080" text-anchor="middle">
     FREJYA
   </text>
 
-  <!-- Tek tagline — sade -->
-  <text x="600" y="470"
+  <!--
+    TAGLINE
+    baseline y=490, font-size 32 → ~38px aşağıda; FREJYA bottom (378) ile arada 80px+
+  -->
+  <text x="600" y="490"
         font-family="'Fraunces', Georgia, serif"
-        font-size="34" font-weight="500" letter-spacing="0"
+        font-size="32" font-weight="500"
         fill="#2D2B2A" text-anchor="middle">
     Derin bağlar. Doğru aşklar.
   </text>
