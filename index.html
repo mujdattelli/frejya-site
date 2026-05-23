@@ -122,6 +122,42 @@
   }
   .lang-toggle:hover { background: #fff; }
 
+  /* TOP NAV — ince, lüks, sol üst köşede; lang-toggle ile simetrik */
+  .top-nav {
+    position: fixed; top: 18px; left: 22px;
+    display: flex; gap: 4px; align-items: center;
+    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+    border: 1px solid var(--soft); border-radius: 999px;
+    padding: 4px 6px; z-index: 100;
+    transition: background .15s ease;
+  }
+  .top-nav:hover { background: #fff; }
+  .top-nav a {
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--ink); text-decoration: none;
+    text-transform: uppercase;
+    transition: background .15s ease, color .15s ease;
+  }
+  .top-nav a.active { background: var(--gold); color: #fff; }
+  .top-nav a:not(.active):hover { color: var(--gold-dark); }
+
+  /* "Detaylı kılavuz" CTA — Nasıl Çalışır bölümünün altında */
+  .guide-cta {
+    text-align: center; margin-top: 44px;
+  }
+  .guide-cta a {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--gold-dark); font-weight: 600; font-size: 14.5px;
+    text-decoration: none; letter-spacing: .3px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 3px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .guide-cta a:hover { color: var(--ink); border-color: var(--ink); }
+  .guide-cta a::after { content: "→"; transition: transform .15s ease; }
+  .guide-cta a:hover::after { transform: translateX(3px); }
+
   /* HERO */
   header {
     background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF8 55%, #FFF6E4 100%);
@@ -228,6 +264,11 @@
 </style>
 </head>
 <body>
+
+<nav class="top-nav" aria-label="Site">
+  <a href="/" class="active" data-i18n="nav-home">Ana Sayfa</a>
+  <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
+</nav>
 
 <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">EN</button>
 
@@ -369,6 +410,9 @@
         <p data-i18n="s3-desc">Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
       </div>
     </div>
+    <div class="guide-cta">
+      <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
+    </div>
   </div>
 </section>
 
@@ -425,6 +469,11 @@
       </div>
       <p style="margin-top:8px;max-width:260px;opacity:.7;" data-i18n="footer-tag">Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.</p>
       <span class="age">18+</span>
+    </div>
+    <div class="flinks">
+      <strong style="color:#fff;font-family:'Fraunces',serif;" data-i18n="footer-site">Site</strong>
+      <a href="/" data-i18n="nav-home">Ana Sayfa</a>
+      <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
     </div>
     <div class="flinks">
       <strong style="color:#fff;font-family:'Fraunces',serif;" data-i18n="footer-legal">Yasal</strong>
@@ -616,6 +665,10 @@
       tr: 'Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.',
       en: 'A dating app built for deep bonds and true love.',
     },
+    'nav-home': { tr: 'Ana Sayfa', en: 'Home' },
+    'nav-guide': { tr: 'Nasıl Kullanılır', en: 'How it works' },
+    'guide-cta': { tr: 'Adım adım kullanım kılavuzu', en: 'Step-by-step user guide' },
+    'footer-site': { tr: 'Site', en: 'Site' },
     'footer-legal': { tr: 'Yasal', en: 'Legal' },
     'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
     'link-eula': { tr: 'Kullanıcı Sözleşmesi', en: 'Terms of Use' },

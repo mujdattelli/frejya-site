@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu</title>
+<title data-i18n="title">Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<meta name="description" content="Frejya nasıl çalışır? Kayıt, profil, anonim sohbet, fotoğraf kazıma, zil çalma, Aura akışı ve güvenlik — Frejya'nın tüm özelliklerini adım adım öğren." />
+<meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Frejya nasıl çalışır? Kayıt, profil, anonim sohbet, fotoğraf kazıma, zil çalma, Aura akışı ve güvenlik — Frejya'nın tüm özelliklerini adım adım öğren." />
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://frejya.app/nasil-kullanilir.html" />
 <meta property="og:site_name" content="Frejya" />
 <meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:title" content="Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu" />
 <meta property="og:description" content="Kayıt olmadan sohbete kadar Frejya'nın her adımı: anonim avatar, hiyeroglif paylaşımlar, zil çalma, kazıyarak fotoğraf açma ve güvenlik." />
 <meta property="og:image" content="https://frejya.app/og-image.svg" />
@@ -42,10 +43,40 @@
   a { color: var(--gold-dark); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
+  /* TOP NAV + LANG TOGGLE — index.html ile aynı stil */
+  .top-nav {
+    position: fixed; top: 18px; left: 22px;
+    display: flex; gap: 4px; align-items: center;
+    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+    border: 1px solid var(--soft); border-radius: 999px;
+    padding: 4px 6px; z-index: 100;
+    transition: background .15s ease;
+  }
+  .top-nav:hover { background: #fff; }
+  .top-nav a {
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    color: var(--ink); text-decoration: none;
+    text-transform: uppercase;
+    transition: background .15s ease, color .15s ease;
+  }
+  .top-nav a.active { background: var(--gold); color: #fff; }
+  .top-nav a:not(.active):hover { color: var(--gold-dark); }
+  .lang-toggle {
+    position: fixed; top: 18px; right: 22px;
+    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
+    border: 1px solid var(--soft); color: var(--ink);
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    cursor: pointer; z-index: 100; font-family: inherit;
+    transition: background .15s ease;
+  }
+  .lang-toggle:hover { background: #fff; }
+
   /* HERO */
   header.page-hero {
     background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF8 55%, #FFF6E4 100%);
-    padding: 60px 0 70px;
+    padding: 80px 0 70px;
     text-align: center;
   }
   .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 400; color: var(--gold); letter-spacing: 2px; display: inline-flex; align-items: center; gap: 10px; }
@@ -121,9 +152,7 @@
   .callout strong { color: var(--gold-dark); }
 
   /* CTA */
-  .cta-row {
-    text-align: center; padding: 60px 0 30px;
-  }
+  .cta-row { text-align: center; padding: 60px 0 30px; }
   .cta-row a {
     display: inline-block; background: var(--ink); color: #fff;
     padding: 14px 32px; border-radius: 40px; font-weight: 500;
@@ -143,6 +172,13 @@
 </head>
 <body>
 
+<nav class="top-nav" aria-label="Site">
+  <a href="/" data-i18n="nav-home">Ana Sayfa</a>
+  <a href="/nasil-kullanilir.html" class="active" data-i18n="nav-guide">Nasıl Kullanılır</a>
+</nav>
+
+<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">EN</button>
+
 <header class="page-hero">
   <div class="wrap">
     <div class="brand">
@@ -150,24 +186,24 @@
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true" style="vertical-align: middle; margin-right: 8px;"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>FREJYA
       </a>
     </div>
-    <h1>Frejya nasıl kullanılır?</h1>
-    <p class="lead">Kayıt olmaktan ilk sohbetine kadar her adım. Frejya'nın felsefesi sakin; bu kılavuz da aceleye gelmemen için.</p>
+    <h1 data-i18n="hero-title">Frejya nasıl kullanılır?</h1>
+    <p class="lead" data-i18n="hero-lead">Kayıt olmaktan ilk sohbetine kadar her adım. Frejya'nın felsefesi sakin; bu kılavuz da aceleye gelmemen için.</p>
 
     <nav class="toc" aria-label="İçindekiler">
-      <h2>İçindekiler</h2>
+      <h2 data-i18n="toc-title">İçindekiler</h2>
       <ol>
-        <li><a href="#kayit">Kayıt ol</a></li>
-        <li><a href="#profil">Profilini oluştur</a></li>
-        <li><a href="#fotograf">Fotoğraf onayı</a></li>
-        <li><a href="#aura">Frejya Aura — sosyal akış</a></li>
-        <li><a href="#kesfet">Keşfet ve eşleş</a></li>
-        <li><a href="#zil">Zil çal — kapıyı çal</a></li>
-        <li><a href="#sohbet">Sohbet ve kazıma</a></li>
-        <li><a href="#ses">Sesli mesaj</a></li>
-        <li><a href="#guvenlik">Güvenlik ve gizlilik</a></li>
-        <li><a href="#uyelik">Üyelik katmanları</a></li>
-        <li><a href="#davet">Arkadaşını davet et</a></li>
-        <li><a href="#hesap">Hesabı silme / askıya alma</a></li>
+        <li><a href="#kayit" data-i18n="toc-1">Kayıt ol</a></li>
+        <li><a href="#profil" data-i18n="toc-2">Profilini oluştur</a></li>
+        <li><a href="#fotograf" data-i18n="toc-3">Fotoğraf onayı</a></li>
+        <li><a href="#aura" data-i18n="toc-4">Frejya Aura — sosyal akış</a></li>
+        <li><a href="#kesfet" data-i18n="toc-5">Keşfet ve eşleş</a></li>
+        <li><a href="#zil" data-i18n="toc-6">Zil çal — kapıyı çal</a></li>
+        <li><a href="#sohbet" data-i18n="toc-7">Sohbet ve kazıma</a></li>
+        <li><a href="#ses" data-i18n="toc-8">Sesli mesaj</a></li>
+        <li><a href="#guvenlik" data-i18n="toc-9">Güvenlik ve gizlilik</a></li>
+        <li><a href="#uyelik" data-i18n="toc-10">Üyelik katmanları</a></li>
+        <li><a href="#davet" data-i18n="toc-11">Arkadaşını davet et</a></li>
+        <li><a href="#hesap" data-i18n="toc-12">Hesabı silme</a></li>
       </ol>
     </nav>
   </div>
@@ -177,162 +213,167 @@
   <div class="wrap">
 
     <section class="guide-block" id="kayit">
-      <h2><span class="step-num">01</span> Kayıt ol</h2>
-      <span class="sub">Yaş 18+ · E-posta · Takma ad</span>
-      <p>Frejya'ya kayıt olmak için e-postan ve 18 yaş üzeri olduğunu doğrulayan bir onay yeterli. Gerçek adın yerine bir <strong>takma ad</strong> seçersin — Frejya'da kimse seni gerçek adınla görmez.</p>
+      <h2><span class="step-num">01</span> <span data-i18n="s1-title">Kayıt ol</span></h2>
+      <span class="sub" data-i18n="s1-sub">Yaş 18+ · E-posta · Takma ad</span>
+      <p data-i18n="s1-p1">Frejya'ya kayıt olmak için e-postan ve 18 yaş üzeri olduğunu doğrulayan bir onay yeterli. Gerçek adın yerine bir <strong>takma ad</strong> seçersin — Frejya'da kimse seni gerçek adınla görmez.</p>
       <ul>
-        <li>Cinsiyetini seçersin (kadın / erkek / LGBT+) — eşleşme havuzunu belirler.</li>
-        <li>Doğum tarihini girersin; uygulama yalnız yaşı tutar, tarih başka kullanıcıya gösterilmez.</li>
-        <li>İstersen <strong>davet kodu</strong> yazarsın — seni davet edene 1 ay Premium hediye edilir (sen ücret ödemezsin).</li>
-        <li>Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>'nı görmen gerekir.</li>
+        <li data-i18n="s1-l1">Cinsiyetini seçersin (kadın / erkek) — eşleşme havuzunu belirler.</li>
+        <li data-i18n="s1-l2">Doğum tarihini girersin; uygulama yalnız yaşı tutar, tarih başka kullanıcıya gösterilmez.</li>
+        <li data-i18n="s1-l3">İstersen <strong>davet kodu</strong> yazarsın — seni davet edene 1 ay Premium hediye edilir (sen ücret ödemezsin).</li>
+        <li data-i18n="s1-l4">Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>'nı görmen gerekir.</li>
       </ul>
-      <div class="callout"><strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.</div>
+      <div class="callout" data-i18n="s1-callout"><strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.</div>
     </section>
 
     <section class="guide-block" id="profil">
-      <h2><span class="step-num">02</span> Profilini oluştur</h2>
-      <span class="sub">Hayvan avatarı · Psikoloji testi · Ses</span>
-      <p>Frejya'da profilin bir fotoğraf değil, bir <strong>karakter</strong>dir. Üç katmandan oluşur:</p>
+      <h2><span class="step-num">02</span> <span data-i18n="s2-title">Profilini oluştur</span></h2>
+      <span class="sub" data-i18n="s2-sub">Hayvan avatarı · Psikoloji testi · Ses</span>
+      <p data-i18n="s2-p1">Frejya'da profilin bir fotoğraf değil, bir <strong>karakter</strong>dir. Üç katmandan oluşur:</p>
       <ul>
-        <li><strong>Ruhani hayvan avatar:</strong> 100'lü line-art SVG ızgarasından sana en yakın hissedeni seç. Aura akışında, sohbet listende ve mesajlarda bu avatar görünür.</li>
-        <li><strong>Psikolojik derinlik testi:</strong> Birkaç dakikalık test, eşleşme algoritmasının seninle uyumlu karakter tiplerini bulması için temel veridir. İstediğin zaman yeniden çözebilirsin.</li>
-        <li><strong>Maskelenmiş ses tanıtımı (opsiyonel):</strong> 10-20 saniyelik bir ses kaydı yapabilirsin. Frejya sesini perdeleyerek yayınlar — karşı taraf seni tanıyamaz ama ses tonunu hisseder.</li>
-        <li><strong>Kısa biyografi (opsiyonel):</strong> İstersen kısa, sembolik bir tanıtım metni eklersin. Eklemezsen profilin sembollerle konuşur.</li>
+        <li data-i18n="s2-l1"><strong>Ruhani hayvan avatar:</strong> 100'lü line-art SVG ızgarasından sana en yakın hissedeni seç. Aura akışında, sohbet listende ve mesajlarda bu avatar görünür.</li>
+        <li data-i18n="s2-l2"><strong>Psikolojik derinlik testi:</strong> Birkaç dakikalık test, eşleşme algoritmasının seninle uyumlu karakter tiplerini bulması için temel veridir.</li>
+        <li data-i18n="s2-l3"><strong>Maskelenmiş ses tanıtımı (opsiyonel):</strong> 10-20 saniyelik bir ses kaydı yapabilirsin. Frejya sesini perdeleyerek yayınlar — karşı taraf seni tanıyamaz ama ses tonunu hisseder.</li>
+        <li data-i18n="s2-l4"><strong>Kısa biyografi (opsiyonel):</strong> İstersen kısa, sembolik bir tanıtım metni eklersin. Eklemezsen profilin sembollerle konuşur.</li>
       </ul>
-      <p>Profil bilgileri — yaş aralığı tercihi, şehir, meslek, ilgi alanları, üç kelimelik öz tanım — eşleşme algoritmasının kullandığı veridir. Ne kadar dolu doldurursan eşleşme o kadar isabetli olur.</p>
+      <p data-i18n="s2-p2">Profil bilgileri — yaş aralığı tercihi, şehir, meslek, ilgi alanları, beş kelimelik öz tanım — eşleşme algoritmasının kullandığı veridir. Ne kadar dolu doldurursan eşleşme o kadar isabetli olur.</p>
     </section>
 
     <section class="guide-block" id="fotograf">
-      <h2><span class="step-num">03</span> Fotoğraf onayı</h2>
-      <span class="sub">Yapay zekâ doğrulaması · Sahte profil yok</span>
-      <p>Frejya'ya gerçek bir <strong>yüz fotoğrafı</strong> yüklemen gerekir. Bu fotoğraf eşleştiğin kişiye <strong>doğrudan gösterilmez</strong> — perdenin arkasında kalır ve sohbet ettikçe yavaşça açılır.</p>
+      <h2><span class="step-num">03</span> <span data-i18n="s3-title">Fotoğraf onayı</span></h2>
+      <span class="sub" data-i18n="s3-sub">Yapay zekâ doğrulaması · Sahte profil yok</span>
+      <p data-i18n="s3-p1">Frejya'ya gerçek bir <strong>yüz fotoğrafı</strong> yüklemen gerekir. Bu fotoğraf eşleştiğin kişiye <strong>doğrudan gösterilmez</strong> — perdenin arkasında kalır ve sohbet ettikçe yavaşça açılır.</p>
       <ul>
-        <li>Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: tek kişi olmalı, yüz net görünmeli, ünlü/internet fotoğrafı olmamalı, uygunsuz içerik içermemeli.</li>
-        <li>İnceleme genellikle birkaç saniye sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün.</li>
-        <li>Reddedilirse açıklama gösterilir, başka bir fotoğrafla tekrar denersin.</li>
-        <li>Onaylanmamış kullanıcı eşleşmelerde görünmez ve mesaj atamaz — bu, herkesin gerçek olduğundan emin olmanın yoludur.</li>
+        <li data-i18n="s3-l1">Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: tek kişi olmalı, yüz net görünmeli, ünlü/internet fotoğrafı olmamalı, uygunsuz içerik içermemeli.</li>
+        <li data-i18n="s3-l2">İnceleme genellikle birkaç saniye sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün.</li>
+        <li data-i18n="s3-l3">Reddedilirse açıklama gösterilir, başka bir fotoğrafla tekrar denersin.</li>
+        <li data-i18n="s3-l4">Onaylanmamış kullanıcı eşleşmelerde görünmez ve mesaj atamaz — bu, herkesin gerçek olduğundan emin olmanın yoludur.</li>
       </ul>
-      <div class="callout"><strong>Önemli:</strong> Fotoğrafın sunucuda şifreli tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.</div>
+      <div class="callout" data-i18n="s3-callout"><strong>Önemli:</strong> Fotoğrafın sunucuda şifreli tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.</div>
     </section>
 
     <section class="guide-block" id="aura">
-      <h2><span class="step-num">04</span> Frejya Aura — sosyal akış</h2>
-      <span class="sub">Hiyeroglif paylaşımlar · Sözsüz iletişim</span>
-      <p>Frejya Aura, Frejya'nın sosyal akışıdır. Buradaki paylaşımlar metin değil — <strong>ikonlardan oluşan sembolik bir dil</strong> kullanır.</p>
+      <h2><span class="step-num">04</span> <span data-i18n="s4-title">Frejya Aura — sosyal akış</span></h2>
+      <span class="sub" data-i18n="s4-sub">Hiyeroglif paylaşımlar · Sözsüz iletişim</span>
+      <p data-i18n="s4-p1">Frejya Aura, Frejya'nın sosyal akışıdır. Buradaki paylaşımlar metin değil — <strong>ikonlardan oluşan sembolik bir dil</strong> kullanır.</p>
       <ul>
-        <li>32 ana kategoriden (kahve, müzik, yolculuk, kitap, yemek, doğa…) ikonlar seçersin.</li>
-        <li>Her paylaşım en fazla 12 ikondan oluşur ve bir cümle gibi okunur.</li>
-        <li>Paylaşımına başkaları <strong>kalp</strong> bırakır, yorum yazar veya hashtagleri üzerinden seni keşfeder.</li>
-        <li>Profilinde en fazla <strong>50 paylaşım</strong> tutulur (Premium'da 100). Yeni paylaşım eklediğinde en eski silinir.</li>
-        <li>Aura akışındaki gönderiler son 20 paylaşımının hashtag'leri üzerinden eşleşme algoritmasına da girer — yani ne paylaşırsan, kimle eşleşirsen.</li>
+        <li data-i18n="s4-l1">32 ana kategoriden (kahve, müzik, yolculuk, kitap, yemek, doğa…) ikonlar seçersin.</li>
+        <li data-i18n="s4-l2">Her paylaşım en fazla 12 ikondan oluşur ve bir cümle gibi okunur.</li>
+        <li data-i18n="s4-l3">Paylaşımına başkaları <strong>kalp</strong> bırakır, yorum yazar veya hashtagleri üzerinden seni keşfeder.</li>
+        <li data-i18n="s4-l4">Profilinde en fazla <strong>50 paylaşım</strong> tutulur (Premium'da 100). Yeni paylaşım eklediğinde en eski silinir.</li>
+        <li data-i18n="s4-l5">Aura akışındaki gönderiler son 20 paylaşımının hashtag'leri üzerinden eşleşme algoritmasına da girer — yani ne paylaşırsan, kimle eşleşirsen.</li>
       </ul>
     </section>
 
     <section class="guide-block" id="kesfet">
-      <h2><span class="step-num">05</span> Keşfet ve eşleş</h2>
-      <span class="sub">Detaylı arama · Karakter uyumu</span>
-      <p>Detaylı Arama ekranında yaş, şehir, ilgi alanları gibi filtreleri ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.</p>
-      <p>Algoritma şu unsurlara göre uyumu hesaplar:</p>
+      <h2><span class="step-num">05</span> <span data-i18n="s5-title">Keşfet ve eşleş</span></h2>
+      <span class="sub" data-i18n="s5-sub">Detaylı arama · Karakter uyumu</span>
+      <p data-i18n="s5-p1">Detaylı Arama ekranında yaş, şehir, ilgi alanları gibi filtreleri ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.</p>
+      <p data-i18n="s5-p2">Algoritma şu unsurlara göre uyumu hesaplar:</p>
       <ul>
-        <li>Psikolojik karakter tipi uyumu</li>
-        <li>Ortak ilgi alanları ve hashtag örtüşmesi</li>
-        <li>Yaş, şehir, eğitim, meslek uyumu</li>
-        <li>İki taraf için karşılıklı uyum (sen onu beğenirken o da seni beğenmeli)</li>
-        <li>Aktiflik (son ne zaman uygulamayı açtı)</li>
+        <li data-i18n="s5-l1">Psikolojik karakter tipi uyumu</li>
+        <li data-i18n="s5-l2">Ortak ilgi alanları ve hashtag örtüşmesi</li>
+        <li data-i18n="s5-l3">Yaş, şehir, eğitim, meslek uyumu</li>
+        <li data-i18n="s5-l4">İki taraf için karşılıklı uyum (sen onu beğenirken o da seni beğenmeli)</li>
+        <li data-i18n="s5-l5">Aktiflik (son ne zaman uygulamayı açtı)</li>
       </ul>
-      <p>Sonuçta her aday için bir <strong>uyum yüzdesi</strong> görürsün. Üzerine basıp profil kartını açarsın.</p>
+      <p data-i18n="s5-p3">Sonuçlarda her aday bir profil kartı olarak görünür. Üzerine basıp profilini incelersin; rakam veya yüzde gösterilmez — Frejya bunun yerine paylaşılan somut özellikleri öne çıkarır.</p>
     </section>
 
     <section class="guide-block" id="zil">
-      <h2><span class="step-num">06</span> Zil çal — kapıyı çal</h2>
-      <span class="sub">Davetli sohbet · Karşılıklı rıza</span>
-      <p>Birini beğendiysen profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa "biri seni çaldı" bildirimi gider — kim olduğunu kabul edene kadar görmez.</p>
+      <h2><span class="step-num">06</span> <span data-i18n="s6-title">Zil çal — kapıyı çal</span></h2>
+      <span class="sub" data-i18n="s6-sub">Davetli sohbet · Karşılıklı rıza</span>
+      <p data-i18n="s6-p1">Birini beğendiysen profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa "biri seni çaldı" bildirimi gider — kim olduğunu kabul edene kadar görmez.</p>
       <ul>
-        <li>Karşı taraf <strong>"Kapıyı Aç"</strong> derse sohbet başlar.</li>
-        <li>Reddederse veya görmezden gelirse zil sessizce kaybolur — kim olduğun ona bildirilmez.</li>
-        <li>Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 2 zil, ayda en fazla 4 zil. Aralarda 5 dakika beklersin.</li>
-        <li>Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).</li>
+        <li data-i18n="s6-l1">Karşı taraf <strong>"Kapıyı Aç"</strong> derse sohbet başlar.</li>
+        <li data-i18n="s6-l2">Reddederse veya görmezden gelirse zil sessizce kaybolur — kim olduğun ona bildirilmez.</li>
+        <li data-i18n="s6-l3">Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 2 zil, ayda en fazla 4 zil. Aralarda 5 dakika beklersin.</li>
+        <li data-i18n="s6-l4">Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).</li>
       </ul>
-      <div class="callout"><strong>Tek sohbet kuralı:</strong> Frejya'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.</div>
+      <div class="callout" data-i18n="s6-callout"><strong>Tek sohbet kuralı:</strong> Frejya'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.</div>
     </section>
 
     <section class="guide-block" id="sohbet">
-      <h2><span class="step-num">07</span> Sohbet ve kazıma</h2>
-      <span class="sub">Karşılıklı emek · Fotoğraf perdesi</span>
-      <p>Sohbet açıldığında karşı tarafın fotoğrafı <strong>karanlık bir perdenin arkasındadır</strong>. Mesajlaştıkça perde adım adım kazınır ve fotoğraf yavaş yavaş açılır.</p>
+      <h2><span class="step-num">07</span> <span data-i18n="s7-title">Sohbet ve kazıma</span></h2>
+      <span class="sub" data-i18n="s7-sub">Karşılıklı emek · Fotoğraf perdesi</span>
+      <p data-i18n="s7-p1">Sohbet açıldığında karşı tarafın fotoğrafı <strong>karanlık bir perdenin arkasındadır</strong>. Mesajlaştıkça perde adım adım kazınır ve fotoğraf yavaş yavaş açılır.</p>
       <ul>
-        <li>Her mesaj alışverişi perdenin küçük bir bölümünü açar — emek karşılığı keşif.</li>
-        <li>Yalnız sen kazıyabilirsin: karşı taraf ne kadar yazarsa yazsın, perdeyi <strong>parmağınla</strong> kazıman gerekir. Görmek için zaman ve dikkat ayırırsın.</li>
-        <li>Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.</li>
-        <li>İstemediğin zaman <strong>"Kapıyı Kapat"</strong> diyerek sohbeti sonlandırırsın. Sohbet biter, geçmiş silinir; yeni biriyle başlayabilirsin.</li>
+        <li data-i18n="s7-l1">Her mesaj alışverişi perdenin küçük bir bölümünü açar — emek karşılığı keşif.</li>
+        <li data-i18n="s7-l2">Yalnız sen kazıyabilirsin: karşı taraf ne kadar yazarsa yazsın, perdeyi <strong>parmağınla</strong> kazıman gerekir. Görmek için zaman ve dikkat ayırırsın.</li>
+        <li data-i18n="s7-l3">Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.</li>
+        <li data-i18n="s7-l4">İstemediğin zaman <strong>"Kapıyı Kapat"</strong> diyerek sohbeti sonlandırırsın. Sohbet biter, geçmiş silinir; yeni biriyle başlayabilirsin.</li>
       </ul>
     </section>
 
     <section class="guide-block" id="ses">
-      <h2><span class="step-num">08</span> Sesli mesaj</h2>
-      <span class="sub">Perde açıldıktan sonra</span>
-      <p>Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.</p>
-      <p>Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.</p>
+      <h2><span class="step-num">08</span> <span data-i18n="s8-title">Sesli mesaj</span></h2>
+      <span class="sub" data-i18n="s8-sub">Perde açıldıktan sonra</span>
+      <p data-i18n="s8-p1">Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.</p>
+      <p data-i18n="s8-p2">Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.</p>
     </section>
 
     <section class="guide-block" id="guvenlik">
-      <h2><span class="step-num">09</span> Güvenlik ve gizlilik</h2>
-      <span class="sub">E2EE · AI moderasyon · Engelle/şikayet</span>
+      <h2><span class="step-num">09</span> <span data-i18n="s9-title">Güvenlik ve gizlilik</span></h2>
+      <span class="sub" data-i18n="s9-sub">E2EE · AI moderasyon · Engelle/şikayet</span>
       <ul>
-        <li><strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca senin ve karşı tarafın cihazlarında çözülür. Her kullanıcının cihazda özel bir anahtarı vardır; bu anahtar sunucuya hiç çıkmaz.</li>
-        <li><strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.</li>
-        <li><strong>Şikayet ve engelleme:</strong> Her profil kartında, her sohbet ekranında "Şikayet et" ve "Engelle" butonları vardır. Engellediğin kişiyle bir daha karşılaşmazsın.</li>
-        <li><strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini sorar. Şehir bilgisi yalnız eşleşme için kullanılır.</li>
-        <li><strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).</li>
+        <li data-i18n="s9-l1"><strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca senin ve karşı tarafın cihazlarında çözülür. Her kullanıcının cihazda özel bir anahtarı vardır; bu anahtar sunucuya hiç çıkmaz.</li>
+        <li data-i18n="s9-l2"><strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.</li>
+        <li data-i18n="s9-l3"><strong>Şikayet ve engelleme:</strong> Her profil kartında, her sohbet ekranında "Şikayet et" ve "Engelle" butonları vardır. Engellediğin kişiyle bir daha karşılaşmazsın.</li>
+        <li data-i18n="s9-l4"><strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini sorar. Şehir bilgisi yalnız eşleşme için kullanılır.</li>
+        <li data-i18n="s9-l5"><strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).</li>
       </ul>
     </section>
 
     <section class="guide-block" id="uyelik">
-      <h2><span class="step-num">10</span> Üyelik katmanları</h2>
-      <span class="sub">Normal · Onaylı · Premium</span>
-      <p>Frejya üç üyelik katmanına sahiptir. Tüm temel özellikler her üç katmanda da çalışır — Premium yalnız <strong>günlük limitleri açar</strong>.</p>
+      <h2><span class="step-num">10</span> <span data-i18n="s10-title">Üyelik katmanları</span></h2>
+      <span class="sub" data-i18n="s10-sub">Normal · Onaylı · Premium</span>
+      <p data-i18n="s10-p1">Frejya üç üyelik katmanına sahiptir. Tüm temel özellikler her üç katmanda da çalışır — Premium yalnız <strong>günlük limitleri açar</strong>.</p>
       <table class="tier-table">
         <thead>
-          <tr><th>Özellik</th><th>Normal</th><th>Onaylı*</th><th>Premium</th></tr>
+          <tr>
+            <th data-i18n="th-feature">Özellik</th>
+            <th data-i18n="th-normal">Normal</th>
+            <th data-i18n="th-verified">Onaylı*</th>
+            <th data-i18n="th-premium">Premium</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Günlük zil hakkı</td><td>5</td><td>7</td><td>20</td></tr>
-          <tr><td>Detaylı arama sonucu</td><td>5</td><td>10</td><td>25</td></tr>
-          <tr><td>Takip listesi limiti</td><td>100</td><td>100</td><td>500</td></tr>
-          <tr><td>Günlük takip ekleme</td><td>10</td><td>15</td><td>Sınırsız</td></tr>
-          <tr><td>Aura paylaşımı (FIFO)</td><td>50</td><td>50</td><td>100</td></tr>
+          <tr><td data-i18n="row-ring">Günlük zil hakkı</td><td>5</td><td>7</td><td>20</td></tr>
+          <tr><td data-i18n="row-search">Detaylı arama sonucu</td><td>5</td><td>10</td><td>25</td></tr>
+          <tr><td data-i18n="row-follow-total">Takip listesi limiti</td><td>100</td><td>100</td><td>500</td></tr>
+          <tr><td data-i18n="row-follow-daily">Günlük takip ekleme</td><td>10</td><td>15</td><td data-i18n="row-unlimited">Sınırsız</td></tr>
+          <tr><td data-i18n="row-aura">Aura paylaşımı (FIFO)</td><td>50</td><td>50</td><td>100</td></tr>
         </tbody>
       </table>
-      <p style="font-size: 13px; color: #888;">*Onaylı: Telefon numarası doğrulanmış kullanıcı (SMS altyapısı yakında aktifleşecek).</p>
+      <p style="font-size: 13px; color: #888;" data-i18n="s10-footnote">*Onaylı: Telefon numarası doğrulanmış kullanıcı (SMS altyapısı yakında aktifleşecek).</p>
     </section>
 
     <section class="guide-block" id="davet">
-      <h2><span class="step-num">11</span> Arkadaşını davet et</h2>
-      <span class="sub">Her davet 1 ay Premium hediye</span>
-      <p>Profil ekranında <strong>kişisel davet kodun</strong> görünür. Bu kodu bir arkadaşına gönderirsin:</p>
+      <h2><span class="step-num">11</span> <span data-i18n="s11-title">Arkadaşını davet et</span></h2>
+      <span class="sub" data-i18n="s11-sub">Her davet 1 ay Premium hediye</span>
+      <p data-i18n="s11-p1">Profil ekranında <strong>kişisel davet kodun</strong> görünür. Bu kodu bir arkadaşına gönderirsin:</p>
       <ul>
-        <li>Arkadaşın kayıt olurken kodunu girer.</li>
-        <li>Arkadaşının profil fotoğrafı onaylanınca <strong>sana otomatik olarak +1 ay Premium</strong> eklenir.</li>
-        <li>Premium sürelerin birikir — 5 arkadaş davet edersen 5 ay Premium kullanırsın.</li>
-        <li>Çift hesap istismarını engellemek için aynı cihazdan davet edilen hesaplar ödüllendirilmez.</li>
+        <li data-i18n="s11-l1">Arkadaşın kayıt olurken kodunu girer.</li>
+        <li data-i18n="s11-l2">Arkadaşının profil fotoğrafı onaylanınca <strong>sana otomatik olarak +1 ay Premium</strong> eklenir.</li>
+        <li data-i18n="s11-l3">Premium sürelerin birikir — 5 arkadaş davet edersen 5 ay Premium kullanırsın.</li>
+        <li data-i18n="s11-l4">Çift hesap istismarını engellemek için aynı cihazdan davet edilen hesaplar ödüllendirilmez.</li>
       </ul>
     </section>
 
     <section class="guide-block" id="hesap">
-      <h2><span class="step-num">12</span> Hesabı silme veya askıya alma</h2>
-      <span class="sub">60 gün geri dönüş süresi · Kalıcı silme</span>
-      <p>Profil ekranındaki <strong>"Hesabımı Sil"</strong> butonuyla hesabını istediğin an silebilirsin.</p>
+      <h2><span class="step-num">12</span> <span data-i18n="s12-title">Hesabı silme veya askıya alma</span></h2>
+      <span class="sub" data-i18n="s12-sub">60 gün geri dönüş süresi · Kalıcı silme</span>
+      <p data-i18n="s12-p1">Profil ekranındaki <strong>"Hesabımı Sil"</strong> butonuyla hesabını istediğin an silebilirsin.</p>
       <ul>
-        <li>Hesap hemen <strong>askıya alınır</strong>: profil görünmez, eşleşmelerde çıkmazsın, kimse zil çalamaz.</li>
-        <li>60 gün içinde tekrar giriş yaparsan hesap <strong>aynen geri gelir</strong> — fikrini değiştirebilirsin.</li>
-        <li>60 gün dolarsa hesap <strong>kalıcı olarak silinir</strong>; tüm mesajlar, fotoğraflar, paylaşımlar ve veriler geri dönüşsüz biçimde kaldırılır.</li>
-        <li>Doğrudan bekleme olmadan kalıcı silme istersen destek üzerinden talep edebilirsin.</li>
+        <li data-i18n="s12-l1">Hesap hemen <strong>askıya alınır</strong>: profil görünmez, eşleşmelerde çıkmazsın, kimse zil çalamaz.</li>
+        <li data-i18n="s12-l2">60 gün içinde tekrar giriş yaparsan hesap <strong>aynen geri gelir</strong> — fikrini değiştirebilirsin.</li>
+        <li data-i18n="s12-l3">60 gün dolarsa hesap <strong>kalıcı olarak silinir</strong>; tüm mesajlar, fotoğraflar, paylaşımlar ve veriler geri dönüşsüz biçimde kaldırılır.</li>
+        <li data-i18n="s12-l4">Doğrudan bekleme olmadan kalıcı silme istersen destek üzerinden talep edebilirsin.</li>
       </ul>
-      <p>Verilerinin kullanımı hakkında detayları <a href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html">Gizlilik Politikası</a>nda bulabilirsin.</p>
+      <p><span data-i18n="s12-p2">Verilerinin kullanımı hakkında detayları</span> <a id="link-privacy" href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a><span data-i18n="s12-p3">nda bulabilirsin.</span></p>
     </section>
 
     <div class="cta-row">
-      <a href="/">Ana sayfaya dön</a>
+      <a href="/" data-i18n="cta-home">Ana sayfaya dön</a>
     </div>
 
   </div>
@@ -342,15 +383,222 @@
   <div class="wrap">
     <div class="brand">FREJYA</div>
     <div class="flinks">
-      <a href="/">Ana sayfa</a>
-      <a href="/nasil-kullanilir.html">Nasıl kullanılır</a>
-      <a href="https://mujdattelli.github.io/frejya-legal/eula.tr.html">Kullanım Şartları</a>
-      <a href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html">Gizlilik Politikası</a>
-      <a href="mailto:iletisim@frejya.app">İletişim</a>
+      <strong style="color:#fff;font-family:'Fraunces',serif;" data-i18n="footer-site">Site</strong>
+      <a href="/" data-i18n="nav-home">Ana Sayfa</a>
+      <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
     </div>
-    <div class="fcopy">© 2026 Frejya. Aşkın eşiğinde.</div>
+    <div class="flinks">
+      <strong style="color:#fff;font-family:'Fraunces',serif;" data-i18n="footer-legal">Yasal</strong>
+      <a id="link-eula" href="https://mujdattelli.github.io/frejya-legal/eula.tr.html" data-i18n="link-eula">Kullanım Şartları</a>
+      <a id="link-privacy-footer" href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a>
+    </div>
+    <div class="flinks">
+      <strong style="color:#fff;font-family:'Fraunces',serif;" data-i18n="footer-contact">İletişim</strong>
+      <a href="mailto:iletisim@frejya.app">iletisim@frejya.app</a>
+    </div>
+    <div class="fcopy" data-i18n="footer-copy">© 2026 Frejya. Aşkın eşiğinde.</div>
   </div>
 </footer>
+
+<script>
+  // Çift dilli içerik. Dil index.html ile aynı localStorage anahtarı
+  // (`frejya-lang`) kullanılarak senkronize edilir.
+  const I18N = {
+    'title': {
+      tr: 'Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu',
+      en: 'How Frejya Works — Step-by-Step User Guide',
+    },
+    'meta-desc': {
+      tr: "Frejya nasıl çalışır? Kayıt, profil, anonim sohbet, fotoğraf kazıma, zil çalma, Aura akışı ve güvenlik — Frejya'nın tüm özelliklerini adım adım öğren.",
+      en: "How does Frejya work? Sign-up, profile, anonymous chat, photo reveal, ringing the bell, the Aura feed and security — learn every Frejya feature step by step.",
+    },
+
+    'nav-home': { tr: 'Ana Sayfa', en: 'Home' },
+    'nav-guide': { tr: 'Nasıl Kullanılır', en: 'How it works' },
+
+    'hero-title': { tr: 'Frejya nasıl kullanılır?', en: 'How does Frejya work?' },
+    'hero-lead': {
+      tr: "Kayıt olmaktan ilk sohbetine kadar her adım. Frejya'nın felsefesi sakin; bu kılavuz da aceleye gelmemen için.",
+      en: "Every step from sign-up to your first chat. Frejya's philosophy is calm; this guide is here so you don't have to rush either.",
+    },
+
+    'toc-title': { tr: 'İçindekiler', en: 'Contents' },
+    'toc-1': { tr: 'Kayıt ol', en: 'Sign up' },
+    'toc-2': { tr: 'Profilini oluştur', en: 'Build your profile' },
+    'toc-3': { tr: 'Fotoğraf onayı', en: 'Photo approval' },
+    'toc-4': { tr: 'Frejya Aura — sosyal akış', en: 'Frejya Aura — the social feed' },
+    'toc-5': { tr: 'Keşfet ve eşleş', en: 'Discover and match' },
+    'toc-6': { tr: 'Zil çal — kapıyı çal', en: 'Ring the bell' },
+    'toc-7': { tr: 'Sohbet ve kazıma', en: 'Chat and reveal' },
+    'toc-8': { tr: 'Sesli mesaj', en: 'Voice messages' },
+    'toc-9': { tr: 'Güvenlik ve gizlilik', en: 'Security and privacy' },
+    'toc-10': { tr: 'Üyelik katmanları', en: 'Membership tiers' },
+    'toc-11': { tr: 'Arkadaşını davet et', en: 'Invite a friend' },
+    'toc-12': { tr: 'Hesabı silme', en: 'Delete your account' },
+
+    // 01 — Sign up
+    's1-title': { tr: 'Kayıt ol', en: 'Sign up' },
+    's1-sub': { tr: 'Yaş 18+ · E-posta · Takma ad', en: 'Age 18+ · Email · Pseudonym' },
+    's1-p1': {
+      tr: "Frejya'ya kayıt olmak için e-postan ve 18 yaş üzeri olduğunu doğrulayan bir onay yeterli. Gerçek adın yerine bir <strong>takma ad</strong> seçersin — Frejya'da kimse seni gerçek adınla görmez.",
+      en: "To sign up for Frejya you just need your email and confirmation that you're 18 or older. Instead of your real name you choose a <strong>pseudonym</strong> — no one on Frejya sees your real name.",
+    },
+    's1-l1': { tr: 'Cinsiyetini seçersin (kadın / erkek) — eşleşme havuzunu belirler.', en: 'You pick your gender (woman / man) — this defines your matching pool.' },
+    's1-l2': { tr: 'Doğum tarihini girersin; uygulama yalnız yaşı tutar, tarih başka kullanıcıya gösterilmez.', en: 'You enter your date of birth; the app only stores your age and never shows the date to others.' },
+    's1-l3': { tr: 'İstersen <strong>davet kodu</strong> yazarsın — seni davet edene 1 ay Premium hediye edilir (sen ücret ödemezsin).', en: 'You can optionally enter an <strong>invite code</strong> — whoever invited you gets 1 month of Premium as a gift (you pay nothing).' },
+    's1-l4': { tr: 'Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>\'nı görmen gerekir.', en: 'Before using the app you have to read the <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.' },
+    's1-callout': { tr: '<strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.', en: '<strong>Age rule:</strong> Frejya is for 18 and older only. Sign-ups under 18 are rejected automatically.' },
+
+    // 02 — Profile
+    's2-title': { tr: 'Profilini oluştur', en: 'Build your profile' },
+    's2-sub': { tr: 'Hayvan avatarı · Psikoloji testi · Ses', en: 'Animal avatar · Psychology test · Voice' },
+    's2-p1': { tr: "Frejya'da profilin bir fotoğraf değil, bir <strong>karakter</strong>dir. Üç katmandan oluşur:", en: 'On Frejya your profile is not a photo, it is a <strong>character</strong>. It has three layers:' },
+    's2-l1': { tr: '<strong>Ruhani hayvan avatar:</strong> 100\'lü line-art SVG ızgarasından sana en yakın hissedeni seç. Aura akışında, sohbet listende ve mesajlarda bu avatar görünür.', en: '<strong>Spirit animal avatar:</strong> pick the one that feels closest to you from a grid of 100 line-art SVGs. This avatar appears in the Aura feed, your chat list and your messages.' },
+    's2-l2': { tr: '<strong>Psikolojik derinlik testi:</strong> Birkaç dakikalık test, eşleşme algoritmasının seninle uyumlu karakter tiplerini bulması için temel veridir.', en: '<strong>Psychological depth test:</strong> A short test that gives the matching algorithm the data to find character types compatible with you.' },
+    's2-l3': { tr: '<strong>Maskelenmiş ses tanıtımı (opsiyonel):</strong> 10-20 saniyelik bir ses kaydı yapabilirsin. Frejya sesini perdeleyerek yayınlar — karşı taraf seni tanıyamaz ama ses tonunu hisseder.', en: '<strong>Masked voice intro (optional):</strong> Record a 10-20 second clip if you like. Frejya broadcasts it through a veil — the other side can\'t identify you but senses your tone.' },
+    's2-l4': { tr: '<strong>Kısa biyografi (opsiyonel):</strong> İstersen kısa, sembolik bir tanıtım metni eklersin. Eklemezsen profilin sembollerle konuşur.', en: '<strong>Short bio (optional):</strong> Add a brief, symbolic intro if you wish. If you skip it, your profile speaks through symbols.' },
+    's2-p2': { tr: 'Profil bilgileri — yaş aralığı tercihi, şehir, meslek, ilgi alanları, beş kelimelik öz tanım — eşleşme algoritmasının kullandığı veridir. Ne kadar dolu doldurursan eşleşme o kadar isabetli olur.', en: 'Profile details — preferred age range, city, profession, interests, five-word self-description — feed the matching algorithm. The more you fill in, the more accurate your matches.' },
+
+    // 03 — Photo
+    's3-title': { tr: 'Fotoğraf onayı', en: 'Photo approval' },
+    's3-sub': { tr: 'Yapay zekâ doğrulaması · Sahte profil yok', en: 'AI verification · No fake profiles' },
+    's3-p1': { tr: "Frejya'ya gerçek bir <strong>yüz fotoğrafı</strong> yüklemen gerekir. Bu fotoğraf eşleştiğin kişiye <strong>doğrudan gösterilmez</strong> — perdenin arkasında kalır ve sohbet ettikçe yavaşça açılır.", en: 'You must upload a real <strong>face photo</strong> to Frejya. This photo is <strong>never shown directly</strong> to your match — it stays behind a curtain and slowly reveals itself as you chat.' },
+    's3-l1': { tr: 'Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: tek kişi olmalı, yüz net görünmeli, ünlü/internet fotoğrafı olmamalı, uygunsuz içerik içermemeli.', en: 'Your photo is reviewed by <strong>AI</strong>: it must show one person, a clear face, not be a celebrity/stock photo, and contain no inappropriate content.' },
+    's3-l2': { tr: 'İnceleme genellikle birkaç saniye sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün.', en: 'Review usually takes a few seconds; you\'ll see "Approved" or "Try again" at the end.' },
+    's3-l3': { tr: 'Reddedilirse açıklama gösterilir, başka bir fotoğrafla tekrar denersin.', en: 'If it\'s rejected, a reason is shown and you can try again with another photo.' },
+    's3-l4': { tr: 'Onaylanmamış kullanıcı eşleşmelerde görünmez ve mesaj atamaz — bu, herkesin gerçek olduğundan emin olmanın yoludur.', en: 'Unapproved users don\'t appear in matches and can\'t send messages — this is how we make sure everyone is real.' },
+    's3-callout': { tr: '<strong>Önemli:</strong> Fotoğrafın sunucuda şifreli tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.', en: '<strong>Important:</strong> Your photo is stored encrypted on the server. No one outside the Frejya team — including your match — can see it before the curtain opens.' },
+
+    // 04 — Aura
+    's4-title': { tr: 'Frejya Aura — sosyal akış', en: 'Frejya Aura — the social feed' },
+    's4-sub': { tr: 'Hiyeroglif paylaşımlar · Sözsüz iletişim', en: 'Hieroglyphic posts · Wordless communication' },
+    's4-p1': { tr: "Frejya Aura, Frejya'nın sosyal akışıdır. Buradaki paylaşımlar metin değil — <strong>ikonlardan oluşan sembolik bir dil</strong> kullanır.", en: "Frejya Aura is Frejya's social feed. Posts here aren't text — they speak through <strong>a symbolic icon-based language</strong>." },
+    's4-l1': { tr: '32 ana kategoriden (kahve, müzik, yolculuk, kitap, yemek, doğa…) ikonlar seçersin.', en: 'You pick icons from 32 main categories (coffee, music, travel, books, food, nature…).' },
+    's4-l2': { tr: 'Her paylaşım en fazla 12 ikondan oluşur ve bir cümle gibi okunur.', en: 'Each post is at most 12 icons and reads like a sentence.' },
+    's4-l3': { tr: 'Paylaşımına başkaları <strong>kalp</strong> bırakır, yorum yazar veya hashtagleri üzerinden seni keşfeder.', en: 'Others <strong>heart</strong> your post, comment, or discover you through your hashtags.' },
+    's4-l4': { tr: 'Profilinde en fazla <strong>50 paylaşım</strong> tutulur (Premium\'da 100). Yeni paylaşım eklediğinde en eski silinir.', en: 'Your profile keeps at most <strong>50 posts</strong> (100 on Premium). When you add a new one, the oldest is removed.' },
+    's4-l5': { tr: 'Aura akışındaki gönderiler son 20 paylaşımının hashtag\'leri üzerinden eşleşme algoritmasına da girer — yani ne paylaşırsan, kimle eşleşirsen.', en: 'Posts in the Aura feed also feed the matching algorithm via the hashtags of your last 20 posts — what you share shapes who you match with.' },
+
+    // 05 — Discover
+    's5-title': { tr: 'Keşfet ve eşleş', en: 'Discover and match' },
+    's5-sub': { tr: 'Detaylı arama · Karakter uyumu', en: 'Detailed search · Character compatibility' },
+    's5-p1': { tr: "Detaylı Arama ekranında yaş, şehir, ilgi alanları gibi filtreleri ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.", en: 'On the Detailed Search screen you set filters like age, city and interests, and see <strong>the most compatible people</strong>. Results come in a <strong>single search</strong>; you flip through them with page numbers.' },
+    's5-p2': { tr: 'Algoritma şu unsurlara göre uyumu hesaplar:', en: 'The algorithm computes compatibility based on:' },
+    's5-l1': { tr: 'Psikolojik karakter tipi uyumu', en: 'Psychological character-type compatibility' },
+    's5-l2': { tr: 'Ortak ilgi alanları ve hashtag örtüşmesi', en: 'Shared interests and hashtag overlap' },
+    's5-l3': { tr: 'Yaş, şehir, eğitim, meslek uyumu', en: 'Age, city, education, profession alignment' },
+    's5-l4': { tr: 'İki taraf için karşılıklı uyum (sen onu beğenirken o da seni beğenmeli)', en: 'Mutual fit (you like them while they\'d like you back)' },
+    's5-l5': { tr: 'Aktiflik (son ne zaman uygulamayı açtı)', en: 'Activity (how recently they opened the app)' },
+    's5-p3': { tr: 'Sonuçlarda her aday bir profil kartı olarak görünür. Üzerine basıp profilini incelersin; rakam veya yüzde gösterilmez — Frejya bunun yerine paylaşılan somut özellikleri öne çıkarır.', en: 'Each candidate appears as a profile card. Tap it to view the profile; no numbers or percentages are shown — Frejya highlights the concrete things you share instead.' },
+
+    // 06 — Ring
+    's6-title': { tr: 'Zil çal — kapıyı çal', en: 'Ring the bell' },
+    's6-sub': { tr: 'Davetli sohbet · Karşılıklı rıza', en: 'Invited chat · Mutual consent' },
+    's6-p1': { tr: 'Birini beğendiysen profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa "biri seni çaldı" bildirimi gider — kim olduğunu kabul edene kadar görmez.', en: 'If you like someone, you <strong>ring their bell</strong> from the profile card. They get a notification saying "someone rang you" — but they don\'t see who until they accept.' },
+    's6-l1': { tr: 'Karşı taraf <strong>"Kapıyı Aç"</strong> derse sohbet başlar.', en: 'If they tap <strong>"Open the Door"</strong>, the chat begins.' },
+    's6-l2': { tr: 'Reddederse veya görmezden gelirse zil sessizce kaybolur — kim olduğun ona bildirilmez.', en: 'If they decline or ignore, the bell quietly disappears — they\'re never told who you were.' },
+    's6-l3': { tr: 'Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 2 zil, ayda en fazla 4 zil. Aralarda 5 dakika beklersin.', en: 'You can\'t spam-ring the same person: max 2 rings per day, max 4 per month to the same person, with 5 minutes between rings.' },
+    's6-l4': { tr: 'Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).', en: 'Your total daily rings depend on your membership tier (see below).' },
+    's6-callout': { tr: '<strong>Tek sohbet kuralı:</strong> Frejya\'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.', en: '<strong>One-chat rule:</strong> On Frejya you can have <strong>only one active chat</strong> at a time. To accept a new ring you must end your current chat first. This prevents the scattered "everyone at once, no one really" feeling.' },
+
+    // 07 — Chat
+    's7-title': { tr: 'Sohbet ve kazıma', en: 'Chat and reveal' },
+    's7-sub': { tr: 'Karşılıklı emek · Fotoğraf perdesi', en: 'Mutual effort · The photo curtain' },
+    's7-p1': { tr: 'Sohbet açıldığında karşı tarafın fotoğrafı <strong>karanlık bir perdenin arkasındadır</strong>. Mesajlaştıkça perde adım adım kazınır ve fotoğraf yavaş yavaş açılır.', en: 'When the chat opens, their photo is <strong>behind a dark curtain</strong>. As you message back and forth, the curtain is scratched away step by step and the photo gradually appears.' },
+    's7-l1': { tr: 'Her mesaj alışverişi perdenin küçük bir bölümünü açar — emek karşılığı keşif.', en: 'Each message exchange opens a small part of the curtain — discovery in exchange for effort.' },
+    's7-l2': { tr: 'Yalnız sen kazıyabilirsin: karşı taraf ne kadar yazarsa yazsın, perdeyi <strong>parmağınla</strong> kazıman gerekir. Görmek için zaman ve dikkat ayırırsın.', en: 'Only you can scratch: no matter how much they write, you must <strong>use your finger</strong> on the curtain. You spend time and attention to see.' },
+    's7-l3': { tr: 'Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.', en: 'Messages are <strong>end-to-end encrypted</strong> (E2EE) — Frejya servers, staff or anyone else cannot read the content.' },
+    's7-l4': { tr: 'İstemediğin zaman <strong>"Kapıyı Kapat"</strong> diyerek sohbeti sonlandırırsın. Sohbet biter, geçmiş silinir; yeni biriyle başlayabilirsin.', en: 'You can <strong>"Close the Door"</strong> whenever you want. The chat ends, history is deleted, and you can start with someone else.' },
+
+    // 08 — Voice
+    's8-title': { tr: 'Sesli mesaj', en: 'Voice messages' },
+    's8-sub': { tr: 'Perde açıldıktan sonra', en: 'Available after the curtain opens' },
+    's8-p1': { tr: 'Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.', en: 'To send a voice message in a chat, <strong>the photo curtain must be fully open</strong> first. This way your voice gains meaning only after a real acquaintance has been built.' },
+    's8-p2': { tr: 'Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.', en: 'Once the curtain is fully open, the microphone icon activates. Voice messages are end-to-end encrypted just like text messages.' },
+
+    // 09 — Security
+    's9-title': { tr: 'Güvenlik ve gizlilik', en: 'Security and privacy' },
+    's9-sub': { tr: 'E2EE · AI moderasyon · Engelle/şikayet', en: 'E2EE · AI moderation · Block/report' },
+    's9-l1': { tr: '<strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca senin ve karşı tarafın cihazlarında çözülür. Her kullanıcının cihazda özel bir anahtarı vardır; bu anahtar sunucuya hiç çıkmaz.', en: '<strong>End-to-end encryption:</strong> Your messages are only decrypted on your device and your match\'s device. Each user has a private key stored on their device; this key never leaves the device.' },
+    's9-l2': { tr: '<strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.', en: '<strong>AI photo moderation:</strong> Every uploaded photo is reviewed by AI — fake profiles, nudity, celebrity photos and inappropriate content are filtered out.' },
+    's9-l3': { tr: '<strong>Şikayet ve engelleme:</strong> Her profil kartında, her sohbet ekranında "Şikayet et" ve "Engelle" butonları vardır. Engellediğin kişiyle bir daha karşılaşmazsın.', en: '<strong>Report and block:</strong> Every profile card and every chat screen has "Report" and "Block" buttons. You\'ll never run into someone you\'ve blocked again.' },
+    's9-l4': { tr: '<strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini sorar. Şehir bilgisi yalnız eşleşme için kullanılır.', en: '<strong>Location privacy:</strong> Frejya never asks for your exact location, only your city. Your city is used solely for matching.' },
+    's9-l5': { tr: '<strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).', en: '<strong>Screenshot alert:</strong> You\'re notified if the other side takes a screenshot in your chat (Android).' },
+
+    // 10 — Tiers
+    's10-title': { tr: 'Üyelik katmanları', en: 'Membership tiers' },
+    's10-sub': { tr: 'Normal · Onaylı · Premium', en: 'Normal · Verified · Premium' },
+    's10-p1': { tr: "Frejya üç üyelik katmanına sahiptir. Tüm temel özellikler her üç katmanda da çalışır — Premium yalnız <strong>günlük limitleri açar</strong>.", en: 'Frejya has three membership tiers. All core features work on every tier — Premium only <strong>raises the daily limits</strong>.' },
+    'th-feature': { tr: 'Özellik', en: 'Feature' },
+    'th-normal': { tr: 'Normal', en: 'Normal' },
+    'th-verified': { tr: 'Onaylı*', en: 'Verified*' },
+    'th-premium': { tr: 'Premium', en: 'Premium' },
+    'row-ring': { tr: 'Günlük zil hakkı', en: 'Daily ring quota' },
+    'row-search': { tr: 'Detaylı arama sonucu', en: 'Detailed search results' },
+    'row-follow-total': { tr: 'Takip listesi limiti', en: 'Follow list cap' },
+    'row-follow-daily': { tr: 'Günlük takip ekleme', en: 'Daily follows' },
+    'row-unlimited': { tr: 'Sınırsız', en: 'Unlimited' },
+    'row-aura': { tr: 'Aura paylaşımı (FIFO)', en: 'Aura posts (FIFO)' },
+    's10-footnote': { tr: '*Onaylı: Telefon numarası doğrulanmış kullanıcı (SMS altyapısı yakında aktifleşecek).', en: '*Verified: Users whose phone number has been verified (SMS infrastructure goes live soon).' },
+
+    // 11 — Invite
+    's11-title': { tr: 'Arkadaşını davet et', en: 'Invite a friend' },
+    's11-sub': { tr: 'Her davet 1 ay Premium hediye', en: 'Each invite gives you 1 month of Premium' },
+    's11-p1': { tr: 'Profil ekranında <strong>kişisel davet kodun</strong> görünür. Bu kodu bir arkadaşına gönderirsin:', en: 'Your <strong>personal invite code</strong> is shown on your profile screen. Send it to a friend:' },
+    's11-l1': { tr: 'Arkadaşın kayıt olurken kodunu girer.', en: 'Your friend enters the code when signing up.' },
+    's11-l2': { tr: 'Arkadaşının profil fotoğrafı onaylanınca <strong>sana otomatik olarak +1 ay Premium</strong> eklenir.', en: 'Once their profile photo is approved, you automatically get <strong>+1 month of Premium</strong>.' },
+    's11-l3': { tr: 'Premium sürelerin birikir — 5 arkadaş davet edersen 5 ay Premium kullanırsın.', en: 'Premium durations stack — invite 5 friends and you get 5 months of Premium.' },
+    's11-l4': { tr: 'Çift hesap istismarını engellemek için aynı cihazdan davet edilen hesaplar ödüllendirilmez.', en: 'To prevent abuse, invites coming from the same device as the inviter are not rewarded.' },
+
+    // 12 — Delete
+    's12-title': { tr: 'Hesabı silme veya askıya alma', en: 'Delete or suspend your account' },
+    's12-sub': { tr: '60 gün geri dönüş süresi · Kalıcı silme', en: '60-day grace period · Permanent deletion' },
+    's12-p1': { tr: 'Profil ekranındaki <strong>"Hesabımı Sil"</strong> butonuyla hesabını istediğin an silebilirsin.', en: 'You can delete your account any time with the <strong>"Delete My Account"</strong> button on the profile screen.' },
+    's12-l1': { tr: 'Hesap hemen <strong>askıya alınır</strong>: profil görünmez, eşleşmelerde çıkmazsın, kimse zil çalamaz.', en: 'The account is immediately <strong>suspended</strong>: your profile is hidden, you don\'t appear in matches and no one can ring you.' },
+    's12-l2': { tr: '60 gün içinde tekrar giriş yaparsan hesap <strong>aynen geri gelir</strong> — fikrini değiştirebilirsin.', en: 'If you log back in within 60 days, the account <strong>comes back as it was</strong> — you can change your mind.' },
+    's12-l3': { tr: '60 gün dolarsa hesap <strong>kalıcı olarak silinir</strong>; tüm mesajlar, fotoğraflar, paylaşımlar ve veriler geri dönüşsüz biçimde kaldırılır.', en: 'After 60 days the account is <strong>permanently deleted</strong>; all messages, photos, posts and data are removed irreversibly.' },
+    's12-l4': { tr: 'Doğrudan bekleme olmadan kalıcı silme istersen destek üzerinden talep edebilirsin.', en: 'If you want permanent deletion without the waiting period, you can request it via support.' },
+    's12-p2': { tr: 'Verilerinin kullanımı hakkında detayları', en: 'You can find more about how your data is handled in our' },
+    's12-p3': { tr: 'nda bulabilirsin.', en: '.' },
+    'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
+    'link-eula': { tr: 'Kullanım Şartları', en: 'Terms of Service' },
+
+    'cta-home': { tr: 'Ana sayfaya dön', en: 'Back to home' },
+    'footer-site': { tr: 'Site', en: 'Site' },
+    'footer-legal': { tr: 'Yasal', en: 'Legal' },
+    'footer-contact': { tr: 'İletişim', en: 'Contact' },
+    'footer-copy': { tr: '© 2026 Frejya. Aşkın eşiğinde.', en: '© 2026 Frejya. At the threshold of love.' },
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const dict = I18N[key];
+      if (!dict || !dict[lang]) return;
+      const attr = el.getAttribute('data-i18n-attr');
+      if (attr) el.setAttribute(attr, dict[lang]);
+      else el.innerHTML = dict[lang];
+    });
+    // EULA + Privacy linklerini dile göre değiştir
+    const privTr = 'https://mujdattelli.github.io/frejya-legal/privacy.tr.html';
+    const privEn = 'https://mujdattelli.github.io/frejya-legal/privacy.en.html';
+    const eulaTr = 'https://mujdattelli.github.io/frejya-legal/eula.tr.html';
+    const eulaEn = 'https://mujdattelli.github.io/frejya-legal/eula.en.html';
+    document.querySelectorAll('a[id="link-privacy"], a[id="link-privacy-footer"]').forEach(a => a.href = lang === 'en' ? privEn : privTr);
+    const eula = document.getElementById('link-eula');
+    if (eula) eula.href = lang === 'en' ? eulaEn : eulaTr;
+    document.getElementById('lang-toggle').textContent = lang === 'tr' ? 'EN' : 'TR';
+    localStorage.setItem('frejya-lang', lang);
+  }
+
+  const initial = localStorage.getItem('frejya-lang') || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'tr');
+  applyLang(initial);
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    const next = (localStorage.getItem('frejya-lang') || initial) === 'tr' ? 'en' : 'tr';
+    applyLang(next);
+  });
+</script>
 
 </body>
 </html>

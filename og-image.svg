@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Frejya — Open Graph image (1200 × 630)
-  Tek anahtar üstte (küçük, geniş boşluk), FREJYA wordmark ortada,
-  tek tagline altta. Hiçbir öğe birbirine değmez.
+  Logo üstte, FREJYA wordmark ile arası fazla, alt tagline ile arası eşit.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
@@ -17,11 +16,11 @@
   <rect width="1200" height="630" fill="url(#bg)" />
 
   <!--
-    ANAHTAR (sade ince logo)
-    viewBox 24×24, scale 3 → 72×72 px görsel
-    translate (564, 130) → x 564..636 (ortalanmış), y 130..202
+    ANAHTAR — viewBox 24×24, scale 3 → 72×72 px görsel.
+    translate (564, 90): logo üst-merkezde, çevresinde bol boşluk.
+    Logo y aralığı: 90 + 4*3 = 102 .. 90 + 21*3 = 153 (yaklaşık 51px yüksek)
   -->
-  <g transform="translate(564, 130) scale(3)" fill="none" stroke="#C0A080"
+  <g transform="translate(564, 90) scale(3)" fill="none" stroke="#C0A080"
      stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter">
     <path d="M5 21 8 10" />
     <path d="M8 12 12 16" />
@@ -34,10 +33,11 @@
 
   <!--
     FREJYA wordmark
-    baseline y=370, font-size 88 → glyph top ~290, glyph bottom ~378
-    Logo bottom 202 ile FREJYA top ~290 arasında 88px boşluk → temiz.
+    baseline y=350 (önce 370'tı, 20px daha aşağı).
+    font-size 88 → glyph üst ~270.
+    Logo alt 153 ile FREJYA glyph top 270 arasında ~117 px boşluk. TEMİZ.
   -->
-  <text x="600" y="370"
+  <text x="600" y="350"
         font-family="'Playfair Display', Georgia, serif"
         font-size="88" font-weight="400" letter-spacing="8"
         fill="#C0A080" text-anchor="middle">
@@ -46,9 +46,10 @@
 
   <!--
     TAGLINE
-    baseline y=490, font-size 32 → ~38px aşağıda; FREJYA bottom (378) ile arada 80px+
+    baseline y=480, font-size 32. Bir sonraki öğe yok, alt 480.
+    FREJYA glyph bottom ~358 ile tagline top ~458 → ~100px boşluk.
   -->
-  <text x="600" y="490"
+  <text x="600" y="480"
         font-family="'Fraunces', Georgia, serif"
         font-size="32" font-weight="500"
         fill="#2D2B2A" text-anchor="middle">
