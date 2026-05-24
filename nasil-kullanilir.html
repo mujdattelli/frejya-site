@@ -151,6 +151,27 @@
   }
   .callout strong { color: var(--gold-dark); }
 
+  /* INLINE SCREENSHOT — bölüm yanına telefon mockup */
+  .screenshot-inline {
+    margin: 24px 0 8px; display: flex; justify-content: center;
+  }
+  .screenshot-inline .phone-mini {
+    width: 100%; max-width: 240px;
+    position: relative; aspect-ratio: 9 / 19.5;
+    background: #1A1A1A; border-radius: 26px;
+    padding: 6px; box-shadow: 0 16px 36px -12px rgba(45,43,42,.22), 0 3px 12px rgba(45,43,42,.06);
+  }
+  .screenshot-inline .phone-mini .screen {
+    width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #F9F8F6;
+  }
+  .screenshot-inline .phone-mini .screen img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  }
+  .screenshot-inline .phone-mini .notch {
+    position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 70px; height: 18px; background: #1A1A1A; border-radius: 0 0 11px 11px; z-index: 2;
+  }
+
   /* CTA */
   .cta-row { text-align: center; padding: 60px 0 30px; }
   .cta-row a {
@@ -223,6 +244,11 @@
         <li data-i18n="s1-l4">Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>'nı görmen gerekir.</li>
       </ul>
       <div class="callout" data-i18n="s1-callout"><strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.</div>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="screenshots/IMG_0050.png" alt="Derinlik testi — kayıt sırasındaki psikolojik soru ekranı" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="profil">
@@ -262,6 +288,11 @@
         <li data-i18n="s4-l4">Profilinde en fazla <strong>50 paylaşım</strong> tutulur (Premium'da 100). Yeni paylaşım eklediğinde en eski silinir.</li>
         <li data-i18n="s4-l5">Aura akışındaki gönderiler son 20 paylaşımının hashtag'leri üzerinden eşleşme algoritmasına da girer — yani ne paylaşırsan, kimle eşleşirsen.</li>
       </ul>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="screenshots/IMG_0079.png" alt="Aura paylaşım detayı — hiyeroglif ikonlarla sembolik post" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="kesfet">
@@ -277,6 +308,11 @@
         <li data-i18n="s5-l5">Aktiflik (son ne zaman uygulamayı açtı)</li>
       </ul>
       <p data-i18n="s5-p3">Sonuçlarda her aday bir profil kartı olarak görünür. Üzerine basıp profilini incelersin; rakam veya yüzde gösterilmez — Frejya bunun yerine paylaşılan somut özellikleri öne çıkarır.</p>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="screenshots/IMG_0055.png" alt="Detaylı arama formu — Türkiye, İstanbul, yaş, eğitim, meslek filtreleri" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="zil">
@@ -290,6 +326,11 @@
         <li data-i18n="s6-l4">Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).</li>
       </ul>
       <div class="callout" data-i18n="s6-callout"><strong>Tek sohbet kuralı:</strong> Frejya'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.</div>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="screenshots/IMG_0066.png" alt="Sohbetler Kapı sekmesi — gelen zil Onay / Red / Sil" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="sohbet">
@@ -302,6 +343,11 @@
         <li data-i18n="s7-l3">Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.</li>
         <li data-i18n="s7-l4">İstemediğin zaman <strong>"Kapıyı Kapat"</strong> diyerek sohbeti sonlandırırsın. Sohbet biter, geçmiş silinir; yeni biriyle başlayabilirsin.</li>
       </ul>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="screenshots/IMG_0068.png" alt="Sohbet ekranı — altın mesaj balonu, kazıma göz ikonu ve mikrofon" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="ses">
