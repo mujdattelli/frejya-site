@@ -881,10 +881,11 @@
     return nav.startsWith('tr') ? 'tr' : 'en';
   }
 
-  // Bekleme listesi — e-posta Supabase'e anon-çağrılabilir RPC ile yazılır
-  // (rpc_join_waitlist). Yayın anahtarı zaten herkese açık (anon key).
+  // Bekleme listesi — e-posta doğrudan Supabase'deki "waitlist_emails"
+  // tablosuna yazılır. Yayın anahtarı zaten herkese açık (anon key).
   const WL_URL = 'https://fgbnngtsecmxrqjoplmh.supabase.co';
   const WL_KEY = 'sb_publishable_qHSMPVngoGSBYzOzXUgRsQ_tlBtnt_F';
+  const WL_TABLE = 'waitlist_emails';
   const WL_EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
   function initWaitlist() {
@@ -906,8 +907,19 @@
         return;
       }
       btn.disabled = true;
-      // RPC çağrısı yardımcı — isimle dener; Supabase fonksiyonu henüz ismi
-      // kabul etmiyorsa (eski imza) isimsiz tekrar dener, böylece form bozulmaz.
+      // Kaydı doğrudan "waitlist_emails" tablosuna ekler.
+      const insertRow = () => fetch(WL_URL + '/rest/v1/' + WL_TABLE, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': WL_KEY,
+          'Authorization': 'Bearer ' + WL_KEY,
+          // Çakışmaları (tekrar e-posta) sessizce yok say, hata fırlatma.
+          'Prefer': 'return=minimal,resolution=ignore-duplicates',
+        },
+        body: JSON.stringify({ email: email, name: name || null, lang: lang }),
+      });
+      // Yedek: tabloya doğrudan yazma kapalıysa eski RPC ile dener.
       const callRpc = (body) => fetch(WL_URL + '/rest/v1/rpc/rpc_join_waitlist', {
         method: 'POST',
         headers: {
@@ -918,10 +930,14 @@
         body: JSON.stringify(body),
       });
       try {
-        let res = await callRpc({ p_email: email, p_lang: lang, p_name: name || null });
-        if (res.status === 404) {
-          // Fonksiyon p_name'i bilmiyor → eski imzayla tekrar dene.
-          res = await callRpc({ p_email: email, p_lang: lang });
+        let res = await insertRow();
+        if (!res.ok) {
+          // Tabloya doğrudan yazılamadıysa RPC'ye düş.
+          res = await callRpc({ p_email: email, p_lang: lang, p_name: name || null });
+          if (res.status === 404) {
+            // Fonksiyon p_name'i bilmiyor → eski imzayla tekrar dene.
+            res = await callRpc({ p_email: email, p_lang: lang });
+          }
         }
         if (!res.ok) throw new Error('http ' + res.status);
         msg.textContent = I18N['wl-success'][lang];
