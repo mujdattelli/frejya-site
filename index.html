@@ -198,6 +198,11 @@
 
   /* WAITLIST — bekleme listesi e-posta yakalama */
   .wl-title { margin-top: 34px; font-size: 14px; color: #6b665f; font-weight: 500; }
+  .wl-gift {
+    margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--gold-dark);
+    background: #FBF4E9; border: 1px solid #EFE2CC; border-radius: 40px;
+    display: inline-block; padding: 6px 16px;
+  }
   .waitlist { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
   .waitlist input {
     font-family: inherit; font-size: 14px; padding: 12px 18px; border-radius: 40px;
@@ -365,7 +370,10 @@
       <span class="badge soon"><span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span></span>
     </div>
     <p class="wl-title" data-i18n="wl-title">Lansmanda ilk sen haberdar ol.</p>
+    <p class="wl-gift" data-i18n="wl-gift">🎁 İlk 1000 kişiye 3 ay premium hediye.</p>
     <form class="waitlist" id="waitlist-form" novalidate>
+      <input type="text" id="wl-name" autocomplete="name" maxlength="60"
+        data-i18n-attr="placeholder" data-i18n="wl-name-ph" placeholder="Adın" />
       <input type="email" id="wl-email" required autocomplete="email"
         data-i18n-attr="placeholder" data-i18n="wl-placeholder" placeholder="E-posta adresin" />
       <button type="submit" id="wl-btn" data-i18n="wl-btn">Haber ver</button>
@@ -653,6 +661,8 @@
     },
     'soon': { tr: 'Yakında', en: 'Coming soon' },
     'wl-title': { tr: 'Lansmanda ilk sen haberdar ol.', en: 'Be the first to know at launch.' },
+    'wl-gift': { tr: '🎁 İlk 1000 kişiye 3 ay premium hediye.', en: '🎁 First 1,000 people get 3 months of premium — free.' },
+    'wl-name-ph': { tr: 'Adın', en: 'Your name' },
     'wl-placeholder': { tr: 'E-posta adresin', en: 'Your email address' },
     'wl-btn': { tr: 'Haber ver', en: 'Notify me' },
     'wl-success': { tr: 'Teşekkürler! Lansmanda sana haber vereceğiz.', en: "Thanks! We'll let you know at launch." },
@@ -884,9 +894,11 @@
       e.preventDefault();
       const lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
       const emailEl = document.getElementById('wl-email');
+      const nameEl = document.getElementById('wl-name');
       const btn = document.getElementById('wl-btn');
       const msg = document.getElementById('wl-msg');
       const email = (emailEl.value || '').trim();
+      const name = (nameEl && nameEl.value || '').trim();
       msg.className = 'wl-msg';
       if (!WL_EMAIL_RE.test(email)) {
         msg.textContent = I18N['wl-invalid'][lang];
@@ -894,16 +906,23 @@
         return;
       }
       btn.disabled = true;
+      // RPC çağrısı yardımcı — isimle dener; Supabase fonksiyonu henüz ismi
+      // kabul etmiyorsa (eski imza) isimsiz tekrar dener, böylece form bozulmaz.
+      const callRpc = (body) => fetch(WL_URL + '/rest/v1/rpc/rpc_join_waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': WL_KEY,
+          'Authorization': 'Bearer ' + WL_KEY,
+        },
+        body: JSON.stringify(body),
+      });
       try {
-        const res = await fetch(WL_URL + '/rest/v1/rpc/rpc_join_waitlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': WL_KEY,
-            'Authorization': 'Bearer ' + WL_KEY,
-          },
-          body: JSON.stringify({ p_email: email, p_lang: lang }),
-        });
+        let res = await callRpc({ p_email: email, p_lang: lang, p_name: name || null });
+        if (res.status === 404) {
+          // Fonksiyon p_name'i bilmiyor → eski imzayla tekrar dene.
+          res = await callRpc({ p_email: email, p_lang: lang });
+        }
         if (!res.ok) throw new Error('http ' + res.status);
         msg.textContent = I18N['wl-success'][lang];
         msg.classList.add('ok');
