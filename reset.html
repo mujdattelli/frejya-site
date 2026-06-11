@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Frejya — Şifre Sıfırlama / Reset Password</title>
+  <link rel="icon" href="favicon.svg" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(160deg, #FFFFFF, #FCFBF8 55%, #FFF9E6);
+      color: #1A1A1A; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 24px;
+    }
+    .card {
+      background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(192,160,128,0.12); width: 100%; max-width: 420px;
+      padding: 32px 28px;
+    }
+    h1 { font-size: 22px; color: #1A1A1A; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #8A7A60; margin-bottom: 22px; line-height: 1.5; }
+    label { display: block; font-size: 12px; color: #8A7A60; margin: 14px 0 6px; }
+    input[type=password] {
+      width: 100%; padding: 13px 14px; border: 1px solid #E8E6E1; border-radius: 14px;
+      font-size: 15px; background: #FAFAFA; outline: none; font-family: inherit;
+    }
+    input:focus { border-color: #C0A080; }
+    button {
+      width: 100%; margin-top: 22px; padding: 14px; border: none; border-radius: 999px;
+      background: #C0A080; color: #fff; font-size: 15px; font-weight: bold;
+      font-family: inherit; cursor: pointer; letter-spacing: .5px;
+    }
+    button:disabled { opacity: .5; cursor: default; }
+    .msg { margin-top: 16px; font-size: 13px; line-height: 1.5; text-align: center; }
+    .msg.err { color: #C0392B; }
+    .msg.ok { color: #1E8449; }
+    .en { color: #A39A8C; font-size: 11px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Yeni Şifre Belirle</h1>
+    <p class="sub">
+      Hesabın için yeni bir şifre gir.
+      <span class="en">Enter a new password for your account.</span>
+    </p>
+
+    <div id="form-area">
+      <label for="pw">Yeni şifre <span class="en">/ New password</span></label>
+      <input id="pw" type="password" autocomplete="new-password" placeholder="En az 8 karakter" />
+      <label for="pw2">Yeni şifre (tekrar) <span class="en">/ Confirm</span></label>
+      <input id="pw2" type="password" autocomplete="new-password" placeholder="Şifreyi tekrar gir" />
+      <button id="submit" disabled>Şifreyi Güncelle / Update</button>
+      <div id="msg" class="msg"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    var SUPABASE_URL = 'https://fgbnngtsecmxrqjoplmh.supabase.co';
+    var SUPABASE_ANON = 'sb_publishable_qHSMPVngoGSBYzOzXUgRsQ_tlBtnt_F';
+    var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
+      auth: { detectSessionInUrl: true, flowType: 'implicit', persistSession: false }
+    });
+
+    var pw = document.getElementById('pw');
+    var pw2 = document.getElementById('pw2');
+    var btn = document.getElementById('submit');
+    var msg = document.getElementById('msg');
+    var formArea = document.getElementById('form-area');
+    var ready = false;
+
+    function setMsg(text, cls) { msg.textContent = text; msg.className = 'msg ' + (cls || ''); }
+    function refresh() { btn.disabled = !(ready && pw.value.length >= 8 && pw.value === pw2.value); }
+    pw.addEventListener('input', refresh);
+    pw2.addEventListener('input', refresh);
+
+    client.auth.onAuthStateChange(function (event, session) {
+      if (event === 'PASSWORD_RECOVERY' || (session && session.user)) {
+        ready = true; refresh();
+      }
+    });
+
+    setTimeout(function () {
+      client.auth.getSession().then(function (res) {
+        if (res.data && res.data.session) { ready = true; refresh(); }
+        else if (!ready) {
+          setMsg('Bağlantı geçersiz veya süresi dolmuş. Lütfen uygulamadan tekrar şifre sıfırlama iste. / Link invalid or expired — request a new reset from the app.', 'err');
+        }
+      });
+    }, 1200);
+
+    btn.addEventListener('click', function () {
+      if (pw.value.length < 8) { setMsg('Şifre en az 8 karakter olmalı. / Min 8 characters.', 'err'); return; }
+      if (pw.value !== pw2.value) { setMsg('Şifreler eşleşmiyor. / Passwords do not match.', 'err'); return; }
+      btn.disabled = true; setMsg('Güncelleniyor... / Updating...', '');
+      client.auth.updateUser({ password: pw.value }).then(function (res) {
+        if (res.error) {
+          btn.disabled = false;
+          setMsg('Hata: ' + res.error.message, 'err');
+          return;
+        }
+        formArea.innerHTML = '<div class="msg ok">Şifren güncellendi! Uygulamaya dönüp yeni şifrenle giriş yapabilirsin.<br><span class="en">Your password has been updated. Return to the app and sign in.</span></div>';
+      });
+    });
+  </script>
+</body>
+</html>
