@@ -6,7 +6,7 @@
 <title data-i18n="title">Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Frejya nasıl çalışır? Kayıt, profil, anonim sohbet, fotoğraf kazıma, zil çalma, Aura akışı ve güvenlik — Frejya'nın tüm özelliklerini adım adım öğren." />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
 <!-- Google Search Console doğrulaması (aynı kodu buraya da koy). -->
 <!-- <meta name="google-site-verification" content="BURAYA_SEARCH_CONSOLE_KODU" /> -->
@@ -30,7 +30,14 @@
 <meta name="twitter:description" content="Kayıt olmadan sohbete kadar Frejya'nın her adımı: anonim avatar, hiyeroglif paylaşımlar, zil çalma, kazıyarak fotoğraf açma ve güvenlik." />
 <meta name="twitter:image" content="https://frejya.app/og-image.png" />
 <link rel="canonical" href="https://frejya.app/nasil-kullanilir.html" />
-<meta name="theme-color" content="#2D2B2A" />
+<link rel="alternate" hreflang="tr" href="https://frejya.app/nasil-kullanilir.html" />
+<link rel="alternate" hreflang="en" href="https://frejya.app/nasil-kullanilir.html" />
+<link rel="alternate" hreflang="x-default" href="https://frejya.app/nasil-kullanilir.html" />
+<meta name="author" content="Frejya" />
+<meta name="application-name" content="Frejya" />
+<meta name="apple-mobile-web-app-title" content="Frejya" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="theme-color" content="#100F0E" />
 
 <!-- SEO: yapısal veri — makale + ekmek kırıntısı (arama sonucunda yol gösterir). -->
 <script type="application/ld+json">
@@ -43,8 +50,10 @@
       "headline": "Frejya Nasıl Kullanılır? — Adım Adım Kullanım Kılavuzu",
       "description": "Kayıt olmadan sohbete kadar Frejya'nın her adımı: anonim avatar, hiyeroglif paylaşımlar, zil çalma, kazıyarak fotoğraf açma ve güvenlik.",
       "inLanguage": "tr",
+      "dateModified": "2026-06-12",
       "image": "https://frejya.app/og-image.png",
       "mainEntityOfPage": "https://frejya.app/nasil-kullanilir.html",
+      "isPartOf": { "@id": "https://frejya.app/#website" },
       "author": { "@type": "Organization", "name": "Frejya", "url": "https://frejya.app/" },
       "publisher": {
         "@type": "Organization",
@@ -66,175 +75,177 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --gold: #C0A080;
-    --gold-dark: #A78A6E;
-    --ink: #2D2B2A;
-    --cream: #F9F8F6;
-    --soft: #EFEbE4;
+    --gold-soft: #CBB18E;
+    --gold-bright: #D9BC7A;
+    --gold-dark: #9A7E5C;
+    --ink: #1A1715;
+    --ink-deep: #131110;
+    --night: #0E0D0C;
+    --cream: #FBFAF8;
+    --cream-warm: #FBF4E6;
+    --paper: #FFFFFF;
+    --line: #E7E0D5;
+    --muted: #6B655C;
+    --on-dark: #E9E2D6;
+    --on-dark-mut: #968C7F;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--ink);
-    background: var(--cream);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    color: var(--ink); background: var(--cream); line-height: 1.7;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.25; font-optical-sizing: auto; letter-spacing: -0.01em; color: var(--ink); }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.18; font-optical-sizing: auto; letter-spacing: -0.015em; color: var(--ink); }
   a { color: var(--gold-dark); text-decoration: none; }
   a:hover { text-decoration: underline; }
+  svg { display: block; }
+  ::selection { background: rgba(192,160,128,.28); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
-  /* TOP NAV + LANG TOGGLE — index.html ile aynı stil */
+  /* reveal — transform-only, opacity HEP 1 (icerik asla gizli kalmaz) */
+  html.js .guide-block, html.js .toc { transform: translateY(18px); transition: transform .7s cubic-bezier(.21,.6,.35,1); }
+  html.js .guide-block.in, html.js .toc.in { transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .guide-block, html.js .toc { transform: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* TOP CHROME — index.html ile ayni dark-glass */
   .top-nav {
-    position: fixed; top: 18px; left: 22px;
-    display: flex; gap: 4px; align-items: center;
-    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
-    border: 1px solid var(--soft); border-radius: 999px;
-    padding: 4px 6px; z-index: 100;
-    transition: background .15s ease;
+    position: fixed; top: 20px; left: 22px; z-index: 100;
+    display: flex; gap: 2px; align-items: center;
+    background: rgba(14,13,12,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(192,160,128,.35); border-radius: 999px; padding: 4px 5px;
   }
-  .top-nav:hover { background: #fff; }
   .top-nav a {
-    padding: 4px 12px; border-radius: 999px;
-    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-    color: var(--ink); text-decoration: none;
-    text-transform: uppercase;
-    transition: background .15s ease, color .15s ease;
+    padding: 5px 13px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    color: var(--on-dark); text-transform: uppercase; transition: background .25s ease, color .25s ease;
   }
-  .top-nav a.active { background: var(--gold); color: #fff; }
-  .top-nav a:not(.active):hover { color: var(--gold-dark); }
+  .top-nav a.active { background: var(--gold); color: var(--ink); }
+  .top-nav a:not(.active):hover { color: #fff; text-decoration: none; }
   .lang-toggle {
-    position: fixed; top: 18px; right: 22px;
-    background: rgba(255,255,255,.88); backdrop-filter: blur(8px);
-    border: 1px solid var(--soft); color: var(--ink);
-    padding: 6px 14px; border-radius: 999px;
-    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-    cursor: pointer; z-index: 100; font-family: inherit;
-    transition: background .15s ease;
+    position: fixed; top: 20px; right: 22px; z-index: 100;
+    background: rgba(14,13,12,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(192,160,128,.35); color: var(--on-dark);
+    padding: 7px 15px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    cursor: pointer; font-family: inherit; transition: border-color .25s ease, color .25s ease;
   }
-  .lang-toggle:hover { background: #fff; }
+  .lang-toggle:hover { border-color: var(--gold); color: #fff; }
 
-  /* HERO */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO — esik (dark cinematic), index ile ayni ton */
   header.page-hero {
-    background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF8 55%, #FFF6E4 100%);
-    padding: 80px 0 70px;
-    text-align: center;
+    position: relative; overflow: hidden; text-align: center;
+    padding: 128px 0 84px;
+    background:
+      radial-gradient(78% 60% at 50% 30%, rgba(192,160,128,.15) 0%, rgba(14,13,12,0) 62%),
+      linear-gradient(180deg, #0E0D0C 0%, #15120D 60%, #1C1812 100%);
   }
-  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 26px; font-weight: 400; color: var(--gold); letter-spacing: 2px; display: inline-flex; align-items: center; gap: 10px; }
-  .brand a { color: inherit; }
+  header.page-hero::before {
+    content: ""; position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 1px; height: 56%;
+    background: linear-gradient(180deg, transparent, rgba(217,188,122,.4), transparent); pointer-events: none;
+  }
+  header.page-hero .wrap { position: relative; z-index: 1; }
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 400; color: var(--gold); letter-spacing: .4em; display: inline-flex; align-items: center; gap: 11px; text-transform: uppercase; }
+  .brand a { color: inherit; display: inline-flex; align-items: center; }
   .brand a:hover { text-decoration: none; }
-  .page-hero h1 { font-size: clamp(32px, 6vw, 52px); margin: 28px 0 14px; }
-  .page-hero p.lead { font-size: clamp(15px, 2.2vw, 18px); color: #6b665f; max-width: 620px; margin: 0 auto; }
+  .page-hero h1 { font-size: clamp(34px, 6.5vw, 60px); font-weight: 300; color: #FCFAF6; margin: 28px 0 16px; letter-spacing: -0.025em; }
+  .page-hero p.lead { font-size: clamp(15.5px, 2.2vw, 18.5px); color: var(--on-dark-mut); max-width: 600px; margin: 0 auto; line-height: 1.7; }
 
-  /* TOC */
+  /* TOC — dark hero icinde translucent kart */
   .toc {
-    background: #fff; border: 1px solid var(--soft); border-radius: 18px;
-    padding: 26px 30px; margin: 48px auto 0;
+    background: rgba(255,255,255,.045); border: 1px solid rgba(192,160,128,.26); border-radius: 18px;
+    padding: 26px 30px; margin: 50px auto 0; max-width: 720px; text-align: left;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   }
-  .toc h2 { font-size: 18px; color: var(--ink); margin-bottom: 14px; }
-  .toc ol { list-style: none; counter-reset: tocnum; columns: 2; column-gap: 36px; }
-  .toc ol li { counter-increment: tocnum; margin-bottom: 8px; font-size: 14.5px; position: relative; padding-left: 28px; break-inside: avoid; }
+  .toc h2 { font-size: 11px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 18px; }
+  .toc ol { list-style: none; counter-reset: tocnum; columns: 2; column-gap: 40px; }
+  .toc ol li { counter-increment: tocnum; margin-bottom: 11px; font-size: 14.5px; position: relative; padding-left: 30px; break-inside: avoid; }
   .toc ol li::before {
-    content: counter(tocnum, decimal-leading-zero);
-    position: absolute; left: 0; top: 0;
-    font-family: 'Fraunces', serif; font-weight: 600;
-    color: var(--gold-dark); font-size: 13px;
+    content: counter(tocnum, decimal-leading-zero); position: absolute; left: 0; top: 1px;
+    font-family: 'Fraunces', serif; font-weight: 500; color: var(--gold); font-size: 12.5px;
   }
+  .toc ol li a { color: var(--on-dark); }
+  .toc ol li a:hover { color: var(--gold-bright); text-decoration: none; }
   @media (max-width: 640px) { .toc ol { columns: 1; } }
 
-  /* MAIN */
-  main { padding: 60px 0 30px; }
+  /* MAIN — sicak krem "yuva", okunur */
+  main { padding: clamp(64px, 9vh, 100px) 0 40px; }
   section.guide-block {
-    background: #fff; border: 1px solid var(--soft); border-radius: 20px;
-    padding: 36px 38px; margin-bottom: 24px;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+    padding: clamp(30px, 4vw, 42px); margin-bottom: 22px;
+    box-shadow: 0 18px 44px -30px rgba(60,45,25,.4);
   }
   section.guide-block h2 {
-    font-size: clamp(22px, 3.4vw, 28px);
-    display: flex; align-items: baseline; gap: 14px;
-    margin-bottom: 6px;
+    font-size: clamp(23px, 3.4vw, 30px); font-weight: 400; display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px; letter-spacing: -0.02em;
   }
-  section.guide-block h2 .step-num {
-    font-family: 'Fraunces', serif; font-weight: 700;
-    color: var(--gold); font-size: 0.85em;
-  }
+  section.guide-block h2 .step-num { font-family: 'Fraunces', serif; font-weight: 300; color: var(--gold); font-size: 0.95em; }
   section.guide-block .sub {
-    color: var(--gold-dark); font-size: 12.5px; font-weight: 600;
-    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;
-    display: block;
+    color: var(--gold-dark); font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; margin-bottom: 20px; display: block;
   }
-  section.guide-block p { color: #4a4540; margin-bottom: 14px; font-size: 15.5px; }
+  section.guide-block p { color: #44403A; margin-bottom: 15px; font-size: 15.5px; }
   section.guide-block p:last-child { margin-bottom: 0; }
-  section.guide-block ul { padding-left: 22px; margin-bottom: 14px; }
-  section.guide-block ul li { margin-bottom: 8px; color: #4a4540; font-size: 15px; }
+  section.guide-block ul { padding-left: 0; margin-bottom: 15px; list-style: none; }
+  section.guide-block ul li { margin-bottom: 11px; color: #44403A; font-size: 15px; position: relative; padding-left: 22px; }
+  section.guide-block ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
   section.guide-block strong { color: var(--ink); font-weight: 600; }
+  section.guide-block em { color: var(--gold-dark); font-style: italic; }
 
   .tier-table {
-    width: 100%; border-collapse: collapse; margin: 18px 0;
-    background: var(--cream); border-radius: 14px; overflow: hidden;
-    font-size: 14.5px;
+    width: 100%; border-collapse: collapse; margin: 20px 0;
+    background: var(--cream); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 14.5px;
   }
-  .tier-table th, .tier-table td {
-    padding: 12px 14px; text-align: left;
-    border-bottom: 1px solid var(--soft);
-  }
+  .tier-table th, .tier-table td { padding: 13px 15px; text-align: left; border-bottom: 1px solid var(--line); }
   .tier-table th {
-    background: #fff; font-family: 'Fraunces', serif; font-weight: 600;
-    color: var(--gold-dark); font-size: 13px;
-    text-transform: uppercase; letter-spacing: 1.5px;
+    background: var(--cream-warm); font-family: 'Fraunces', serif; font-weight: 500; color: var(--gold-dark);
+    font-size: 11px; text-transform: uppercase; letter-spacing: .14em;
   }
   .tier-table td:first-child { font-weight: 500; color: var(--ink); }
   .tier-table tr:last-child td { border-bottom: none; }
 
   .callout {
-    background: #FBF3E6; border-left: 3px solid var(--gold);
-    padding: 16px 20px; border-radius: 8px; margin: 16px 0;
-    font-size: 14.5px; color: #5a4a35;
+    background: var(--cream-warm); border-left: 2px solid var(--gold); padding: 17px 22px; border-radius: 0 10px 10px 0;
+    margin: 18px 0; font-size: 14.5px; color: #5a4a35;
   }
   .callout strong { color: var(--gold-dark); }
 
-  /* INLINE SCREENSHOT — bölüm yanına telefon mockup */
-  .screenshot-inline {
-    margin: 24px 0 8px; display: flex; justify-content: center;
-  }
+  /* INLINE SCREENSHOT — index telefon stiliyle uyumlu */
+  .screenshot-inline { margin: 26px 0 8px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .screenshot-inline .phone-mini {
-    width: 100%; max-width: 240px;
-    position: relative; aspect-ratio: 9 / 19.5;
-    background: #1A1A1A; border-radius: 26px;
-    padding: 6px; box-shadow: 0 16px 36px -12px rgba(45,43,42,.22), 0 3px 12px rgba(45,43,42,.06);
+    width: 100%; max-width: 240px; position: relative; aspect-ratio: 9 / 19.5;
+    background: #18120C; border-radius: 28px; padding: 7px;
+    box-shadow: 0 22px 48px -16px rgba(60,45,25,.4), 0 3px 12px rgba(60,45,25,.1);
   }
-  .screenshot-inline .phone-mini .screen {
-    width: 100%; height: 100%; border-radius: 20px; overflow: hidden; background: #F9F8F6;
-  }
-  .screenshot-inline .phone-mini .screen img {
-    width: 100%; height: 100%; object-fit: cover; object-position: top center;
-  }
+  .screenshot-inline .phone-mini .screen { width: 100%; height: 100%; border-radius: 22px; overflow: hidden; background: #F9F8F6; }
+  .screenshot-inline .phone-mini .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
   .screenshot-inline .phone-mini .notch {
-    position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
-    width: 70px; height: 18px; background: #1A1A1A; border-radius: 0 0 11px 11px; z-index: 2;
+    position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 70px; height: 18px;
+    background: #18120C; border-radius: 0 0 11px 11px; z-index: 2;
   }
 
   /* CTA */
-  .cta-row { text-align: center; padding: 60px 0 30px; }
+  .cta-row { text-align: center; padding: clamp(56px, 8vh, 76px) 0 30px; }
   .cta-row a {
-    display: inline-block; background: var(--ink); color: #fff;
-    padding: 14px 32px; border-radius: 40px; font-weight: 500;
-    text-decoration: none; font-size: 15px;
+    display: inline-block; background: var(--ink); color: #fff; padding: 15px 34px; border-radius: 999px;
+    font-weight: 600; font-size: 15px; letter-spacing: .01em; transition: background .25s ease, transform .25s ease;
   }
-  .cta-row a:hover { background: var(--gold-dark); text-decoration: none; }
+  .cta-row a:hover { background: var(--gold-dark); text-decoration: none; transform: translateY(-2px); }
 
-  /* FOOTER */
-  footer { background: var(--ink); color: #cfc9c0; padding: 50px 0 38px; font-size: 13.5px; margin-top: 40px; }
-  footer .wrap { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; max-width: 1080px; }
-  footer .brand { color: var(--gold); font-size: 22px; }
-  footer a { color: #cfc9c0; opacity: .85; }
+  /* FOOTER — index ile ayni dark */
+  footer { background: var(--night); color: #b4ada2; padding: clamp(56px,8vh,72px) 0 42px; font-size: 13.5px; margin-top: 30px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; max-width: 1080px; }
+  footer .brand { color: var(--gold); font-size: 14px; }
+  footer a { color: #b4ada2; opacity: .85; transition: opacity .25s ease, color .25s ease; }
   footer a:hover { opacity: 1; color: #fff; }
-  .flinks { display: flex; flex-direction: column; gap: 9px; }
-  .fcopy { width: 100%; border-top: 1px solid rgba(255,255,255,.08); margin-top: 30px; padding-top: 22px; font-size: 12px; opacity: .55; }
+  .flinks { display: flex; flex-direction: column; gap: 11px; }
+  .flinks strong { color: #fff; font-family: 'Fraunces', serif; font-weight: 500; font-size: 14px; }
+  .fcopy { width: 100%; border-top: 1px solid rgba(255,255,255,.07); margin-top: 34px; padding-top: 24px; font-size: 12px; opacity: .5; }
 </style>
 </head>
 <body>
@@ -774,6 +785,7 @@
 
     'cta-home': { tr: 'Ana sayfaya dön', en: 'Back to home' },
     'footer-site': { tr: 'Site', en: 'Site' },
+    'footer-social': { tr: 'Sosyal', en: 'Social' },
     'footer-legal': { tr: 'Yasal', en: 'Legal' },
     'footer-contact': { tr: 'İletişim', en: 'Contact' },
     'footer-copy': { tr: '© 2026 Frejya. Aşkın eşiğinde.', en: '© 2026 Frejya. At the threshold of love.' },
@@ -809,5 +821,21 @@
   });
 </script>
 
+<script>
+(function(){
+  function initReveal(){
+    var els=Array.prototype.slice.call(document.querySelectorAll(".guide-block, .toc"));
+    var reduce=false; try{reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;}catch(e){}
+    if(reduce || !("IntersectionObserver" in window)) return;
+    document.documentElement.classList.add("js");
+    function reveal(el){el.classList.add("in");}
+    els.forEach(function(el){var r=el.getBoundingClientRect(); if(r.top<(window.innerHeight||800)*0.95) reveal(el);});
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){reveal(en.target);io.unobserve(en.target);}});},{threshold:0.08,rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(el){if(!el.classList.contains("in"))io.observe(el);});
+    setTimeout(function(){els.forEach(reveal);},2500);
+  }
+  if(document.readyState!=="loading") initReveal(); else document.addEventListener("DOMContentLoaded", initReveal);
+})();
+</script>
 </body>
 </html>
