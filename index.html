@@ -2,11 +2,23 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title data-i18n="title">Frejya — Derin Bağlar, Doğru Aşklar</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <meta name="description" data-i18n-attr="content" data-i18n="meta-desc" content="Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması." />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="author" content="Frejya" />
+<meta name="application-name" content="Frejya" />
+<meta name="apple-mobile-web-app-title" content="Frejya" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="theme-color" content="#100F0E" />
+
+<link rel="canonical" href="https://frejya.app/" />
+<link rel="alternate" hreflang="tr" href="https://frejya.app/" />
+<link rel="alternate" hreflang="en" href="https://frejya.app/" />
+<link rel="alternate" hreflang="x-default" href="https://frejya.app/" />
 
 <!-- Google Search Console doğrulaması: aşağıdaki satırın yorumunu kaldırıp
      content değerini Search Console'un verdiği kodla değiştir, sonra "Doğrula"ya bas. -->
@@ -33,10 +45,10 @@
 <meta name="twitter:title" content="Frejya — Derin Bağlar, Doğru Aşklar" />
 <meta name="twitter:description" content="Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet." />
 <meta name="twitter:image" content="https://frejya.app/og-image.png" />
-<link rel="canonical" href="https://frejya.app/" />
-<meta name="theme-color" content="#141312" />
+<meta name="twitter:image:alt" content="Frejya — Derin bağlar, doğru aşklar" />
 
-<!-- SEO: yapısal veri (schema.org) — arama motorları siteyi/markayı tanır. -->
+<!-- SEO: yapısal veri (schema.org) — Organization + WebSite + WebPage +
+     MobileApplication + FAQPage. Sahte rating/yorum EKLENMEZ (yanıltıcı olur). -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,7 +58,7 @@
       "@id": "https://frejya.app/#org",
       "name": "Frejya",
       "url": "https://frejya.app/",
-      "logo": "https://frejya.app/favicon.svg",
+      "logo": { "@type": "ImageObject", "url": "https://frejya.app/og-image.png", "width": 1200, "height": 630 },
       "email": "iletisim@frejya.app",
       "description": "Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.",
       "sameAs": [
@@ -62,6 +74,30 @@
       "name": "Frejya",
       "inLanguage": ["tr", "en"],
       "publisher": { "@id": "https://frejya.app/#org" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://frejya.app/#webpage",
+      "url": "https://frejya.app/",
+      "name": "Frejya — Derin Bağlar, Doğru Aşklar",
+      "description": "Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet.",
+      "isPartOf": { "@id": "https://frejya.app/#website" },
+      "about": { "@id": "https://frejya.app/#app" },
+      "inLanguage": "tr",
+      "primaryImageOfPage": "https://frejya.app/og-image.png"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://frejya.app/#app",
+      "name": "Frejya",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "SocialNetworkingApplication",
+      "description": "Anonim başlayan, sohbet ettikçe açılan; derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.",
+      "url": "https://frejya.app/",
+      "image": "https://frejya.app/og-image.png",
+      "inLanguage": ["tr", "en"],
+      "publisher": { "@id": "https://frejya.app/#org" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
     },
     {
       "@type": "FAQPage",
@@ -105,299 +141,305 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --gold: #C0A080;
-    --gold-dark: #A78A6E;
-    --gold-bright: #D4B36D;
-    --ink: #1A1A1A;
-    --ink-deep: #141312;
-    --night: #100F0E;
+    --gold-soft: #CBB18E;
+    --gold-bright: #D9BC7A;
+    --gold-dark: #9A7E5C;
+    --ink: #1A1715;
+    --ink-deep: #131110;
+    --night: #0E0D0C;
     --cream: #FBFAF8;
     --cream-warm: #FBF4E6;
-    --line: #E8E1D6;
-    --muted: #6F6A62;
-    --on-dark: #E8E1D6;
-    --on-dark-mut: #9A9085;
-    --shadow: rgba(0,0,0,.4);
+    --line: #E7E0D5;
+    --muted: #6B655C;
+    --on-dark: #E9E2D6;
+    --on-dark-mut: #968C7F;
+    --space: clamp(88px, 12vh, 150px);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--ink);
-    background: var(--night);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    color: var(--ink); background: var(--night);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
-  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.16; font-optical-sizing: auto; letter-spacing: -0.015em; }
-  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.12; font-optical-sizing: auto; letter-spacing: -0.018em; }
+  a { color: inherit; text-decoration: none; }
   svg { display: block; }
   em { font-style: italic; }
+  ::selection { background: rgba(192,160,128,.28); color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
-  /* reveal-on-scroll — yalniz TRANSFORM ile (opacity hep 1: gecis/IO calismasa
-     bile icerik asla gizli kalmaz; en kotu durumda 22px asagida durur). */
+  .skip {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: var(--gold); color: var(--ink); padding: 10px 18px; border-radius: 0 0 10px 0;
+    font-size: 13px; font-weight: 600;
+  }
+  .skip:focus { left: 0; }
+
+  /* kicker / eyebrow */
+  .kicker {
+    display: inline-flex; align-items: center; gap: 13px;
+    font-size: 11px; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--gold-dark);
+  }
+  .kicker::before { content: ""; width: 30px; height: 1px; background: currentColor; opacity: .65; }
+  .kicker.center { justify-content: center; }
+  .kicker.center::after { content: ""; width: 30px; height: 1px; background: currentColor; opacity: .65; }
+
+  /* reveal — yalniz transform; opacity HEP 1 (gecis/IO calismasa bile bos sayfa yok) */
   .reveal { opacity: 1; }
-  html.js .reveal { transform: translateY(22px); transition: transform .85s cubic-bezier(.22,.61,.36,1); }
+  html.js .reveal { transform: translateY(20px); transition: transform .8s cubic-bezier(.21,.6,.35,1); }
   html.js .reveal.in { transform: none; }
-  html.js .reveal.d1 { transition-delay: .1s; }
-  html.js .reveal.d2 { transition-delay: .2s; }
-  html.js .reveal.d3 { transition-delay: .3s; }
+  html.js .reveal.d1 { transition-delay: .08s; }
+  html.js .reveal.d2 { transition-delay: .16s; }
+  html.js .reveal.d3 { transition-delay: .24s; }
   @media (prefers-reduced-motion: reduce) {
     html.js .reveal { transform: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
   }
 
-  /* eyebrow / küçük etiket */
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 12px;
-    font-size: 11.5px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold);
-  }
-  .eyebrow::before, .eyebrow.center::after {
-    content: ""; width: 28px; height: 1px; background: var(--gold); opacity: .6; display: inline-block;
-  }
-
   /* ===== TOP CHROME ===== */
   .lang-toggle {
-    position: fixed; top: 18px; right: 22px;
-    background: rgba(20,19,18,.6); backdrop-filter: blur(10px);
-    border: 1px solid rgba(192,160,128,.4); color: var(--on-dark);
-    padding: 7px 15px; border-radius: 999px;
-    font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px;
-    cursor: pointer; z-index: 100; font-family: inherit;
-    transition: background .2s ease, border-color .2s ease, color .2s ease;
+    position: fixed; top: 20px; right: 22px; z-index: 100;
+    background: rgba(14,13,12,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(192,160,128,.35); color: var(--on-dark);
+    padding: 7px 15px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    cursor: pointer; font-family: inherit; transition: border-color .25s ease, color .25s ease;
   }
   .lang-toggle:hover { border-color: var(--gold); color: #fff; }
   .top-nav {
-    position: fixed; top: 18px; left: 22px;
+    position: fixed; top: 20px; left: 22px; z-index: 100;
     display: flex; gap: 2px; align-items: center;
-    background: rgba(20,19,18,.6); backdrop-filter: blur(10px);
-    border: 1px solid rgba(192,160,128,.4); border-radius: 999px;
-    padding: 4px 5px; z-index: 100;
+    background: rgba(14,13,12,.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(192,160,128,.35); border-radius: 999px; padding: 4px 5px;
   }
   .top-nav a {
-    padding: 5px 13px; border-radius: 999px;
-    font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px;
-    color: var(--on-dark); text-decoration: none; text-transform: uppercase;
-    transition: background .2s ease, color .2s ease;
+    padding: 5px 13px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    color: var(--on-dark); text-transform: uppercase; transition: background .25s ease, color .25s ease;
   }
   .top-nav a.active { background: var(--gold); color: var(--ink); }
   .top-nav a:not(.active):hover { color: #fff; }
-  /* açık zeminli bölümlerin üstündeyken nav koyu kalsın diye kontrast yeterli */
 
-  /* ===== ACT I — THRESHOLD (hero) ===== */
+  /* ===== ACT I — THRESHOLD ===== */
   .threshold {
     position: relative; min-height: 100svh; min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; overflow: hidden; padding: 120px 24px 60px;
+    text-align: center; overflow: hidden; padding: 132px 24px 96px;
     background:
-      radial-gradient(80% 55% at 50% 38%, rgba(192,160,128,.18) 0%, rgba(20,19,18,0) 60%),
-      linear-gradient(180deg, #100F0E 0%, #16140F 60%, #1B1813 100%);
+      radial-gradient(78% 50% at 50% 42%, rgba(192,160,128,.16) 0%, rgba(14,13,12,0) 62%),
+      linear-gradient(180deg, #0E0D0C 0%, #15120D 58%, #1C1812 100%);
   }
   .th-door {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: min(560px, 92vw); height: auto; color: var(--gold);
-    opacity: .22; pointer-events: none; z-index: 0;
+    position: absolute; left: 50%; bottom: -2%; transform: translateX(-50%);
+    width: min(640px, 96vw); height: 86%; color: var(--gold);
+    opacity: .16; pointer-events: none; z-index: 0;
   }
   .th-seam {
-    position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
-    width: 1px; height: 60%; z-index: 0; pointer-events: none;
-    background: linear-gradient(180deg, transparent, rgba(212,179,109,.55), transparent);
-    animation: seam 5s ease-in-out infinite;
+    position: absolute; top: 6%; left: 50%; transform: translateX(-50%); width: 1px; height: 64%; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(217,188,122,.5), transparent);
+    animation: seam 6s ease-in-out infinite;
   }
-  @keyframes seam { 0%,100% { opacity: .4; } 50% { opacity: .9; } }
-  .th-inner { position: relative; z-index: 2; max-width: 640px; }
-  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; color: var(--gold); letter-spacing: 6px; display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; margin-bottom: 30px; }
-  .brand svg { width: 24px; height: 24px; }
-  .th-title { font-size: clamp(46px, 9vw, 86px); font-weight: 300; color: #fff; letter-spacing: -0.025em; margin: 20px 0 0; }
+  @keyframes seam { 0%,100% { opacity: .35; } 50% { opacity: .85; } }
+  .th-inner { position: relative; z-index: 2; max-width: 660px; }
+  .brand {
+    font-family: 'Playfair Display', Georgia, serif; font-size: 15px; font-weight: 400; color: var(--gold);
+    letter-spacing: .42em; display: inline-flex; align-items: center; gap: 13px; text-transform: uppercase; text-indent: .42em;
+  }
+  .brand svg { width: 22px; height: 22px; }
+  .th-kicker { margin: 34px 0 0; justify-content: center; color: var(--gold-soft); }
+  .th-title {
+    font-size: clamp(48px, 9vw, 92px); font-weight: 300; color: #FCFAF6; letter-spacing: -0.03em; line-height: 1.04;
+    margin: 22px 0 0;
+  }
   .th-title em { color: var(--gold-bright); font-weight: 400; }
-  .th-lede { font-size: clamp(15.5px, 2.3vw, 18.5px); color: var(--on-dark-mut); max-width: 500px; margin: 26px auto 0; line-height: 1.75; }
+  .th-lede { font-size: clamp(16px, 2.2vw, 19px); color: var(--on-dark-mut); max-width: 480px; margin: 28px auto 0; line-height: 1.72; }
 
-  .wl-wrap { margin-top: 42px; }
+  .wl-wrap { margin-top: 46px; }
   .wl-gift {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-size: 12.5px; font-weight: 600; letter-spacing: .3px; color: var(--gold-bright);
-    border: 1px solid rgba(212,179,109,.35); border-radius: 999px; padding: 8px 18px;
-    background: rgba(212,179,109,.07);
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .01em; color: var(--gold-bright);
+    border: 1px solid rgba(217,188,122,.32); border-radius: 999px; padding: 8px 18px; background: rgba(217,188,122,.06);
   }
-  .wl-gift svg { width: 16px; height: 16px; color: var(--gold-bright); }
-  .wl-gift-sub { margin-top: 12px; font-size: 13px; color: var(--on-dark-mut); }
+  .wl-gift svg { width: 16px; height: 16px; }
+  .wl-gift-sub { margin-top: 13px; font-size: 13px; color: var(--on-dark-mut); }
   .waitlist {
-    display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; margin: 16px auto 0;
-    background: rgba(255,255,255,.05); border: 1px solid rgba(192,160,128,.32); border-radius: 999px;
-    padding: 7px; max-width: 460px; backdrop-filter: blur(6px);
+    display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 16px auto 0;
+    background: rgba(255,255,255,.045); border: 1px solid rgba(192,160,128,.3); border-radius: 999px;
+    padding: 6px; max-width: 458px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   }
   .waitlist input {
-    font-family: inherit; font-size: 14px; padding: 11px 18px; border-radius: 999px;
-    border: none; background: transparent; color: var(--on-dark); flex: 1 1 140px; min-width: 120px; outline: none;
+    font-family: inherit; font-size: 14px; padding: 12px 18px; border-radius: 999px; border: none;
+    background: transparent; color: var(--on-dark); flex: 1 1 140px; min-width: 120px; outline: none;
   }
-  .waitlist input::placeholder { color: #8f877c; }
+  .waitlist input::placeholder { color: #8c8478; }
   .waitlist button {
-    font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 24px; border-radius: 999px;
-    border: none; background: var(--gold); color: var(--ink); cursor: pointer; transition: background .2s ease;
-    flex: 0 0 auto;
+    font-family: inherit; font-size: 13.5px; font-weight: 600; letter-spacing: .01em; padding: 12px 26px; border-radius: 999px;
+    border: none; background: var(--gold); color: var(--ink); cursor: pointer; transition: background .25s ease; flex: 0 0 auto;
   }
   .waitlist button:hover { background: var(--gold-bright); }
   .waitlist button:disabled { opacity: .5; cursor: default; }
-  .wl-msg { margin-top: 12px; font-size: 13px; min-height: 18px; color: var(--on-dark-mut); }
+  .wl-msg { margin-top: 13px; font-size: 13px; min-height: 18px; color: var(--on-dark-mut); }
   .wl-msg.ok { color: var(--gold-bright); }
-  .wl-msg.err { color: #e08a72; }
+  .wl-msg.err { color: #e0917a; }
 
   .scroll-cue {
-    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2;
-    display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
-    color: var(--on-dark-mut); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none;
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 9px;
+    color: var(--on-dark-mut); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
   }
-  .scroll-cue svg { width: 16px; height: 16px; color: var(--gold); animation: bob 2.2s ease-in-out infinite; }
+  .scroll-cue svg { width: 15px; height: 15px; color: var(--gold); animation: bob 2.4s ease-in-out infinite; }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
-  /* ===== ACT II — MANIFESTO (immersive dark) ===== */
-  .manifesto { position: relative; background: var(--ink-deep); color: var(--on-dark); padding: 130px 24px 140px; overflow: hidden; }
+  /* ===== ACT II — MANIFESTO ===== */
+  .manifesto { position: relative; background: var(--ink-deep); color: var(--on-dark); padding: var(--space) 24px; overflow: hidden; }
   .manifesto::before {
     content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%);
-    background: linear-gradient(180deg, transparent, rgba(192,160,128,.22) 12%, rgba(192,160,128,.22) 88%, transparent);
+    background: linear-gradient(180deg, transparent, rgba(192,160,128,.2) 14%, rgba(192,160,128,.2) 86%, transparent);
   }
-  .m-inner { position: relative; max-width: 640px; margin: 0 auto; text-align: center; }
-  .m-eyebrow { justify-content: center; margin-bottom: 16px; }
-  .m-title { color: #fff; font-size: clamp(28px, 5vw, 44px); font-weight: 300; margin-bottom: 70px; }
-  .stanza { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(18px, 2.7vw, 23px); line-height: 1.95; color: #CFC7B9; margin: 0 auto 46px; max-width: 600px; }
-  .stanza.accent { color: var(--gold-bright); font-weight: 400; font-style: italic; font-size: clamp(20px, 3.2vw, 27px); }
-  .m-close { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: clamp(26px, 4.4vw, 40px); color: var(--gold-bright); margin-top: 30px; }
+  .m-inner { position: relative; max-width: 660px; margin: 0 auto; text-align: center; }
+  .m-kicker { justify-content: center; color: var(--gold); margin-bottom: 18px; }
+  .m-title { color: #fff; font-size: clamp(30px, 5vw, 48px); font-weight: 300; margin-bottom: clamp(54px, 8vh, 84px); }
+  .stanza {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(18px, 2.5vw, 23px); line-height: 1.92;
+    color: #CCC4B6; margin: 0 auto clamp(40px, 5.5vh, 56px); max-width: 600px;
+  }
+  .stanza.accent { color: var(--gold-bright); font-weight: 400; font-style: italic; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.6; }
+  .m-close { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: clamp(26px, 4.4vw, 40px); color: var(--gold-bright); margin-top: clamp(20px, 4vh, 40px); }
 
-  /* ===== ACT III — JOURNEY (kapı nasıl açılır) ===== */
-  .journey { background: linear-gradient(180deg, #1B1813 0%, #2A241C 100%); color: var(--on-dark); padding: 120px 24px; }
-  .sec-head { max-width: 920px; margin: 0 auto 70px; text-align: center; }
-  .sec-head .eyebrow { justify-content: center; }
-  .sec-title { font-size: clamp(30px, 5vw, 46px); font-weight: 300; color: #fff; margin-top: 16px; }
+  /* ===== shared section heads ===== */
+  .sec-head { max-width: 760px; margin: 0 auto clamp(54px, 7vh, 76px); text-align: center; }
+  .sec-head .kicker { justify-content: center; }
+  .sec-title { font-size: clamp(30px, 4.6vw, 50px); font-weight: 300; margin-top: 18px; letter-spacing: -0.02em; }
+
+  /* ===== ACT III — JOURNEY ===== */
+  .journey { background: linear-gradient(180deg, #1C1812 0%, #2B241A 100%); color: var(--on-dark); padding: var(--space) 24px; }
+  .journey .sec-head .kicker { color: var(--gold-soft); }
   .journey .sec-title { color: #fff; }
-  .steps { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+  .steps { max-width: 740px; margin: 0 auto; }
   .step {
-    display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start;
-    padding: 38px 0; border-top: 1px solid rgba(192,160,128,.16);
+    display: grid; grid-template-columns: minmax(72px, auto) 1fr; gap: clamp(24px, 5vw, 48px); align-items: baseline;
+    padding: clamp(34px, 5vh, 46px) 0; border-top: 1px solid rgba(192,160,128,.14);
   }
-  .step:last-child { border-bottom: 1px solid rgba(192,160,128,.16); }
-  .step .num { font-family: 'Fraunces', serif; font-size: clamp(44px, 8vw, 72px); font-weight: 300; color: rgba(212,179,109,.55); line-height: .9; }
-  .step h3 { font-size: clamp(21px, 3vw, 26px); font-weight: 400; color: #fff; margin-bottom: 10px; }
-  .step p { font-size: 15.5px; color: var(--on-dark-mut); max-width: 460px; line-height: 1.7; }
-  .step .step-ic { width: 26px; height: 26px; color: var(--gold); margin-bottom: 14px; }
+  .step:last-child { border-bottom: 1px solid rgba(192,160,128,.14); }
+  .step .num { font-family: 'Fraunces', serif; font-size: clamp(40px, 7vw, 64px); font-weight: 300; color: rgba(217,188,122,.5); line-height: .85; }
+  .step .step-ic { width: 24px; height: 24px; color: var(--gold); margin-bottom: 15px; }
+  .step h3 { font-size: clamp(20px, 2.8vw, 25px); font-weight: 400; color: #fff; margin-bottom: 11px; letter-spacing: -0.01em; }
+  .step p { font-size: 15.5px; color: var(--on-dark-mut); max-width: 440px; line-height: 1.72; }
 
-  /* ===== ACT IV — INSIDE (özellikler, ısınan ton) ===== */
-  .inside { background: linear-gradient(180deg, #2A241C 0%, #6B5B45 42%, #B79B72 78%, var(--cream-warm) 100%); padding: 130px 24px 110px; color: var(--ink); }
-  .inside .sec-head .eyebrow { color: var(--gold-bright); }
-  .inside .sec-head .eyebrow::before, .inside .sec-head .eyebrow.center::after { background: var(--gold-bright); }
+  /* ===== ACT IV — INSIDE ===== */
+  .inside { background: linear-gradient(180deg, #2B241A 0%, #6E5C44 40%, #B89C73 76%, var(--cream-warm) 100%); padding: var(--space) 24px; color: var(--ink); }
+  .inside .sec-head .kicker { color: var(--gold-bright); }
   .inside .sec-title { color: #fff; }
-  .rooms { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 1px; }
+  .rooms { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+  @media (max-width: 520px) { .rooms { grid-template-columns: 1fr; } }
   .room {
-    display: grid; grid-template-columns: 52px 1fr; gap: 22px; align-items: start;
-    background: rgba(255,255,255,.7); backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,.6); border-radius: 18px;
-    padding: 28px 30px; box-shadow: 0 16px 40px -22px rgba(60,45,25,.5);
+    display: grid; grid-template-columns: 46px 1fr; gap: 20px; align-items: start;
+    background: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.7); border-radius: 18px;
+    padding: 28px 30px; box-shadow: 0 20px 48px -26px rgba(50,38,20,.55); backdrop-filter: blur(4px);
   }
-  .room .ic { width: 40px; height: 40px; color: var(--gold-dark); }
-  .room .ic svg { width: 40px; height: 40px; }
-  .room h3 { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+  .room .ic { width: 38px; height: 38px; color: var(--gold-dark); }
+  .room .ic svg { width: 38px; height: 38px; }
+  .room h3 { font-size: 19.5px; font-weight: 500; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.01em; }
   .room p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
 
-  /* ===== ACT V — GLIMPSES (telefon önizleme) ===== */
-  .glimpses { background: var(--cream-warm); padding: 30px 24px 110px; text-align: center; }
-  .glimpses .sec-head { margin-bottom: 56px; }
+  /* ===== ACT V — GLIMPSES ===== */
+  .glimpses { background: var(--cream-warm); padding: clamp(40px,7vh,70px) 24px var(--space); text-align: center; }
+  .glimpses .sec-head .kicker { color: var(--gold-dark); }
   .glimpses .sec-title { color: var(--ink); }
-  .glimpses .eyebrow { color: var(--gold-dark); }
-  .glimpses .eyebrow::before, .glimpses .eyebrow.center::after { background: var(--gold-dark); }
-  .phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; max-width: 1000px; margin: 0 auto; }
-  @media (max-width: 720px) { .phones { grid-template-columns: 1fr; gap: 50px; max-width: 320px; } }
+  .phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(26px, 4vw, 40px); max-width: 980px; margin: 0 auto; }
+  @media (max-width: 720px) { .phones { grid-template-columns: 1fr; gap: 50px; max-width: 308px; } }
   .phone {
-    position: relative; aspect-ratio: 9 / 19.5; background: #1A1A1A; border-radius: 34px; padding: 8px;
-    box-shadow: 0 30px 70px -20px rgba(60,45,25,.4), 0 4px 16px rgba(60,45,25,.12);
-    transition: transform .35s ease;
+    position: relative; aspect-ratio: 9 / 19.5; background: #18120C; border-radius: 34px; padding: 8px;
+    box-shadow: 0 34px 70px -22px rgba(50,38,20,.42), 0 4px 14px rgba(50,38,20,.12); transition: transform .4s ease;
   }
-  .phone:hover { transform: translateY(-6px); }
+  .phone:hover { transform: translateY(-7px); }
   .phone .screen { width: 100%; height: 100%; border-radius: 27px; background: #F9F8F6; overflow: hidden; position: relative; }
   .phone .screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .phone .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 86px; height: 24px; background: #1A1A1A; border-radius: 0 0 14px 14px; z-index: 2; }
-  .phone-label { margin-top: 20px; font-family: 'Fraunces', serif; font-size: 15.5px; font-weight: 600; color: var(--ink); }
-  .phone-label small { display: block; font-family: 'Inter', sans-serif; font-weight: 400; color: var(--muted); font-size: 12.5px; margin-top: 3px; letter-spacing: .3px; }
+  .phone .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 84px; height: 23px; background: #18120C; border-radius: 0 0 13px 13px; z-index: 2; }
+  .phone-label { margin-top: 22px; font-family: 'Fraunces', serif; font-size: 15.5px; font-weight: 500; color: var(--ink); }
+  .phone-label small { display: block; font-family: 'Inter', sans-serif; font-weight: 400; color: var(--muted); font-size: 12.5px; margin-top: 3px; letter-spacing: .02em; }
 
-  .guide-cta { text-align: center; margin-top: 56px; }
+  .guide-cta { text-align: center; margin-top: clamp(48px, 7vh, 64px); }
   .guide-cta a {
-    display: inline-flex; align-items: center; gap: 9px;
-    color: var(--gold-dark); font-weight: 600; font-size: 14.5px; text-decoration: none; letter-spacing: .3px;
-    border-bottom: 1px solid var(--gold); padding-bottom: 4px; transition: color .2s ease, border-color .2s ease;
+    display: inline-flex; align-items: center; gap: 9px; color: var(--gold-dark); font-weight: 600; font-size: 14.5px;
+    letter-spacing: .01em; border-bottom: 1px solid var(--gold); padding-bottom: 4px; transition: color .25s ease, border-color .25s ease;
   }
   .guide-cta a:hover { color: var(--ink); border-color: var(--ink); }
-  .guide-cta a::after { content: "→"; transition: transform .2s ease; }
+  .guide-cta a::after { content: "→"; transition: transform .25s ease; }
   .guide-cta a:hover::after { transform: translateX(4px); }
 
-  /* ===== ACT VI — FAQ (yuva, açık) ===== */
-  .faq { background: var(--cream); padding: 110px 24px; }
-  .faq .sec-head { text-align: center; margin-bottom: 50px; }
-  .faq .eyebrow { color: var(--gold-dark); }
-  .faq .eyebrow::before, .faq .eyebrow.center::after { background: var(--gold-dark); }
+  /* ===== ACT VI — FAQ ===== */
+  .faq { background: var(--cream); padding: var(--space) 24px; }
+  .faq .sec-head .kicker { color: var(--gold-dark); }
   .faq .sec-title { color: var(--ink); }
   .faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
-  .faq-item { border-bottom: 1px solid var(--line); padding: 28px 4px; }
-  .faq-item h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--ink); display: flex; align-items: baseline; gap: 13px; }
+  .faq-item { border-bottom: 1px solid var(--line); padding: clamp(24px, 3.4vh, 30px) 2px; }
+  .faq-item h3 { font-size: 18px; font-weight: 500; margin-bottom: 11px; color: var(--ink); display: flex; align-items: baseline; gap: 14px; letter-spacing: -0.01em; }
   .faq-item h3::before { content: "—"; color: var(--gold); font-weight: 400; }
-  .faq-item p { font-size: 14.5px; color: var(--muted); line-height: 1.7; padding-left: 26px; }
+  .faq-item p { font-size: 14.5px; color: var(--muted); line-height: 1.72; padding-left: 28px; max-width: 620px; }
 
-  /* ===== ACT VII — CLOSING (içeridesin) ===== */
+  /* ===== ACT VII — CLOSING ===== */
   .closing {
     position: relative; text-align: center; overflow: hidden;
-    background: radial-gradient(70% 60% at 50% 30%, #FFF6E2 0%, var(--cream-warm) 60%, var(--cream) 100%);
-    padding: 130px 24px 120px;
+    background: radial-gradient(72% 58% at 50% 32%, #FFF6E1 0%, var(--cream-warm) 58%, var(--cream) 100%);
+    padding: var(--space) 24px;
   }
-  .closing-arch { width: 58px; height: 66px; color: var(--gold); margin: 0 auto 28px; }
-  .closing h2 { font-size: clamp(34px, 6vw, 56px); font-weight: 300; color: var(--ink); }
-  .closing p { color: var(--muted); max-width: 460px; margin: 18px auto 36px; }
+  .closing-arch { width: 58px; height: 66px; color: var(--gold); margin: 0 auto 30px; }
+  .closing h2 { font-size: clamp(34px, 6vw, 58px); font-weight: 300; color: var(--ink); letter-spacing: -0.025em; }
+  .closing p { color: var(--muted); max-width: 440px; margin: 20px auto 40px; }
   .badges { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
   .badge {
-    display: inline-flex; align-items: center; gap: 11px;
-    background: var(--ink); color: #fff; padding: 13px 24px; border-radius: 999px;
-    font-size: 14px; font-weight: 600; text-decoration: none; opacity: .9;
+    display: inline-flex; align-items: center; gap: 11px; background: var(--ink); color: #fff;
+    padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .25s ease;
   }
-  .badge svg { width: 20px; height: 20px; color: #fff; }
-  .badge small { display: block; font-size: 10px; opacity: .55; font-weight: 500; letter-spacing: .5px; }
-  .badge .big { font-size: 14.5px; font-weight: 600; line-height: 1.1; }
+  .badge:hover { transform: translateY(-2px); }
+  .badge svg { width: 19px; height: 19px; }
+  .badge small { display: block; font-size: 10px; opacity: .55; font-weight: 500; letter-spacing: .04em; }
+  .badge .big { font-size: 14px; font-weight: 600; line-height: 1.1; }
 
   /* ===== FOOTER ===== */
-  footer { background: var(--night); color: #b8b1a6; padding: 64px 24px 42px; font-size: 13.5px; }
-  footer .fwrap { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
-  footer .brand { color: var(--gold); font-size: 15px; letter-spacing: 4px; margin-bottom: 0; }
-  footer a { color: #b8b1a6; text-decoration: none; opacity: .85; transition: opacity .2s ease, color .2s ease; }
+  footer { background: var(--night); color: #b4ada2; padding: clamp(56px,8vh,72px) 24px 42px; font-size: 13.5px; }
+  .fwrap { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
+  footer .brand { color: var(--gold); font-size: 14px; }
+  footer a { color: #b4ada2; opacity: .85; transition: opacity .25s ease, color .25s ease; }
   footer a:hover { opacity: 1; color: #fff; }
-  .flinks { display: flex; flex-direction: column; gap: 10px; }
-  .flinks strong { color: #fff; font-family: 'Fraunces', serif; font-weight: 600; font-size: 14px; }
-  .fcopy { width: 100%; max-width: 1080px; margin: 36px auto 0; border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; font-size: 12px; opacity: .55; }
-  .age { display: inline-block; margin-top: 10px; border: 1px solid var(--gold); color: var(--gold); border-radius: 6px; padding: 2px 8px; font-size: 11px; letter-spacing: .5px; }
+  .flinks { display: flex; flex-direction: column; gap: 11px; }
+  .flinks strong { color: #fff; font-family: 'Fraunces', serif; font-weight: 500; font-size: 14px; }
+  .fcopy { max-width: 1080px; margin: 38px auto 0; border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px; font-size: 12px; opacity: .5; }
+  .age { display: inline-block; margin-top: 12px; border: 1px solid var(--gold); color: var(--gold); border-radius: 6px; padding: 2px 8px; font-size: 11px; letter-spacing: .04em; }
 </style>
 </head>
 <body>
+
+<a class="skip" href="#main" data-i18n="skip-link">İçeriğe geç</a>
 
 <nav class="top-nav" aria-label="Site">
   <a href="/" class="active" data-i18n="nav-home">Ana Sayfa</a>
   <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
 </nav>
 
-<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">EN</button>
+<button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language / Dil">EN</button>
+
+<main id="main">
 
 <!-- ===== ACT I — THRESHOLD ===== -->
 <header class="threshold">
   <span class="th-seam" aria-hidden="true"></span>
-  <svg class="th-door" viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="0.9" aria-hidden="true">
-    <path d="M28 256 V96 a72 72 0 0 1 144 0 V256" />
-    <path d="M50 256 V96 a50 50 0 0 1 100 0 V256" stroke-opacity=".55" />
-    <path d="M70 256 V96 a30 30 0 0 1 60 0 V256" stroke-opacity=".3" />
-    <line x1="10" y1="256" x2="190" y2="256" />
-    <circle cx="126" cy="164" r="2.4" fill="currentColor" stroke="none" />
+  <svg class="th-door" viewBox="0 0 200 230" fill="none" stroke="currentColor" stroke-width="0.8" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
+    <path d="M28 230 V82 a72 72 0 0 1 144 0 V230" />
+    <path d="M50 230 V82 a50 50 0 0 1 100 0 V230" stroke-opacity=".55" />
+    <path d="M70 230 V82 a30 30 0 0 1 60 0 V230" stroke-opacity=".3" />
+    <circle cx="126" cy="150" r="2.2" fill="currentColor" stroke="none" />
   </svg>
   <div class="th-inner">
     <div class="brand reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
       FREJYA
     </div>
-    <p class="eyebrow center reveal" data-i18n="hero-eyebrow" style="justify-content:center;">Aşkın eşiğinde</p>
+    <p class="kicker th-kicker reveal" data-i18n="hero-eyebrow">Aşkın eşiğinde</p>
     <h1 class="th-title reveal d1" data-i18n="hero-title">Derin bağlar.<br /><em>Doğru aşklar.</em></h1>
     <p class="th-lede reveal d2" data-i18n="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
     <div class="wl-wrap reveal d3">
@@ -407,10 +449,10 @@
       </p>
       <p class="wl-gift-sub" data-i18n="wl-gift-sub">Hediyeyi almak için aşağıya bilgilerini bırak.</p>
       <form class="waitlist" id="waitlist-form" novalidate>
-        <input type="text" id="wl-name" autocomplete="name" maxlength="60"
-          data-i18n-attr="placeholder" data-i18n="wl-name-ph" placeholder="Adın" />
-        <input type="email" id="wl-email" required autocomplete="email"
-          data-i18n-attr="placeholder" data-i18n="wl-placeholder" placeholder="E-posta adresin" />
+        <label for="wl-name" class="skip">Adın</label>
+        <input type="text" id="wl-name" autocomplete="name" maxlength="60" data-i18n-attr="placeholder" data-i18n="wl-name-ph" placeholder="Adın" />
+        <label for="wl-email" class="skip">E-posta</label>
+        <input type="email" id="wl-email" required autocomplete="email" data-i18n-attr="placeholder" data-i18n="wl-placeholder" placeholder="E-posta adresin" />
         <button type="submit" id="wl-btn" data-i18n="wl-btn">Kaydet</button>
       </form>
       <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
@@ -423,10 +465,10 @@
 </header>
 
 <!-- ===== ACT II — MANIFESTO ===== -->
-<section class="manifesto" id="manifesto">
+<section class="manifesto" id="manifesto" aria-labelledby="manifesto-title">
   <div class="m-inner">
-    <div class="eyebrow m-eyebrow reveal" data-i18n="manifesto-tag">Manifesto</div>
-    <h2 class="m-title reveal d1" data-i18n="manifesto-title">Frejya Manifestosu</h2>
+    <p class="kicker m-kicker reveal" data-i18n="manifesto-tag">Manifesto</p>
+    <h2 class="m-title reveal d1" id="manifesto-title" data-i18n="manifesto-title">Frejya Manifestosu</h2>
 
     <p class="stanza reveal" data-i18n="m1">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />Biz buna inanmıyoruz.</p>
     <p class="stanza reveal" data-i18n="m2">Hızlı beğenilenin hızlı unutulduğuna,<br />tanınmadan sevilenin sevilmediğine,<br />ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.</p>
@@ -445,11 +487,11 @@
   </div>
 </section>
 
-<!-- ===== ACT III — JOURNEY (nasıl açılır) ===== -->
-<section class="journey">
+<!-- ===== ACT III — JOURNEY ===== -->
+<section class="journey" aria-labelledby="how-title">
   <div class="sec-head reveal">
-    <div class="eyebrow center" data-i18n="how-tag" style="justify-content:center;">Nasıl Çalışır</div>
-    <h2 class="sec-title" data-i18n="how-title">Üç adımda gerçek bir bağ</h2>
+    <p class="kicker center" data-i18n="how-tag">Nasıl Çalışır</p>
+    <h2 class="sec-title" id="how-title" data-i18n="how-title">Üç adımda gerçek bir bağ</h2>
   </div>
   <div class="steps">
     <div class="step reveal">
@@ -479,11 +521,11 @@
   </div>
 </section>
 
-<!-- ===== ACT IV — INSIDE (özellikler) ===== -->
-<section class="inside">
+<!-- ===== ACT IV — INSIDE ===== -->
+<section class="inside" aria-labelledby="why-title">
   <div class="sec-head reveal">
-    <div class="eyebrow center" data-i18n="why-tag" style="justify-content:center;">Neden Frejya</div>
-    <h2 class="sec-title" data-i18n="why-title">Tanışmanın sakin hâli</h2>
+    <p class="kicker center" data-i18n="why-tag">Neden Frejya</p>
+    <h2 class="sec-title" id="why-title" data-i18n="why-title">Tanışmanın sakin hâli</h2>
   </div>
   <div class="rooms">
     <div class="room reveal">
@@ -532,33 +574,33 @@
 </section>
 
 <!-- ===== ACT V — GLIMPSES ===== -->
-<section class="glimpses" aria-label="Uygulama önizleme">
+<section class="glimpses" aria-labelledby="app-title">
   <div class="sec-head reveal">
-    <div class="eyebrow center" data-i18n="app-tag" style="justify-content:center;">Uygulamadan</div>
-    <h2 class="sec-title" data-i18n="app-title">Frejya'nın içinden kareler</h2>
+    <p class="kicker center" data-i18n="app-tag">Uygulamadan</p>
+    <h2 class="sec-title" id="app-title" data-i18n="app-title">Frejya'nın içinden kareler</h2>
   </div>
   <div class="phones">
-    <div class="reveal">
+    <figure class="reveal" style="margin:0;">
       <div class="phone">
         <div class="notch"></div>
-        <div class="screen"><img src="screenshots/IMG_0038.png" alt="Frejya giriş ekranı — Aşık olmanızı istiyoruz" loading="lazy" /></div>
+        <div class="screen"><img src="screenshots/IMG_0038.png" alt="Frejya giriş ekranı — Aşık olmanızı istiyoruz" loading="lazy" width="390" height="844" /></div>
       </div>
-      <div class="phone-label" data-i18n="phone1">Aşkın eşiğinde<small data-i18n="phone1-sub">Giriş ekranı</small></div>
-    </div>
-    <div class="reveal d1">
+      <figcaption class="phone-label" data-i18n="phone1">Aşkın eşiğinde<small data-i18n="phone1-sub">Giriş ekranı</small></figcaption>
+    </figure>
+    <figure class="reveal d1" style="margin:0;">
       <div class="phone">
         <div class="notch"></div>
-        <div class="screen"><img src="screenshots/IMG_0052.png" alt="Burada acele yok — derin bağ felsefesi" loading="lazy" /></div>
+        <div class="screen"><img src="screenshots/IMG_0052.png" alt="Burada acele yok — derin bağ felsefesi" loading="lazy" width="390" height="844" /></div>
       </div>
-      <div class="phone-label" data-i18n="phone2">Acelesi yok<small data-i18n="phone2-sub">Onboarding</small></div>
-    </div>
-    <div class="reveal d2">
+      <figcaption class="phone-label" data-i18n="phone2">Acelesi yok<small data-i18n="phone2-sub">Onboarding</small></figcaption>
+    </figure>
+    <figure class="reveal d2" style="margin:0;">
       <div class="phone">
         <div class="notch"></div>
-        <div class="screen"><img src="screenshots/IMG_0068.png" alt="Sohbet ekranı — anonim mesajlaşma ve kazıma" loading="lazy" /></div>
+        <div class="screen"><img src="screenshots/IMG_0068.png" alt="Sohbet ekranı — anonim mesajlaşma ve kazıma" loading="lazy" width="390" height="844" /></div>
       </div>
-      <div class="phone-label" data-i18n="phone3">Bir kapı, bir misafir<small data-i18n="phone3-sub">Sohbet</small></div>
-    </div>
+      <figcaption class="phone-label" data-i18n="phone3">Bir kapı, bir misafir<small data-i18n="phone3-sub">Sohbet</small></figcaption>
+    </figure>
   </div>
   <div class="guide-cta reveal">
     <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
@@ -566,10 +608,10 @@
 </section>
 
 <!-- ===== ACT VI — FAQ ===== -->
-<section class="faq">
+<section class="faq" aria-labelledby="faq-title">
   <div class="sec-head reveal">
-    <div class="eyebrow center" data-i18n="faq-tag" style="justify-content:center;">Sık Sorulanlar</div>
-    <h2 class="sec-title" data-i18n="faq-title">Merak edilenler</h2>
+    <p class="kicker center" data-i18n="faq-tag">Sık Sorulanlar</p>
+    <h2 class="sec-title" id="faq-title" data-i18n="faq-title">Merak edilenler</h2>
   </div>
   <div class="faq-list reveal">
     <div class="faq-item">
@@ -599,11 +641,11 @@
   </div>
 </section>
 
-<!-- ===== ACT VII — CLOSING (içeridesin) ===== -->
-<section class="closing">
+<!-- ===== ACT VII — CLOSING ===== -->
+<section class="closing" aria-labelledby="closing-title">
   <div class="reveal">
     <svg class="closing-arch" viewBox="0 0 58 66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 64 V27 a19 19 0 0 1 38 0 V64"/><line x1="4" y1="64" x2="54" y2="64"/><circle cx="40" cy="43" r="1.6" fill="currentColor" stroke="none"/></svg>
-    <h2 data-i18n="closing-title">Acele etme.</h2>
+    <h2 id="closing-title" data-i18n="closing-title">Acele etme.</h2>
     <p data-i18n="closing-desc">Derin bağlar zamanla kurulur. Frejya 18 yaş ve üzeri içindir.</p>
     <div class="badges">
       <span class="badge">
@@ -618,6 +660,8 @@
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="fwrap">
     <div>
@@ -628,17 +672,17 @@
       <p style="margin-top:12px;max-width:260px;opacity:.7;" data-i18n="footer-tag">Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.</p>
       <span class="age">18+</span>
     </div>
-    <div class="flinks">
+    <nav class="flinks" aria-label="Site">
       <strong data-i18n="footer-site">Site</strong>
       <a href="/" data-i18n="nav-home">Ana Sayfa</a>
       <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
-    </div>
-    <div class="flinks">
+    </nav>
+    <nav class="flinks" aria-label="Yasal">
       <strong data-i18n="footer-legal">Yasal</strong>
       <a id="link-privacy" href="https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a>
       <a id="link-eula" href="https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html" data-i18n="link-eula">Kullanıcı Sözleşmesi</a>
-    </div>
-    <div class="flinks">
+    </nav>
+    <nav class="flinks" aria-label="Sosyal">
       <strong data-i18n="footer-social">Sosyal</strong>
       <a href="https://x.com/Frejya_App" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -652,11 +696,11 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
         Facebook · @frejya_app
       </a>
-    </div>
-    <div class="flinks">
+    </nav>
+    <nav class="flinks" aria-label="İletişim">
       <strong data-i18n="footer-contact">İletişim</strong>
       <a href="mailto:iletisim@frejya.app">iletisim@frejya.app</a>
-    </div>
+    </nav>
   </div>
   <div class="fcopy" data-i18n="footer-copy">© 2026 Frejya · Tüm hakları saklıdır.</div>
 </footer>
@@ -671,6 +715,7 @@
       tr: 'Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.',
       en: "Frejya: no fast swiping. Meet anonymously and truly discover each other as you talk. A dating app built for deep bonds and true love.",
     },
+    'skip-link': { tr: 'İçeriğe geç', en: 'Skip to content' },
     'hero-eyebrow': { tr: 'Aşkın eşiğinde', en: 'At the threshold of love' },
     'hero-title': { tr: 'Derin bağlar.<br /><em>Doğru aşklar.</em>', en: 'Deep bonds.<br /><em>True love.</em>' },
     'hero-sub': {
@@ -885,8 +930,8 @@
   }
 
   // Scroll-da beliriş (kapıdan içeri anlatısı). FAIL-SAFE: above-fold aninda
-  // gorunur; below-fold IntersectionObserver ile; IO bazi ortamlarda tetiklenmezse
-  // diye guvenlik agi zamanlayicisi her seyi acar — icerik asla gizli kalmaz.
+  // gorunur; below-fold IntersectionObserver ile; IO tetiklenmezse guvenlik agi
+  // zamanlayicisi her seyi acar. Opacity zaten HEP 1 — icerik asla gizli kalmaz.
   function initReveal() {
     const els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
     var reduce = false;
