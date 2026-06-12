@@ -34,7 +34,7 @@
 <meta name="twitter:description" content="Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet." />
 <meta name="twitter:image" content="https://frejya.app/og-image.png" />
 <link rel="canonical" href="https://frejya.app/" />
-<meta name="theme-color" content="#2D2B2A" />
+<meta name="theme-color" content="#141312" />
 
 <!-- SEO: yapısal veri (schema.org) — arama motorları siteyi/markayı tanır. -->
 <script type="application/ld+json">
@@ -105,168 +105,212 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --gold: #C0A080;
     --gold-dark: #A78A6E;
     --gold-bright: #D4B36D;
-    --ink: #2D2B2A;
-    --ink-deep: #1A1A1A;
+    --ink: #1A1A1A;
+    --ink-deep: #141312;
+    --night: #100F0E;
     --cream: #FBFAF8;
-    --cream-warm: #FCFBF8;
-    --paper: #FFFFFF;
-    --soft: #ECE6DD;
+    --cream-warm: #FBF4E6;
     --line: #E8E1D6;
     --muted: #6F6A62;
-    --rose: #E5989B;
-    --blue: #7D8CC4;
-    --shadow: rgba(176,160,132,.18);
+    --on-dark: #E8E1D6;
+    --on-dark-mut: #9A9085;
+    --shadow: rgba(0,0,0,.4);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--ink);
-    background: var(--cream);
+    background: var(--night);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; line-height: 1.18; font-optical-sizing: auto; letter-spacing: -0.015em; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 26px; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; line-height: 1.16; font-optical-sizing: auto; letter-spacing: -0.015em; }
   a { color: inherit; }
   svg { display: block; }
+  em { font-style: italic; }
 
-  /* — küçük altın çizgili bölüm etiketi — */
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 11px;
-    color: var(--gold-dark); font-size: 11.5px; font-weight: 600;
-    letter-spacing: 3px; text-transform: uppercase;
+  /* reveal-on-scroll — yalniz TRANSFORM ile (opacity hep 1: gecis/IO calismasa
+     bile icerik asla gizli kalmaz; en kotu durumda 22px asagida durur). */
+  .reveal { opacity: 1; }
+  html.js .reveal { transform: translateY(22px); transition: transform .85s cubic-bezier(.22,.61,.36,1); }
+  html.js .reveal.in { transform: none; }
+  html.js .reveal.d1 { transition-delay: .1s; }
+  html.js .reveal.d2 { transition-delay: .2s; }
+  html.js .reveal.d3 { transition-delay: .3s; }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal { transform: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
   }
-  .section-tag::before {
-    content: ""; width: 26px; height: 1px; background: var(--gold);
-    display: inline-block; opacity: .7;
+
+  /* eyebrow / küçük etiket */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 11.5px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold);
   }
-  .section-title { font-size: clamp(27px, 4.2vw, 40px); margin: 16px 0 14px; color: var(--ink); }
+  .eyebrow::before, .eyebrow.center::after {
+    content: ""; width: 28px; height: 1px; background: var(--gold); opacity: .6; display: inline-block;
+  }
 
-  /* — elmas hairline ayraç (logo elmas motifi) — */
-  .rule { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 4px 0; }
-  .rule span { height: 1px; width: 64px; background: linear-gradient(90deg, transparent, var(--line)); }
-  .rule span:last-child { background: linear-gradient(90deg, var(--line), transparent); }
-  .rule svg { width: 9px; height: 9px; color: var(--gold); opacity: .85; }
-
-  /* LANG TOGGLE */
+  /* ===== TOP CHROME ===== */
   .lang-toggle {
     position: fixed; top: 18px; right: 22px;
-    background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
-    border: 1px solid var(--line); color: var(--ink);
+    background: rgba(20,19,18,.6); backdrop-filter: blur(10px);
+    border: 1px solid rgba(192,160,128,.4); color: var(--on-dark);
     padding: 7px 15px; border-radius: 999px;
     font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px;
     cursor: pointer; z-index: 100; font-family: inherit;
-    transition: background .2s ease, border-color .2s ease;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
   }
-  .lang-toggle:hover { background: #fff; border-color: var(--gold); }
-
-  /* TOP NAV — ince, lüks, sol üst */
+  .lang-toggle:hover { border-color: var(--gold); color: #fff; }
   .top-nav {
     position: fixed; top: 18px; left: 22px;
     display: flex; gap: 2px; align-items: center;
-    background: rgba(255,255,255,.86); backdrop-filter: blur(10px);
-    border: 1px solid var(--line); border-radius: 999px;
+    background: rgba(20,19,18,.6); backdrop-filter: blur(10px);
+    border: 1px solid rgba(192,160,128,.4); border-radius: 999px;
     padding: 4px 5px; z-index: 100;
-    transition: background .2s ease;
   }
-  .top-nav:hover { background: #fff; }
   .top-nav a {
     padding: 5px 13px; border-radius: 999px;
     font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px;
-    color: var(--ink); text-decoration: none; text-transform: uppercase;
+    color: var(--on-dark); text-decoration: none; text-transform: uppercase;
     transition: background .2s ease, color .2s ease;
   }
-  .top-nav a.active { background: var(--gold); color: #fff; }
-  .top-nav a:not(.active):hover { color: var(--gold-dark); }
+  .top-nav a.active { background: var(--gold); color: var(--ink); }
+  .top-nav a:not(.active):hover { color: #fff; }
+  /* açık zeminli bölümlerin üstündeyken nav koyu kalsın diye kontrast yeterli */
 
-  /* HERO */
-  header {
-    position: relative; overflow: hidden;
-    background: radial-gradient(120% 80% at 50% -10%, #FFFFFF 0%, #FCFBF8 50%, #FBF4E6 100%);
-    padding: 104px 0 88px; text-align: center;
+  /* ===== ACT I — THRESHOLD (hero) ===== */
+  .threshold {
+    position: relative; min-height: 100svh; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden; padding: 120px 24px 60px;
+    background:
+      radial-gradient(80% 55% at 50% 38%, rgba(192,160,128,.18) 0%, rgba(20,19,18,0) 60%),
+      linear-gradient(180deg, #100F0E 0%, #16140F 60%, #1B1813 100%);
   }
-  /* arka plan kapı kemeri motifi — soluk, manifesto "kapı eşiği" */
-  .hero-arch {
-    position: absolute; top: 38px; left: 50%; transform: translateX(-50%);
-    width: min(520px, 86vw); height: 620px; color: var(--gold);
-    opacity: .10; pointer-events: none; z-index: 0;
+  .th-door {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: min(560px, 92vw); height: auto; color: var(--gold);
+    opacity: .22; pointer-events: none; z-index: 0;
   }
-  header .wrap { position: relative; z-index: 1; }
-
-  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 400; color: var(--gold-dark); letter-spacing: 5px; display: inline-flex; align-items: center; gap: 11px; text-transform: uppercase; }
-  .brand svg { width: 26px; height: 26px; }
-
-  .hero-eyebrow {
-    margin: 30px 0 0; font-size: 11.5px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold-dark); font-weight: 600;
+  .th-seam {
+    position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
+    width: 1px; height: 60%; z-index: 0; pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(212,179,109,.55), transparent);
+    animation: seam 5s ease-in-out infinite;
   }
-  .hero-title { font-size: clamp(42px, 7.5vw, 70px); font-weight: 500; margin: 16px 0 20px; color: var(--ink); letter-spacing: -0.02em; }
-  .hero-title em { font-style: italic; color: var(--gold-dark); }
-  .hero-sub { font-size: clamp(15.5px, 2.4vw, 19px); color: var(--muted); max-width: 540px; margin: 0 auto 40px; line-height: 1.7; }
+  @keyframes seam { 0%,100% { opacity: .4; } 50% { opacity: .9; } }
+  .th-inner { position: relative; z-index: 2; max-width: 640px; }
+  .brand { font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; color: var(--gold); letter-spacing: 6px; display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; margin-bottom: 30px; }
+  .brand svg { width: 24px; height: 24px; }
+  .th-title { font-size: clamp(46px, 9vw, 86px); font-weight: 300; color: #fff; letter-spacing: -0.025em; margin: 20px 0 0; }
+  .th-title em { color: var(--gold-bright); font-weight: 400; }
+  .th-lede { font-size: clamp(15.5px, 2.3vw, 18.5px); color: var(--on-dark-mut); max-width: 500px; margin: 26px auto 0; line-height: 1.75; }
 
-  .badges { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 11px;
-    background: var(--paper); color: var(--ink); padding: 12px 22px; border-radius: 999px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    border: 1px solid var(--line);
-  }
-  .badge svg { width: 20px; height: 20px; color: var(--ink); }
-  .badge small { display: block; font-size: 10px; opacity: .55; font-weight: 500; letter-spacing: .5px; }
-  .badge .big { font-size: 14.5px; font-weight: 600; line-height: 1.1; }
-  .badge.soon { opacity: .82; }
-
-  /* WAITLIST */
-  .wl-block { margin-top: 46px; }
+  .wl-wrap { margin-top: 42px; }
   .wl-gift {
     display: inline-flex; align-items: center; gap: 9px;
-    font-size: 13px; font-weight: 600; color: var(--gold-dark);
-    background: #FBF4E9; border: 1px solid #EFE2CC; border-radius: 999px;
-    padding: 8px 18px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .3px; color: var(--gold-bright);
+    border: 1px solid rgba(212,179,109,.35); border-radius: 999px; padding: 8px 18px;
+    background: rgba(212,179,109,.07);
   }
-  .wl-gift svg { width: 16px; height: 16px; color: var(--gold-dark); }
-  .wl-gift-sub { margin-top: 12px; font-size: 13.5px; color: var(--ink); opacity: .68; }
+  .wl-gift svg { width: 16px; height: 16px; color: var(--gold-bright); }
+  .wl-gift-sub { margin-top: 12px; font-size: 13px; color: var(--on-dark-mut); }
   .waitlist {
-    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 16px;
-    background: var(--paper); border: 1px solid var(--line); border-radius: 999px;
-    padding: 7px; max-width: 480px; margin-left: auto; margin-right: auto;
-    box-shadow: 0 10px 30px -16px var(--shadow);
+    display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; margin: 16px auto 0;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(192,160,128,.32); border-radius: 999px;
+    padding: 7px; max-width: 460px; backdrop-filter: blur(6px);
   }
   .waitlist input {
     font-family: inherit; font-size: 14px; padding: 11px 18px; border-radius: 999px;
-    border: none; background: transparent; color: var(--ink); flex: 1 1 150px; min-width: 130px; outline: none;
+    border: none; background: transparent; color: var(--on-dark); flex: 1 1 140px; min-width: 120px; outline: none;
   }
-  .waitlist input::placeholder { color: #b7b0a6; }
+  .waitlist input::placeholder { color: #8f877c; }
   .waitlist button {
-    font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 26px; border-radius: 999px;
-    border: none; background: var(--ink); color: #fff; cursor: pointer; transition: background .2s ease;
+    font-family: inherit; font-size: 14px; font-weight: 600; padding: 11px 24px; border-radius: 999px;
+    border: none; background: var(--gold); color: var(--ink); cursor: pointer; transition: background .2s ease;
     flex: 0 0 auto;
   }
-  .waitlist button:hover { background: var(--gold-dark); }
+  .waitlist button:hover { background: var(--gold-bright); }
   .waitlist button:disabled { opacity: .5; cursor: default; }
-  .wl-msg { margin-top: 12px; font-size: 13px; min-height: 18px; }
-  .wl-msg.ok { color: var(--gold-dark); }
-  .wl-msg.err { color: #b4452f; }
+  .wl-msg { margin-top: 12px; font-size: 13px; min-height: 18px; color: var(--on-dark-mut); }
+  .wl-msg.ok { color: var(--gold-bright); }
+  .wl-msg.err { color: #e08a72; }
 
-  /* APP PREVIEW */
-  .app-preview { padding: 92px 0 40px; background: linear-gradient(180deg, var(--cream) 0%, #FFF8EC 100%); text-align: center; }
-  .phones {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px;
-    margin-top: 58px; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 0 16px;
+  .scroll-cue {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2;
+    display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+    color: var(--on-dark-mut); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; text-decoration: none;
   }
+  .scroll-cue svg { width: 16px; height: 16px; color: var(--gold); animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+  /* ===== ACT II — MANIFESTO (immersive dark) ===== */
+  .manifesto { position: relative; background: var(--ink-deep); color: var(--on-dark); padding: 130px 24px 140px; overflow: hidden; }
+  .manifesto::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, rgba(192,160,128,.22) 12%, rgba(192,160,128,.22) 88%, transparent);
+  }
+  .m-inner { position: relative; max-width: 640px; margin: 0 auto; text-align: center; }
+  .m-eyebrow { justify-content: center; margin-bottom: 16px; }
+  .m-title { color: #fff; font-size: clamp(28px, 5vw, 44px); font-weight: 300; margin-bottom: 70px; }
+  .stanza { font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: clamp(18px, 2.7vw, 23px); line-height: 1.95; color: #CFC7B9; margin: 0 auto 46px; max-width: 600px; }
+  .stanza.accent { color: var(--gold-bright); font-weight: 400; font-style: italic; font-size: clamp(20px, 3.2vw, 27px); }
+  .m-close { font-family: 'Fraunces', serif; font-weight: 400; font-style: italic; font-size: clamp(26px, 4.4vw, 40px); color: var(--gold-bright); margin-top: 30px; }
+
+  /* ===== ACT III — JOURNEY (kapı nasıl açılır) ===== */
+  .journey { background: linear-gradient(180deg, #1B1813 0%, #2A241C 100%); color: var(--on-dark); padding: 120px 24px; }
+  .sec-head { max-width: 920px; margin: 0 auto 70px; text-align: center; }
+  .sec-head .eyebrow { justify-content: center; }
+  .sec-title { font-size: clamp(30px, 5vw, 46px); font-weight: 300; color: #fff; margin-top: 16px; }
+  .journey .sec-title { color: #fff; }
+  .steps { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+  .step {
+    display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start;
+    padding: 38px 0; border-top: 1px solid rgba(192,160,128,.16);
+  }
+  .step:last-child { border-bottom: 1px solid rgba(192,160,128,.16); }
+  .step .num { font-family: 'Fraunces', serif; font-size: clamp(44px, 8vw, 72px); font-weight: 300; color: rgba(212,179,109,.55); line-height: .9; }
+  .step h3 { font-size: clamp(21px, 3vw, 26px); font-weight: 400; color: #fff; margin-bottom: 10px; }
+  .step p { font-size: 15.5px; color: var(--on-dark-mut); max-width: 460px; line-height: 1.7; }
+  .step .step-ic { width: 26px; height: 26px; color: var(--gold); margin-bottom: 14px; }
+
+  /* ===== ACT IV — INSIDE (özellikler, ısınan ton) ===== */
+  .inside { background: linear-gradient(180deg, #2A241C 0%, #6B5B45 42%, #B79B72 78%, var(--cream-warm) 100%); padding: 130px 24px 110px; color: var(--ink); }
+  .inside .sec-head .eyebrow { color: var(--gold-bright); }
+  .inside .sec-head .eyebrow::before, .inside .sec-head .eyebrow.center::after { background: var(--gold-bright); }
+  .inside .sec-title { color: #fff; }
+  .rooms { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 1px; }
+  .room {
+    display: grid; grid-template-columns: 52px 1fr; gap: 22px; align-items: start;
+    background: rgba(255,255,255,.7); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.6); border-radius: 18px;
+    padding: 28px 30px; box-shadow: 0 16px 40px -22px rgba(60,45,25,.5);
+  }
+  .room .ic { width: 40px; height: 40px; color: var(--gold-dark); }
+  .room .ic svg { width: 40px; height: 40px; }
+  .room h3 { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+  .room p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+
+  /* ===== ACT V — GLIMPSES (telefon önizleme) ===== */
+  .glimpses { background: var(--cream-warm); padding: 30px 24px 110px; text-align: center; }
+  .glimpses .sec-head { margin-bottom: 56px; }
+  .glimpses .sec-title { color: var(--ink); }
+  .glimpses .eyebrow { color: var(--gold-dark); }
+  .glimpses .eyebrow::before, .glimpses .eyebrow.center::after { background: var(--gold-dark); }
+  .phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; max-width: 1000px; margin: 0 auto; }
   @media (max-width: 720px) { .phones { grid-template-columns: 1fr; gap: 50px; max-width: 320px; } }
   .phone {
-    position: relative; aspect-ratio: 9 / 19.5;
-    background: #1A1A1A; border-radius: 34px; padding: 8px;
-    box-shadow: 0 28px 64px -18px rgba(45,43,42,.28), 0 4px 16px var(--shadow);
+    position: relative; aspect-ratio: 9 / 19.5; background: #1A1A1A; border-radius: 34px; padding: 8px;
+    box-shadow: 0 30px 70px -20px rgba(60,45,25,.4), 0 4px 16px rgba(60,45,25,.12);
     transition: transform .35s ease;
   }
   .phone:hover { transform: translateY(-6px); }
@@ -275,47 +319,6 @@
   .phone .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 86px; height: 24px; background: #1A1A1A; border-radius: 0 0 14px 14px; z-index: 2; }
   .phone-label { margin-top: 20px; font-family: 'Fraunces', serif; font-size: 15.5px; font-weight: 600; color: var(--ink); }
   .phone-label small { display: block; font-family: 'Inter', sans-serif; font-weight: 400; color: var(--muted); font-size: 12.5px; margin-top: 3px; letter-spacing: .3px; }
-
-  /* MANIFESTO */
-  .manifesto { position: relative; background: var(--ink-deep); color: #E8E1D6; text-align: center; padding: 104px 0 108px; overflow: hidden; }
-  .manifesto .section-tag { color: var(--gold); }
-  .manifesto .section-tag::before { background: var(--gold); }
-  .manifesto-arch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(560px, 90vw); height: 100%; color: var(--gold); opacity: .07; pointer-events: none; }
-  .manifesto .wrap { position: relative; z-index: 1; }
-  .m-title { color: #fff; font-size: clamp(26px, 4.2vw, 36px); margin: 16px 0 50px; }
-  .manifesto .stanza {
-    font-family: 'Fraunces', Georgia, serif; font-weight: 400;
-    font-size: clamp(16.5px, 2.3vw, 20px); line-height: 1.95;
-    color: #D7CFC1; max-width: 600px; margin: 0 auto 30px;
-  }
-  .manifesto .stanza.accent { color: var(--gold); font-weight: 500; font-style: italic; }
-  .m-close { font-family: 'Fraunces', serif; font-weight: 600; font-style: italic; font-size: clamp(23px, 3.6vw, 33px); color: var(--gold); margin-top: 44px; }
-
-  /* SECTIONS */
-  section { padding: 88px 0; }
-
-  /* FEATURES — line-art ikon, çip yok, editoryal */
-  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 50px; background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
-  .card {
-    background: var(--paper); padding: 38px 32px;
-    transition: background .25s ease;
-    position: relative;
-  }
-  .card:hover { background: var(--cream-warm); }
-  .card .ic { width: 38px; height: 38px; color: var(--gold-dark); margin-bottom: 20px; }
-  .card .ic svg { width: 38px; height: 38px; }
-  .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
-  .card p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
-
-  /* HOW — adımlar, kapı/anahtar */
-  .alt { background: var(--cream-warm); }
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 32px; margin-top: 52px; }
-  .step { position: relative; padding-top: 14px; }
-  .step .num { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 600; letter-spacing: 2px; color: var(--gold-dark); }
-  .step .step-ic { width: 30px; height: 30px; color: var(--gold-dark); margin: 16px 0 14px; }
-  .step h3 { font-size: 19px; font-weight: 600; margin: 0 0 8px; }
-  .step p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
-  .step::before { content: ""; position: absolute; top: 0; left: 0; width: 34px; height: 2px; background: var(--gold); opacity: .55; }
 
   .guide-cta { text-align: center; margin-top: 56px; }
   .guide-cta a {
@@ -327,29 +330,46 @@
   .guide-cta a::after { content: "→"; transition: transform .2s ease; }
   .guide-cta a:hover::after { transform: translateX(4px); }
 
-  /* FAQ — editoryal, hairline ayraçlı liste */
-  .faq-list { margin-top: 46px; border-top: 1px solid var(--line); }
-  .faq-item { border-bottom: 1px solid var(--line); padding: 26px 4px; }
-  .faq-item h3 { font-size: 17px; font-weight: 600; margin-bottom: 9px; color: var(--ink); display: flex; align-items: baseline; gap: 12px; }
+  /* ===== ACT VI — FAQ (yuva, açık) ===== */
+  .faq { background: var(--cream); padding: 110px 24px; }
+  .faq .sec-head { text-align: center; margin-bottom: 50px; }
+  .faq .eyebrow { color: var(--gold-dark); }
+  .faq .eyebrow::before, .faq .eyebrow.center::after { background: var(--gold-dark); }
+  .faq .sec-title { color: var(--ink); }
+  .faq-list { max-width: 760px; margin: 0 auto; border-top: 1px solid var(--line); }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 28px 4px; }
+  .faq-item h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--ink); display: flex; align-items: baseline; gap: 13px; }
   .faq-item h3::before { content: "—"; color: var(--gold); font-weight: 400; }
-  .faq-item p { font-size: 14.5px; color: var(--muted); line-height: 1.7; padding-left: 24px; }
+  .faq-item p { font-size: 14.5px; color: var(--muted); line-height: 1.7; padding-left: 26px; }
 
-  /* CLOSING */
-  .closing { text-align: center; background: linear-gradient(180deg, var(--cream) 0%, #FBF4E6 100%); }
-  .closing-arch { width: 56px; height: 64px; color: var(--gold); margin: 0 auto 24px; opacity: .9; }
-  .closing h2 { font-size: clamp(30px, 5vw, 46px); font-weight: 500; }
-  .closing p { color: var(--muted); max-width: 480px; margin: 18px auto 36px; }
+  /* ===== ACT VII — CLOSING (içeridesin) ===== */
+  .closing {
+    position: relative; text-align: center; overflow: hidden;
+    background: radial-gradient(70% 60% at 50% 30%, #FFF6E2 0%, var(--cream-warm) 60%, var(--cream) 100%);
+    padding: 130px 24px 120px;
+  }
+  .closing-arch { width: 58px; height: 66px; color: var(--gold); margin: 0 auto 28px; }
+  .closing h2 { font-size: clamp(34px, 6vw, 56px); font-weight: 300; color: var(--ink); }
+  .closing p { color: var(--muted); max-width: 460px; margin: 18px auto 36px; }
+  .badges { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 11px;
+    background: var(--ink); color: #fff; padding: 13px 24px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; text-decoration: none; opacity: .9;
+  }
+  .badge svg { width: 20px; height: 20px; color: #fff; }
+  .badge small { display: block; font-size: 10px; opacity: .55; font-weight: 500; letter-spacing: .5px; }
+  .badge .big { font-size: 14.5px; font-weight: 600; line-height: 1.1; }
 
-  /* FOOTER */
-  footer { background: var(--ink-deep); color: #cfc9c0; padding: 60px 0 40px; font-size: 13.5px; }
-  footer .wrap { display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between; align-items: flex-start; }
-  footer .brand { color: var(--gold); font-size: 16px; letter-spacing: 4px; }
-  footer .brand svg { color: var(--gold); }
-  footer a { color: #cfc9c0; text-decoration: none; opacity: .82; transition: opacity .2s ease, color .2s ease; }
+  /* ===== FOOTER ===== */
+  footer { background: var(--night); color: #b8b1a6; padding: 64px 24px 42px; font-size: 13.5px; }
+  footer .fwrap { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+  footer .brand { color: var(--gold); font-size: 15px; letter-spacing: 4px; margin-bottom: 0; }
+  footer a { color: #b8b1a6; text-decoration: none; opacity: .85; transition: opacity .2s ease, color .2s ease; }
   footer a:hover { opacity: 1; color: #fff; }
   .flinks { display: flex; flex-direction: column; gap: 10px; }
   .flinks strong { color: #fff; font-family: 'Fraunces', serif; font-weight: 600; font-size: 14px; }
-  .fcopy { width: 100%; border-top: 1px solid rgba(255,255,255,.08); margin-top: 34px; padding-top: 24px; font-size: 12px; opacity: .55; }
+  .fcopy { width: 100%; max-width: 1080px; margin: 36px auto 0; border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; font-size: 12px; opacity: .55; }
   .age { display: inline-block; margin-top: 10px; border: 1px solid var(--gold); color: var(--gold); border-radius: 6px; padding: 2px 8px; font-size: 11px; letter-spacing: .5px; }
 </style>
 </head>
@@ -362,33 +382,25 @@
 
 <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language">EN</button>
 
-<header>
-  <!-- kapı kemeri motifi — manifesto "Frejya bir kapı eşiğidir" -->
-  <svg class="hero-arch" viewBox="0 0 200 240" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-    <path d="M30 236 V92 a70 70 0 0 1 140 0 V236" />
-    <path d="M52 236 V92 a48 48 0 0 1 96 0 V236" stroke-opacity=".6" />
-    <line x1="14" y1="236" x2="186" y2="236" />
-    <circle cx="128" cy="150" r="2.4" fill="currentColor" stroke="none" />
+<!-- ===== ACT I — THRESHOLD ===== -->
+<header class="threshold">
+  <span class="th-seam" aria-hidden="true"></span>
+  <svg class="th-door" viewBox="0 0 200 260" fill="none" stroke="currentColor" stroke-width="0.9" aria-hidden="true">
+    <path d="M28 256 V96 a72 72 0 0 1 144 0 V256" />
+    <path d="M50 256 V96 a50 50 0 0 1 100 0 V256" stroke-opacity=".55" />
+    <path d="M70 256 V96 a30 30 0 0 1 60 0 V256" stroke-opacity=".3" />
+    <line x1="10" y1="256" x2="190" y2="256" />
+    <circle cx="126" cy="164" r="2.4" fill="currentColor" stroke="none" />
   </svg>
-  <div class="wrap">
-    <div class="brand">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#A78A6E" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#A78A6E" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#A78A6E" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#A78A6E" stroke="none"/></svg>
+  <div class="th-inner">
+    <div class="brand reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
       FREJYA
     </div>
-    <p class="hero-eyebrow" data-i18n="hero-eyebrow">Aşkın eşiğinde</p>
-    <h1 class="hero-title" data-i18n="hero-title">Derin bağlar.<br /><em>Doğru aşklar.</em></h1>
-    <p class="hero-sub" data-i18n="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
-    <div class="badges">
-      <span class="badge soon">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.9c.02 2.5 2.2 3.33 2.22 3.34-.02.06-.35 1.2-1.15 2.37-.69 1.02-1.41 2.03-2.55 2.05-1.11.02-1.47-.66-2.75-.66s-1.67.64-2.72.68c-1.09.04-1.92-1.1-2.62-2.12-1.43-2.07-2.53-5.86-1.05-8.41.73-1.27 2.04-2.07 3.46-2.09 1.07-.02 2.09.72 2.75.72.66 0 1.9-.89 3.2-.76.54.02 2.07.22 3.05 1.65-.08.05-1.82 1.07-1.8 3.21M14.28 6.34c.58-.71.98-1.7.87-2.69-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.88 2.58.94.08 1.89-.48 2.47-1.15"/></svg>
-        <span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span>
-      </span>
-      <span class="badge soon">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1.3 1.3 0 0 0-.6 1.1v17a1.3 1.3 0 0 0 .6 1.1l9.9-9.6zm11.3 7.5L5.7 1.2l11.6 6.7zM5.7 22.8l9.2-8.7 2.4 2.4zm12.9-9.3 2.9-1.7c.8-.5.8-1.6 0-2l-2.9-1.7-2.7 2.7z"/></svg>
-        <span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span>
-      </span>
-    </div>
-    <div class="wl-block">
+    <p class="eyebrow center reveal" data-i18n="hero-eyebrow" style="justify-content:center;">Aşkın eşiğinde</p>
+    <h1 class="th-title reveal d1" data-i18n="hero-title">Derin bağlar.<br /><em>Doğru aşklar.</em></h1>
+    <p class="th-lede reveal d2" data-i18n="hero-sub">Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.</p>
+    <div class="wl-wrap reveal d3">
       <p class="wl-gift">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2 9h20M12 9v11.5"/><path d="M12 9S10.2 4.5 7.8 5.7 9.9 9 12 9ZM12 9s1.8-4.5 4.2-3.3S14.1 9 12 9Z"/></svg>
         <span data-i18n="wl-gift">İlk 1000 kişiye 3 ay premium hediye.</span>
@@ -404,137 +416,114 @@
       <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
     </div>
   </div>
+  <a class="scroll-cue" href="#manifesto" aria-label="Aşağı kaydır">
+    <span data-i18n="scroll-cue">Eşikten geç</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
 </header>
 
-<section class="app-preview" aria-label="Uygulama önizleme">
-  <div class="wrap">
-    <div class="section-tag" data-i18n="app-tag">Uygulamadan</div>
-    <h2 class="section-title" data-i18n="app-title">Frejya'nın içinden kareler</h2>
-    <div class="phones">
+<!-- ===== ACT II — MANIFESTO ===== -->
+<section class="manifesto" id="manifesto">
+  <div class="m-inner">
+    <div class="eyebrow m-eyebrow reveal" data-i18n="manifesto-tag">Manifesto</div>
+    <h2 class="m-title reveal d1" data-i18n="manifesto-title">Frejya Manifestosu</h2>
+
+    <p class="stanza reveal" data-i18n="m1">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />Biz buna inanmıyoruz.</p>
+    <p class="stanza reveal" data-i18n="m2">Hızlı beğenilenin hızlı unutulduğuna,<br />tanınmadan sevilenin sevilmediğine,<br />ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.</p>
+    <p class="stanza accent reveal" data-i18n="m3">Frejya bir flört uygulaması değildir.<br />Frejya, bir kapı eşiğidir.</p>
+    <p class="stanza reveal" data-i18n="m4">Burada yüzler bir anda görünmez.<br />Çünkü bir insan, bir fotoğraftan büyüktür.</p>
+    <p class="stanza reveal" data-i18n="m5">Konuştukça tanırsın. Tanıdıkça görürsün.<br />Gördükçe kalırsın — ya da gidersin.<br />Ama bu kez, bilerek.</p>
+    <p class="stanza reveal" data-i18n="m6">Diğerleri seni acele ettirir.<br />Diğerleri seni bir fotoğrafta yargılatır.<br />Diğerleri sana onlarca seçenek sunar — ama hiçbirini tanıma fırsatı vermez.</p>
+    <p class="stanza accent reveal" data-i18n="m7">Frejya, sana zaman tanır.</p>
+    <p class="stanza reveal" data-i18n="m8">Çünkü zili çalmak kolaydır.<br />İçeri davet edilmek, bambaşka bir şeydir.</p>
+    <p class="stanza reveal" data-i18n="m9">Burada anlık beğeni yok.<br />Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />Burada acele yok.</p>
+    <p class="stanza reveal" data-i18n="m10">Burada bir kapı var —<br />ve doğru anahtar bulunduğunda,<br />yavaşça, açılacak.</p>
+    <p class="stanza reveal" data-i18n="m11">Çünkü artık bir gece değil, bir sabah arıyoruz.<br />Bir kahve fincanının iki yanı.<br />Bir anahtarın iki sahibi.<br />Bir evin içindeki iki nefes.</p>
+    <p class="stanza reveal" data-i18n="m12">Eğer sen de yorulduysan<br />hızlı olandan, yüzeysel olandan, sahte olandan —<br />hoş geldin.</p>
+    <p class="stanza reveal" data-i18n="m13">Burada bir yuva kurulur,<br />bir oyun değil.</p>
+    <p class="m-close reveal" data-i18n="m-close">Frejya. Aşkın eşiğinde.</p>
+  </div>
+</section>
+
+<!-- ===== ACT III — JOURNEY (nasıl açılır) ===== -->
+<section class="journey">
+  <div class="sec-head reveal">
+    <div class="eyebrow center" data-i18n="how-tag" style="justify-content:center;">Nasıl Çalışır</div>
+    <h2 class="sec-title" data-i18n="how-title">Üç adımda gerçek bir bağ</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="num">01</div>
       <div>
-        <div class="phone">
-          <div class="notch"></div>
-          <div class="screen">
-            <img src="screenshots/IMG_0038.png" alt="Frejya giriş ekranı — Aşık olmanızı istiyoruz" loading="lazy" />
-          </div>
-        </div>
-        <div class="phone-label" data-i18n="phone1">Aşkın eşiğinde<small data-i18n="phone1-sub">Giriş ekranı</small></div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></div>
+        <h3 data-i18n="s1-title">Kendini anlat</h3>
+        <p data-i18n="s1-desc">Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.</p>
       </div>
+    </div>
+    <div class="step reveal">
+      <div class="num">02</div>
       <div>
-        <div class="phone">
-          <div class="notch"></div>
-          <div class="screen">
-            <img src="screenshots/IMG_0052.png" alt="Burada acele yok — derin bağ felsefesi" loading="lazy" />
-          </div>
-        </div>
-        <div class="phone-label" data-i18n="phone2">Acelesi yok<small data-i18n="phone2-sub">Onboarding</small></div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5a5 5 0 0 0-5 5v3.5L5.5 16h13L17 13V9.5a5 5 0 0 0-5-5Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/></svg></div>
+        <h3 data-i18n="s2-title">Zile bas</h3>
+        <p data-i18n="s2-desc">Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.</p>
       </div>
+    </div>
+    <div class="step reveal">
+      <div class="num">03</div>
       <div>
-        <div class="phone">
-          <div class="notch"></div>
-          <div class="screen">
-            <img src="screenshots/IMG_0068.png" alt="Sohbet ekranı — anonim mesajlaşma ve kazıma" loading="lazy" />
-          </div>
-        </div>
-        <div class="phone-label" data-i18n="phone3">Bir kapı, bir misafir<small data-i18n="phone3-sub">Sohbet</small></div>
+        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="4"/><path d="m12 12 7 7M16 16l3-1M19 19l1-3"/></svg></div>
+        <h3 data-i18n="s3-title">Kazıyarak keşfet</h3>
+        <p data-i18n="s3-desc">Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="manifesto">
-  <svg class="manifesto-arch" viewBox="0 0 200 400" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-    <path d="M40 400 V120 a60 60 0 0 1 120 0 V400" />
-    <path d="M64 400 V120 a36 36 0 0 1 72 0 V400" stroke-opacity=".55" />
-    <circle cx="124" cy="200" r="2.6" fill="currentColor" stroke="none" />
-  </svg>
-  <div class="wrap">
-    <div class="section-tag" data-i18n="manifesto-tag">Manifesto</div>
-    <h2 class="m-title" data-i18n="manifesto-title">Frejya Manifestosu</h2>
-
-    <p class="stanza" data-i18n="m1">Bir zamanlar bir insanı tanımak, mevsimler alırdı.<br />
-      Şimdi bir saniye. Bir fotoğraf. Bir parmak kaydırması.<br />
-      Biz buna inanmıyoruz.</p>
-
-    <p class="stanza" data-i18n="m2">Hızlı beğenilenin hızlı unutulduğuna,<br />
-      tanınmadan sevilenin sevilmediğine,<br />
-      ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.</p>
-
-    <p class="stanza accent" data-i18n="m3">Frejya bir flört uygulaması değildir.<br />
-      Frejya, bir kapı eşiğidir.</p>
-
-    <p class="stanza" data-i18n="m4">Burada yüzler bir anda görünmez.<br />
-      Çünkü bir insan, bir fotoğraftan büyüktür.</p>
-
-    <p class="stanza" data-i18n="m5">Konuştukça tanırsın. Tanıdıkça görürsün.<br />
-      Gördükçe kalırsın — ya da gidersin.<br />
-      Ama bu kez, bilerek.</p>
-
-    <p class="stanza" data-i18n="m6">Diğerleri seni acele ettirir.<br />
-      Diğerleri seni bir fotoğrafta yargılatır.<br />
-      Diğerleri sana onlarca seçenek sunar — ama hiçbirini tanıma fırsatı vermez.</p>
-
-    <p class="stanza accent" data-i18n="m7">Frejya, sana zaman tanır.</p>
-
-    <p class="stanza" data-i18n="m8">Çünkü zili çalmak kolaydır.<br />
-      İçeri davet edilmek, bambaşka bir şeydir.</p>
-
-    <p class="stanza" data-i18n="m9">Burada anlık beğeni yok.<br />
-      Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />
-      Burada acele yok.</p>
-
-    <p class="stanza" data-i18n="m10">Burada bir kapı var —<br />
-      ve doğru anahtar bulunduğunda,<br />
-      yavaşça, açılacak.</p>
-
-    <p class="stanza" data-i18n="m11">Çünkü artık bir gece değil, bir sabah arıyoruz.<br />
-      Bir kahve fincanının iki yanı.<br />
-      Bir anahtarın iki sahibi.<br />
-      Bir evin içindeki iki nefes.</p>
-
-    <p class="stanza" data-i18n="m12">Eğer sen de yorulduysan<br />
-      hızlı olandan, yüzeysel olandan, sahte olandan —<br />
-      hoş geldin.</p>
-
-    <p class="stanza" data-i18n="m13">Burada bir yuva kurulur,<br />
-      bir oyun değil.</p>
-
-    <p class="m-close" data-i18n="m-close">Frejya. Aşkın eşiğinde.</p>
+<!-- ===== ACT IV — INSIDE (özellikler) ===== -->
+<section class="inside">
+  <div class="sec-head reveal">
+    <div class="eyebrow center" data-i18n="why-tag" style="justify-content:center;">Neden Frejya</div>
+    <h2 class="sec-title" data-i18n="why-title">Tanışmanın sakin hâli</h2>
   </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-tag" data-i18n="why-tag">Neden Frejya</div>
-    <h2 class="section-title" data-i18n="why-title">Tanışmanın sakin hâli</h2>
-    <div class="features">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.2c0-1 .9-1.7 1.9-1.5C7.1 7.2 9.2 7.6 12 7.6s4.9-.4 7.1-.9c1-.2 1.9.5 1.9 1.5 0 4.3-3.2 8.4-9 8.4S3 12.5 3 8.2Z"/><circle cx="8.4" cy="10.6" r="1"/><circle cx="15.6" cy="10.6" r="1"/><path d="M12 16v3.5"/></svg></div>
+  <div class="rooms">
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.2c0-1 .9-1.7 1.9-1.5C7.1 7.2 9.2 7.6 12 7.6s4.9-.4 7.1-.9c1-.2 1.9.5 1.9 1.5 0 4.3-3.2 8.4-9 8.4S3 12.5 3 8.2Z"/><circle cx="8.4" cy="10.6" r="1"/><circle cx="15.6" cy="10.6" r="1"/><path d="M12 16v3.5"/></svg></div>
+      <div>
         <h3 data-i18n="f1-title">Anonimlikle başlar</h3>
         <p data-i18n="f1-desc">Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.</p>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 6 12 6c1.3 0 2.5.3 3.5.7"/><path d="M21.5 12S18 18 12 18c-1.3 0-2.5-.3-3.5-.7"/><circle cx="12" cy="12" r="2.6"/><path d="M17.5 5.5 19 4M19 8.5 21.5 8"/></svg></div>
+    </div>
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 6 12 6c1.3 0 2.5.3 3.5.7"/><path d="M21.5 12S18 18 12 18c-1.3 0-2.5-.3-3.5-.7"/><circle cx="12" cy="12" r="2.6"/><path d="M17.5 5.5 19 4M19 8.5 21.5 8"/></svg></div>
+      <div>
         <h3 data-i18n="f2-title">Sohbet ettikçe keşfedersin</h3>
         <p data-i18n="f2-desc">Eşleştiğin kişinin fotoğrafı karanlık bir perdenin arkasında. Karşılıklı sohbet ettikçe perdeyi azar azar kazıyıp onu ortaya çıkarırsın.</p>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4 3v-3H4.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8.5 10.5h7"/><path d="M8.5 13h4"/></svg></div>
+    </div>
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 5h15a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4 3v-3H4.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8.5 10.5h7"/><path d="M8.5 13h4"/></svg></div>
+      <div>
         <h3 data-i18n="f3-title">Tek sohbet, tam odak</h3>
         <p data-i18n="f3-desc">Frejya'da aynı anda yalnızca bir kişiyle sohbet edersin. Dikkat dağınıklığı yok — karşındaki kişiye gerçekten odaklanırsın.</p>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="7.5" r="2.4"/><path d="M14 5.5h5M16.5 5.5v4"/><path d="m5.5 19 2-3.4 2 3.4z"/><rect x="14" y="14" width="5" height="5" rx="1"/></svg></div>
+    </div>
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="7.5" r="2.4"/><path d="M14 5.5h5M16.5 5.5v4"/><path d="m5.5 19 2-3.4 2 3.4z"/><rect x="14" y="14" width="5" height="5" rx="1"/></svg></div>
+      <div>
         <h3 data-i18n="f4-title">Hiyeroglif paylaşımlar</h3>
         <p data-i18n="f4-desc">Akışta metin yoktur. Düşünceni ikonlardan oluşan sembolik bir dille paylaşırsın. Frejya Aura — sessiz ama anlamlı bir alan.</p>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5a5 5 0 0 0-5 5v3.5L5.5 16h13L17 13V9.5a5 5 0 0 0-5-5Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/><circle cx="12" cy="3" r=".7" fill="currentColor" stroke="none"/></svg></div>
+    </div>
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5a5 5 0 0 0-5 5v3.5L5.5 16h13L17 13V9.5a5 5 0 0 0-5-5Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/><circle cx="12" cy="3" r=".7" fill="currentColor" stroke="none"/></svg></div>
+      <div>
         <h3 data-i18n="f5-title">Zil çal</h3>
         <p data-i18n="f5-desc">Birini beğendiysen kapısının zilini çalarsın. O da senin zilini duyar — ve dilerse kapıyı açar.</p>
       </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.4v4.8c0 4.9-3.1 8.4-7 9.8-3.9-1.4-7-4.9-7-9.8V5.4L12 3Z"/><circle cx="12" cy="10.4" r="1.7"/><path d="M12 12.1v3.1"/></svg></div>
+    </div>
+    <div class="room reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 5.4v4.8c0 4.9-3.1 8.4-7 9.8-3.9-1.4-7-4.9-7-9.8V5.4L12 3Z"/><circle cx="12" cy="10.4" r="1.7"/><path d="M12 12.1v3.1"/></svg></div>
+      <div>
         <h3 data-i18n="f6-title">Güvenli ve saygılı</h3>
         <p data-i18n="f6-desc">Her profil fotoğrafı yapay zekâ ile denetlenir. Şikayet ve engelleme her an elinin altında. İstediğin an hesabını tamamen silebilirsin.</p>
       </div>
@@ -542,80 +531,86 @@
   </div>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="section-tag" data-i18n="how-tag">Nasıl Çalışır</div>
-    <h2 class="section-title" data-i18n="how-title">Üç adımda gerçek bir bağ</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="num" data-i18n="s1-num">01</div>
-        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></div>
-        <h3 data-i18n="s1-title">Kendini anlat</h3>
-        <p data-i18n="s1-desc">Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.</p>
+<!-- ===== ACT V — GLIMPSES ===== -->
+<section class="glimpses" aria-label="Uygulama önizleme">
+  <div class="sec-head reveal">
+    <div class="eyebrow center" data-i18n="app-tag" style="justify-content:center;">Uygulamadan</div>
+    <h2 class="sec-title" data-i18n="app-title">Frejya'nın içinden kareler</h2>
+  </div>
+  <div class="phones">
+    <div class="reveal">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="screenshots/IMG_0038.png" alt="Frejya giriş ekranı — Aşık olmanızı istiyoruz" loading="lazy" /></div>
       </div>
-      <div class="step">
-        <div class="num" data-i18n="s2-num">02</div>
-        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5a5 5 0 0 0-5 5v3.5L5.5 16h13L17 13V9.5a5 5 0 0 0-5-5Z"/><path d="M10.3 19a1.7 1.7 0 0 0 3.4 0"/></svg></div>
-        <h3 data-i18n="s2-title">Zile bas</h3>
-        <p data-i18n="s2-desc">Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.</p>
-      </div>
-      <div class="step">
-        <div class="num" data-i18n="s3-num">03</div>
-        <div class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="4"/><path d="m12 12 7 7M16 16l3-1M19 19l1-3"/></svg></div>
-        <h3 data-i18n="s3-title">Kazıyarak keşfet</h3>
-        <p data-i18n="s3-desc">Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.</p>
-      </div>
+      <div class="phone-label" data-i18n="phone1">Aşkın eşiğinde<small data-i18n="phone1-sub">Giriş ekranı</small></div>
     </div>
-    <div class="guide-cta">
-      <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
+    <div class="reveal d1">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="screenshots/IMG_0052.png" alt="Burada acele yok — derin bağ felsefesi" loading="lazy" /></div>
+      </div>
+      <div class="phone-label" data-i18n="phone2">Acelesi yok<small data-i18n="phone2-sub">Onboarding</small></div>
+    </div>
+    <div class="reveal d2">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen"><img src="screenshots/IMG_0068.png" alt="Sohbet ekranı — anonim mesajlaşma ve kazıma" loading="lazy" /></div>
+      </div>
+      <div class="phone-label" data-i18n="phone3">Bir kapı, bir misafir<small data-i18n="phone3-sub">Sohbet</small></div>
+    </div>
+  </div>
+  <div class="guide-cta reveal">
+    <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
+  </div>
+</section>
+
+<!-- ===== ACT VI — FAQ ===== -->
+<section class="faq">
+  <div class="sec-head reveal">
+    <div class="eyebrow center" data-i18n="faq-tag" style="justify-content:center;">Sık Sorulanlar</div>
+    <h2 class="sec-title" data-i18n="faq-title">Merak edilenler</h2>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <h3 data-i18n="faq-q1">Frejya ücretsiz mi?</h3>
+      <p data-i18n="faq-a1">Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq-q2">Fotoğrafım ne zaman görünür?</h3>
+      <p data-i18n="faq-a2">Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq-q3">Gerçekten anonim miyim?</h3>
+      <p data-i18n="faq-a3">Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq-q4">Mesajlarım ve verilerim güvende mi?</h3>
+      <p data-i18n="faq-a4">Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq-q5">Yaş sınırı var mı?</h3>
+      <p data-i18n="faq-a5">Frejya yalnızca 18 yaş ve üzeri içindir.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq-q6">Aynı anda kaç kişiyle sohbet edebilirim?</h3>
+      <p data-i18n="faq-a6">Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-tag" data-i18n="faq-tag">Sık Sorulanlar</div>
-    <h2 class="section-title" data-i18n="faq-title">Merak edilenler</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3 data-i18n="faq-q1">Frejya ücretsiz mi?</h3>
-        <p data-i18n="faq-a1">Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq-q2">Fotoğrafım ne zaman görünür?</h3>
-        <p data-i18n="faq-a2">Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq-q3">Gerçekten anonim miyim?</h3>
-        <p data-i18n="faq-a3">Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq-q4">Mesajlarım ve verilerim güvende mi?</h3>
-        <p data-i18n="faq-a4">Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq-q5">Yaş sınırı var mı?</h3>
-        <p data-i18n="faq-a5">Frejya yalnızca 18 yaş ve üzeri içindir.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq-q6">Aynı anda kaç kişiyle sohbet edebilirim?</h3>
-        <p data-i18n="faq-a6">Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- ===== ACT VII — CLOSING (içeridesin) ===== -->
 <section class="closing">
-  <div class="wrap">
-    <svg class="closing-arch" viewBox="0 0 56 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 62 V26 a18 18 0 0 1 36 0 V62"/><line x1="4" y1="62" x2="52" y2="62"/><circle cx="39" cy="42" r="1.6" fill="currentColor" stroke="none"/></svg>
+  <div class="reveal">
+    <svg class="closing-arch" viewBox="0 0 58 66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 64 V27 a19 19 0 0 1 38 0 V64"/><line x1="4" y1="64" x2="54" y2="64"/><circle cx="40" cy="43" r="1.6" fill="currentColor" stroke="none"/></svg>
     <h2 data-i18n="closing-title">Acele etme.</h2>
     <p data-i18n="closing-desc">Derin bağlar zamanla kurulur. Frejya 18 yaş ve üzeri içindir.</p>
     <div class="badges">
-      <span class="badge soon">
+      <span class="badge">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.9c.02 2.5 2.2 3.33 2.22 3.34-.02.06-.35 1.2-1.15 2.37-.69 1.02-1.41 2.03-2.55 2.05-1.11.02-1.47-.66-2.75-.66s-1.67.64-2.72.68c-1.09.04-1.92-1.1-2.62-2.12-1.43-2.07-2.53-5.86-1.05-8.41.73-1.27 2.04-2.07 3.46-2.09 1.07-.02 2.09.72 2.75.72.66 0 1.9-.89 3.2-.76.54.02 2.07.22 3.05 1.65-.08.05-1.82 1.07-1.8 3.21M14.28 6.34c.58-.71.98-1.7.87-2.69-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.88 2.58.94.08 1.89-.48 2.47-1.15"/></svg>
         <span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span>
       </span>
-      <span class="badge soon">
+      <span class="badge">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1.3 1.3 0 0 0-.6 1.1v17a1.3 1.3 0 0 0 .6 1.1l9.9-9.6zm11.3 7.5L5.7 1.2l11.6 6.7zM5.7 22.8l9.2-8.7 2.4 2.4zm12.9-9.3 2.9-1.7c.8-.5.8-1.6 0-2l-2.9-1.7-2.7 2.7z"/></svg>
         <span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span>
       </span>
@@ -624,7 +619,7 @@
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="fwrap">
     <div>
       <div class="brand">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C0A080" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M5 21 8 10"/><path d="M8 12 12 16"/><polygon points="5,4 11,4 8,8" fill="#C0A080" stroke="none"/><path d="M19 21 16 10"/><path d="M16 12 12 16"/><polygon points="19,4 13,4 16,8" fill="#C0A080" stroke="none"/><polygon points="12,15 13,16 12,17 11,16" fill="#C0A080" stroke="none"/></svg>
@@ -645,27 +640,16 @@
     </div>
     <div class="flinks">
       <strong data-i18n="footer-social">Sosyal</strong>
-      <a href="https://x.com/Frejya_App" target="_blank" rel="noopener noreferrer"
-         style="display:inline-flex;align-items:center;gap:8px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
+      <a href="https://x.com/Frejya_App" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         X · @Frejya_App
       </a>
-      <a href="https://instagram.com/frejya_app" target="_blank" rel="noopener noreferrer"
-         style="display:inline-flex;align-items:center;gap:8px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
+      <a href="https://instagram.com/frejya_app" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         Instagram · @frejya_app
       </a>
-      <a href="https://facebook.com/frejya_app" target="_blank" rel="noopener noreferrer"
-         style="display:inline-flex;align-items:center;gap:8px;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/>
-        </svg>
+      <a href="https://facebook.com/frejya_app" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z"/></svg>
         Facebook · @frejya_app
       </a>
     </div>
@@ -673,8 +657,8 @@
       <strong data-i18n="footer-contact">İletişim</strong>
       <a href="mailto:iletisim@frejya.app">iletisim@frejya.app</a>
     </div>
-    <div class="fcopy" data-i18n="footer-copy">© 2026 Frejya · Tüm hakları saklıdır.</div>
   </div>
+  <div class="fcopy" data-i18n="footer-copy">© 2026 Frejya · Tüm hakları saklıdır.</div>
 </footer>
 
 <script>
@@ -682,23 +666,18 @@
   // sitesi (frejya.app) TR + EN destekler. Dil seçimi localStorage'a yazılır,
   // ilk açılışta tarayıcı diline göre default belirlenir.
   const I18N = {
-    'title': {
-      tr: 'Frejya — Derin Bağlar, Doğru Aşklar',
-      en: 'Frejya — Deep Bonds, True Love',
-    },
+    'title': { tr: 'Frejya — Derin Bağlar, Doğru Aşklar', en: 'Frejya — Deep Bonds, True Love' },
     'meta-desc': {
       tr: 'Frejya: hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.',
       en: "Frejya: no fast swiping. Meet anonymously and truly discover each other as you talk. A dating app built for deep bonds and true love.",
     },
     'hero-eyebrow': { tr: 'Aşkın eşiğinde', en: 'At the threshold of love' },
-    'hero-title': {
-      tr: 'Derin bağlar.<br /><em>Doğru aşklar.</em>',
-      en: 'Deep bonds.<br /><em>True love.</em>',
-    },
+    'hero-title': { tr: 'Derin bağlar.<br /><em>Doğru aşklar.</em>', en: 'Deep bonds.<br /><em>True love.</em>' },
     'hero-sub': {
       tr: "Hızlı kaydırma yok. Anonim tanış, sohbet ettikçe karşındakini gerçekten keşfet. Frejya'da bir bağ kurmak zaman ister — ve buna değer.",
       en: "No fast swiping. Meet anonymously and truly discover each other as you talk. On Frejya, a real bond takes time — and it's worth it.",
     },
+    'scroll-cue': { tr: 'Eşikten geç', en: 'Cross the threshold' },
     'soon': { tr: 'Yakında', en: 'Coming soon' },
     'wl-title': { tr: 'Lansmanda ilk sen haberdar ol.', en: 'Be the first to know at launch.' },
     'wl-gift': { tr: 'İlk 1000 kişiye 3 ay premium hediye.', en: 'First 1,000 people get 3 months of premium — free.' },
@@ -719,14 +698,8 @@
       tr: 'Hızlı beğenilenin hızlı unutulduğuna,<br />tanınmadan sevilenin sevilmediğine,<br />ve bir yüzün bir insanı asla anlatmadığına inanıyoruz.',
       en: 'We believe what is quickly liked is quickly forgotten,<br />that to be loved without being known is not to be loved,<br />and that a face never tells the story of a person.',
     },
-    'm3': {
-      tr: 'Frejya bir flört uygulaması değildir.<br />Frejya, bir kapı eşiğidir.',
-      en: 'Frejya is not a dating app.<br />Frejya is a threshold.',
-    },
-    'm4': {
-      tr: "Burada yüzler bir anda görünmez.<br />Çünkü bir insan, bir fotoğraftan büyüktür.",
-      en: "Faces don't appear all at once here.<br />Because a person is bigger than a photograph.",
-    },
+    'm3': { tr: 'Frejya bir flört uygulaması değildir.<br />Frejya, bir kapı eşiğidir.', en: 'Frejya is not a dating app.<br />Frejya is a threshold.' },
+    'm4': { tr: "Burada yüzler bir anda görünmez.<br />Çünkü bir insan, bir fotoğraftan büyüktür.", en: "Faces don't appear all at once here.<br />Because a person is bigger than a photograph." },
     'm5': {
       tr: 'Konuştukça tanırsın. Tanıdıkça görürsün.<br />Gördükçe kalırsın — ya da gidersin.<br />Ama bu kez, bilerek.',
       en: 'The more you speak, the more you know. The more you know, the more you see.<br />The more you see, you stay — or you leave.<br />But this time, knowingly.',
@@ -736,35 +709,22 @@
       en: 'Others rush you.<br />Others make you judge by a photograph.<br />Others offer you dozens of choices — but no chance to truly know any.',
     },
     'm7': { tr: 'Frejya, sana zaman tanır.', en: 'Frejya gives you time.' },
-    'm8': {
-      tr: 'Çünkü zili çalmak kolaydır.<br />İçeri davet edilmek, bambaşka bir şeydir.',
-      en: 'Because ringing the doorbell is easy.<br />Being invited in is another thing entirely.',
-    },
+    'm8': { tr: 'Çünkü zili çalmak kolaydır.<br />İçeri davet edilmek, bambaşka bir şeydir.', en: 'Because ringing the doorbell is easy.<br />Being invited in is another thing entirely.' },
     'm9': {
       tr: 'Burada anlık beğeni yok.<br />Burada sahte profil, kurgu hayat, oyuna gelen kalp yok.<br />Burada acele yok.',
       en: 'No instant likes here.<br />No fake profiles, no fabricated lives, no hearts caught in a game.<br />No rush.',
     },
-    'm10': {
-      tr: 'Burada bir kapı var —<br />ve doğru anahtar bulunduğunda,<br />yavaşça, açılacak.',
-      en: 'Here is a door —<br />and when the right key is found,<br />it opens, slowly.',
-    },
+    'm10': { tr: 'Burada bir kapı var —<br />ve doğru anahtar bulunduğunda,<br />yavaşça, açılacak.', en: 'Here is a door —<br />and when the right key is found,<br />it opens, slowly.' },
     'm11': {
       tr: 'Çünkü artık bir gece değil, bir sabah arıyoruz.<br />Bir kahve fincanının iki yanı.<br />Bir anahtarın iki sahibi.<br />Bir evin içindeki iki nefes.',
       en: 'Because we are no longer looking for a night, but a morning.<br />Two sides of a coffee cup.<br />Two owners of one key.<br />Two breaths within one home.',
     },
-    'm12': {
-      tr: 'Eğer sen de yorulduysan<br />hızlı olandan, yüzeysel olandan, sahte olandan —<br />hoş geldin.',
-      en: 'If you too are tired<br />of the fast, the shallow, the fake —<br />welcome.',
-    },
-    'm13': {
-      tr: 'Burada bir yuva kurulur,<br />bir oyun değil.',
-      en: 'Here a home is built,<br />not a game.',
-    },
+    'm12': { tr: 'Eğer sen de yorulduysan<br />hızlı olandan, yüzeysel olandan, sahte olandan —<br />hoş geldin.', en: 'If you too are tired<br />of the fast, the shallow, the fake —<br />welcome.' },
+    'm13': { tr: 'Burada bir yuva kurulur,<br />bir oyun değil.', en: 'Here a home is built,<br />not a game.' },
     'm-close': { tr: 'Frejya. Aşkın eşiğinde.', en: 'Frejya. At the threshold of love.' },
 
     'why-tag': { tr: 'Neden Frejya', en: 'Why Frejya' },
     'why-title': { tr: 'Tanışmanın sakin hâli', en: 'Meeting, the calm way' },
-
     'f1-title': { tr: 'Anonimlikle başlar', en: 'It starts with anonymity' },
     'f1-desc': {
       tr: 'Profilini bir biyografi değil, psikolojik derinlik testi anlatır. Kendini bir hayvan avatarı, takma ad ve maskelenmiş bir ses tonuyla tanıtırsın.',
@@ -798,69 +758,32 @@
 
     'how-tag': { tr: 'Nasıl Çalışır', en: 'How It Works' },
     'how-title': { tr: 'Üç adımda gerçek bir bağ', en: 'A real bond in three steps' },
-    's1-num': { tr: '01', en: '01' },
-    's2-num': { tr: '02', en: '02' },
-    's3-num': { tr: '03', en: '03' },
-
     's1-title': { tr: 'Kendini anlat', en: 'Introduce yourself' },
-    's1-desc': {
-      tr: 'Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.',
-      en: 'Take the depth test, pick your spirit animal, introduce your voice with a mask.',
-    },
+    's1-desc': { tr: 'Derinlik testini çöz, ruhani hayvan avatarını seç, sesini bir perdeyle tanıt.', en: 'Take the depth test, pick your spirit animal, introduce your voice with a mask.' },
     's2-title': { tr: 'Zile bas', en: 'Ring the bell' },
-    's2-desc': {
-      tr: 'Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.',
-      en: 'Match with someone on the Discover screen, ring their doorbell. If they accept, the chat opens.',
-    },
+    's2-desc': { tr: 'Keşfet ekranında biriyle eşleş, kapısının zilini çal. Kabul ederse sohbet açılır.', en: 'Match with someone on the Discover screen, ring their doorbell. If they accept, the chat opens.' },
     's3-title': { tr: 'Kazıyarak keşfet', en: 'Discover by scratching' },
-    's3-desc': {
-      tr: 'Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.',
-      en: 'As you talk, scratch the veil; the more effort, the more they appear.',
-    },
+    's3-desc': { tr: 'Sohbet ettikçe perdeyi kazı; emek verdikçe karşındaki kişi ortaya çıkar.', en: 'As you talk, scratch the veil; the more effort, the more they appear.' },
 
     'faq-tag': { tr: 'Sık Sorulanlar', en: 'FAQ' },
     'faq-title': { tr: 'Merak edilenler', en: 'Frequently asked' },
     'faq-q1': { tr: 'Frejya ücretsiz mi?', en: 'Is Frejya free?' },
-    'faq-a1': {
-      tr: "Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.",
-      en: 'Yes, Frejya is free to use. Optional premium features may be offered later.',
-    },
+    'faq-a1': { tr: "Evet, Frejya'yı ücretsiz kullanabilirsin. İleride bazı ek özellikler için isteğe bağlı premium üyelik sunulabilir.", en: 'Yes, Frejya is free to use. Optional premium features may be offered later.' },
     'faq-q2': { tr: 'Fotoğrafım ne zaman görünür?', en: 'When does my photo become visible?' },
-    'faq-a2': {
-      tr: 'Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.',
-      en: "Your match's photo is hidden at first. As you chat, the veil gradually lifts — you see them as you get to know them.",
-    },
+    'faq-a2': { tr: 'Eşleştiğin kişinin fotoğrafı başta gizlidir. Karşılıklı sohbet ettikçe perde yavaşça açılır — tanıştıkça görürsün.', en: "Your match's photo is hidden at first. As you chat, the veil gradually lifts — you see them as you get to know them." },
     'faq-q3': { tr: 'Gerçekten anonim miyim?', en: 'Am I really anonymous?' },
-    'faq-a3': {
-      tr: 'Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.',
-      en: 'You start with an animal avatar, a nickname and a masked voice. Your real photo unlocks only through conversation.',
-    },
+    'faq-a3': { tr: 'Başta bir hayvan avatarı, takma ad ve maskelenmiş ses tonuyla tanışırsın. Gerçek fotoğrafın yalnızca sohbetle açılır.', en: 'You start with an animal avatar, a nickname and a masked voice. Your real photo unlocks only through conversation.' },
     'faq-q4': { tr: 'Mesajlarım ve verilerim güvende mi?', en: 'Are my messages and data safe?' },
-    'faq-a4': {
-      tr: 'Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.',
-      en: 'Messages are end-to-end encrypted; no one — including the Frejya team — can read them. All profile photos are AI-reviewed.',
-    },
+    'faq-a4': { tr: 'Mesajlar uçtan uca şifrelenir; Frejya ekibi dahil kimse içeriği okuyamaz. Tüm profil fotoğrafları yapay zekâ ile denetlenir.', en: 'Messages are end-to-end encrypted; no one — including the Frejya team — can read them. All profile photos are AI-reviewed.' },
     'faq-q5': { tr: 'Yaş sınırı var mı?', en: 'Is there an age limit?' },
-    'faq-a5': {
-      tr: 'Frejya yalnızca 18 yaş ve üzeri içindir.',
-      en: 'Frejya is for ages 18 and over only.',
-    },
+    'faq-a5': { tr: 'Frejya yalnızca 18 yaş ve üzeri içindir.', en: 'Frejya is for ages 18 and over only.' },
     'faq-q6': { tr: 'Aynı anda kaç kişiyle sohbet edebilirim?', en: 'How many people can I chat with at once?' },
-    'faq-a6': {
-      tr: 'Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.',
-      en: 'Only one person at a time — so you can truly focus on the person in front of you.',
-    },
+    'faq-a6': { tr: 'Aynı anda yalnızca bir kişiyle — böylece karşındaki kişiye gerçekten odaklanırsın.', en: 'Only one person at a time — so you can truly focus on the person in front of you.' },
 
     'closing-title': { tr: 'Acele etme.', en: "Don't rush." },
-    'closing-desc': {
-      tr: 'Derin bağlar zamanla kurulur. Frejya 18 yaş ve üzeri içindir.',
-      en: 'Deep bonds take time. Frejya is for ages 18 and over.',
-    },
+    'closing-desc': { tr: 'Derin bağlar zamanla kurulur. Frejya 18 yaş ve üzeri içindir.', en: 'Deep bonds take time. Frejya is for ages 18 and over.' },
 
-    'footer-tag': {
-      tr: 'Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.',
-      en: 'A dating app built for deep bonds and true love.',
-    },
+    'footer-tag': { tr: 'Derin bağlar ve doğru aşklar için kurulmuş tanışma uygulaması.', en: 'A dating app built for deep bonds and true love.' },
     'nav-home': { tr: 'Ana Sayfa', en: 'Home' },
     'nav-guide': { tr: 'Nasıl Kullanılır', en: 'How it works' },
     'guide-cta': { tr: 'Adım adım kullanım kılavuzu', en: 'Step-by-step user guide' },
@@ -878,21 +801,12 @@
     'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
     'link-eula': { tr: 'Kullanıcı Sözleşmesi', en: 'Terms of Use' },
     'footer-contact': { tr: 'İletişim', en: 'Contact' },
-    'footer-copy': {
-      tr: '© 2026 Frejya · Tüm hakları saklıdır.',
-      en: '© 2026 Frejya · All rights reserved.',
-    },
+    'footer-copy': { tr: '© 2026 Frejya · Tüm hakları saklıdır.', en: '© 2026 Frejya · All rights reserved.' },
   };
 
   const LEGAL_LINKS = {
-    'link-privacy': {
-      tr: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html',
-      en: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.en.html',
-    },
-    'link-eula': {
-      tr: 'https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html',
-      en: 'https://mujdattelli.github.io/frejya-legal/legal/eula.en.html',
-    },
+    'link-privacy': { tr: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.tr.html', en: 'https://mujdattelli.github.io/frejya-legal/legal/privacy.en.html' },
+    'link-eula': { tr: 'https://mujdattelli.github.io/frejya-legal/legal/eula.tr.html', en: 'https://mujdattelli.github.io/frejya-legal/legal/eula.en.html' },
   };
 
   function applyLang(lang) {
@@ -906,7 +820,6 @@
       if (attr) el.setAttribute(attr, tr[lang]);
       else el.innerHTML = tr[lang];
     });
-    // Yasal sayfa linkleri TR/EN sürümlerini gösterecek şekilde değişir.
     Object.keys(LEGAL_LINKS).forEach((id) => {
       const a = document.getElementById(id);
       if (a) a.setAttribute('href', LEGAL_LINKS[id][lang]);
@@ -950,23 +863,14 @@
         return;
       }
       btn.disabled = true;
-      // RPC çağrısı yardımcı — isimle dener; Supabase fonksiyonu henüz ismi
-      // kabul etmiyorsa (eski imza) isimsiz tekrar dener, böylece form bozulmaz.
       const callRpc = (body) => fetch(WL_URL + '/rest/v1/rpc/rpc_join_waitlist', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': WL_KEY,
-          'Authorization': 'Bearer ' + WL_KEY,
-        },
+        headers: { 'Content-Type': 'application/json', 'apikey': WL_KEY, 'Authorization': 'Bearer ' + WL_KEY },
         body: JSON.stringify(body),
       });
       try {
         let res = await callRpc({ p_email: email, p_lang: lang, p_name: name || null });
-        if (res.status === 404) {
-          // Fonksiyon p_name'i bilmiyor → eski imzayla tekrar dene.
-          res = await callRpc({ p_email: email, p_lang: lang });
-        }
+        if (res.status === 404) { res = await callRpc({ p_email: email, p_lang: lang }); }
         if (!res.ok) throw new Error('http ' + res.status);
         msg.textContent = I18N['wl-success'][lang];
         msg.classList.add('ok');
@@ -980,6 +884,27 @@
     });
   }
 
+  // Scroll-da beliriş (kapıdan içeri anlatısı). FAIL-SAFE: above-fold aninda
+  // gorunur; below-fold IntersectionObserver ile; IO bazi ortamlarda tetiklenmezse
+  // diye guvenlik agi zamanlayicisi her seyi acar — icerik asla gizli kalmaz.
+  function initReveal() {
+    const els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (_) {}
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    document.documentElement.classList.add('js');
+    var reveal = function (el) { el.classList.add('in'); };
+    els.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < (window.innerHeight || 800) * 0.92) reveal(el);
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { reveal(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { if (!el.classList.contains('in')) io.observe(el); });
+    setTimeout(function () { els.forEach(reveal); }, 2500);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     applyLang(pickInitialLang());
     document.getElementById('lang-toggle').addEventListener('click', () => {
@@ -987,6 +912,7 @@
       applyLang(current === 'tr' ? 'en' : 'tr');
     });
     initWaitlist();
+    initReveal();
   });
 </script>
 
