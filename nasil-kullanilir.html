@@ -230,6 +230,13 @@
     background: #18120C; border-radius: 0 0 11px 11px; z-index: 2;
   }
 
+  .ss-slider { position: relative; max-width: 540px; margin: 26px auto 8px; }
+  .ss-slider .screenshot-inline { margin: 0; max-width: none; }
+  .ss-arrow { position: absolute; top: 42%; transform: translateY(-50%); z-index: 4; width: 42px; height: 42px; border-radius: 999px; border: 1px solid rgba(192,160,128,.5); background: rgba(255,255,255,.95); color: #9A7E5C; font-family: 'Fraunces', Georgia, serif; font-size: 23px; line-height: 1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px -10px rgba(60,45,25,.5); transition: background .2s ease, color .2s ease; }
+  .ss-arrow:hover { background: #C0A080; color: #fff; }
+  .ss-arrow.prev { left: -6px; } .ss-arrow.next { right: -6px; }
+  .ss-arrow[hidden] { display: none; }
+
   /* CTA */
   .cta-row { text-align: center; padding: clamp(56px, 8vh, 76px) 0 30px; }
   .cta-row a {
@@ -861,6 +868,24 @@
     setTimeout(function(){els.forEach(reveal);},2500);
   }
   if(document.readyState!=="loading") initReveal(); else document.addEventListener("DOMContentLoaded", initReveal);
+
+  function initShots(){
+    var groups=Array.prototype.slice.call(document.querySelectorAll(".screenshot-inline"));
+    groups.forEach(function(track){
+      if(track.children.length<2 || track.closest(".ss-slider")) return;
+      var wrap=document.createElement("div"); wrap.className="ss-slider";
+      track.parentNode.insertBefore(wrap, track); wrap.appendChild(track);
+      function mk(cls,sym,lbl){ var b=document.createElement("button"); b.type="button"; b.className="ss-arrow "+cls; b.textContent=sym; b.setAttribute("aria-label",lbl); return b; }
+      var prev=mk("prev","‹","Önceki"), next=mk("next","›","Sonraki");
+      wrap.appendChild(prev); wrap.appendChild(next);
+      function step(){ return Math.max(track.clientWidth*0.85, 180); }
+      prev.addEventListener("click",function(){ track.scrollBy({left:-step(),behavior:"smooth"}); });
+      next.addEventListener("click",function(){ track.scrollBy({left:step(),behavior:"smooth"}); });
+      function upd(){ var max=track.scrollWidth-track.clientWidth-2; prev.hidden=track.scrollLeft<=2; next.hidden=track.scrollLeft>=max; }
+      track.addEventListener("scroll",upd,{passive:true}); window.addEventListener("resize",upd); setTimeout(upd,60);
+    });
+  }
+  if(document.readyState!=="loading") initShots(); else document.addEventListener("DOMContentLoaded", initShots);
 })();
 </script>
 </body>
