@@ -216,9 +216,11 @@
   .callout strong { color: var(--gold-dark); }
 
   /* INLINE SCREENSHOT — index telefon stiliyle uyumlu */
-  .screenshot-inline { margin: 26px 0 8px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .screenshot-inline { margin: 26px 0 8px; display: flex; justify-content: flex-start; gap: 16px; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 2px 4px 8px; }
+  .screenshot-inline::-webkit-scrollbar { display: none; }
+  @media (min-width: 760px) { .screenshot-inline { justify-content: center; flex-wrap: wrap; overflow-x: visible; } }
   .screenshot-inline .phone-mini {
-    width: 100%; max-width: 240px; position: relative; aspect-ratio: 9 / 19.5;
+    flex: 0 0 auto; width: min(240px, 72vw); scroll-snap-align: center; position: relative; aspect-ratio: 9 / 19.5;
     background: #18120C; border-radius: 28px; padding: 7px;
     box-shadow: 0 22px 48px -16px rgba(60,45,25,.4), 0 3px 12px rgba(60,45,25,.1);
   }
