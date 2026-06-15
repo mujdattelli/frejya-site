@@ -349,8 +349,17 @@
   .glimpses { background: var(--cream-warm); padding: clamp(40px,7vh,70px) 24px var(--space); text-align: center; }
   .glimpses .sec-head .kicker { color: var(--gold-dark); }
   .glimpses .sec-title { color: var(--ink); }
-  .phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(26px, 4vw, 40px); max-width: 980px; margin: 0 auto; }
-  @media (max-width: 720px) { .phones { grid-template-columns: 1fr; gap: 50px; max-width: 308px; } }
+  .slider { position: relative; max-width: 1060px; margin: 0 auto; }
+  .phones { display: flex; gap: clamp(20px, 4vw, 36px); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 6px 28px 22px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .phones::-webkit-scrollbar { display: none; }
+  .phones > figure { flex: 0 0 auto; width: clamp(216px, 26vw, 262px); scroll-snap-align: center; }
+  @media (max-width: 720px) { .phones > figure { width: 76vw; max-width: 300px; } .phones { padding: 6px 16px 22px; } }
+  .slider-arrow { position: absolute; top: 40%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(192,160,128,.45); background: rgba(255,255,255,.92); color: var(--gold-dark); font-family: 'Fraunces', serif; font-size: 24px; line-height: 1; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 8px 20px -10px rgba(50,38,20,.45); transition: background .25s ease, color .25s ease; }
+  .slider-arrow:hover { background: var(--gold); color: #fff; }
+  .slider-arrow.prev { left: -8px; } .slider-arrow.next { right: -8px; }
+  @media (min-width: 760px) { .slider-arrow { display: inline-flex; } }
+  .slider-hint { margin-top: 6px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); opacity: .7; }
+  @media (min-width: 760px) { .slider-hint { display: none; } }
   .phone {
     position: relative; aspect-ratio: 9 / 19.5; background: #18120C; border-radius: 34px; padding: 8px;
     box-shadow: 0 34px 70px -22px rgba(50,38,20,.42), 0 4px 14px rgba(50,38,20,.12); transition: transform .4s ease;
@@ -580,7 +589,9 @@
     <p class="kicker center" data-i18n="app-tag">Uygulamadan</p>
     <h2 class="sec-title" id="app-title" data-i18n="app-title">Frejya'nın içinden kareler</h2>
   </div>
-  <div class="phones">
+  <div class="slider">
+  <button class="slider-arrow prev" type="button" aria-label="Önceki" onclick="document.getElementById('phones-track').scrollBy({left:-290,behavior:'smooth'})">‹</button>
+  <div class="phones" id="phones-track">
     <figure class="reveal" style="margin:0;">
       <div class="phone">
         <div class="notch"></div>
@@ -624,6 +635,9 @@
       <figcaption class="phone-label" data-i18n="phone6">Profiller<small data-i18n="phone6-sub">Hayvan avatarı</small></figcaption>
     </figure>
   </div>
+  <button class="slider-arrow next" type="button" aria-label="Sonraki" onclick="document.getElementById('phones-track').scrollBy({left:290,behavior:'smooth'})">›</button>
+  </div>
+  <p class="slider-hint" data-i18n="slider-hint">← kaydır →</p>
   <div class="guide-cta reveal">
     <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
   </div>
@@ -869,6 +883,7 @@
     'phone5-sub': { tr: 'Konuştukça açılır', en: 'Opens as you talk' },
     'phone6': { tr: 'Profiller', en: 'Profiles' },
     'phone6-sub': { tr: 'Hayvan avatarı', en: 'Animal avatar' },
+    'slider-hint': { tr: '← kaydır →', en: '← swipe →' },
     'footer-site': { tr: 'Site', en: 'Site' },
     'footer-social': { tr: 'Sosyal', en: 'Social' },
     'footer-legal': { tr: 'Yasal', en: 'Legal' },
