@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frejya — Hesap Silme / Delete Account</title>
+  <meta name="description" content="Frejya hesabını ve verilerini sil. Delete your Frejya account and data." />
+  <link rel="icon" href="favicon.svg" />
+  <link rel="canonical" href="https://frejya.app/hesap-sil.html" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(160deg, #FFFFFF, #FCFBF8 55%, #FFF9E6);
+      color: #1A1A1A; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; padding: 24px;
+    }
+    .card {
+      background: #FFFFFF; border: 1px solid #E8E6E1; border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(192,160,128,0.12); width: 100%; max-width: 460px;
+      padding: 32px 28px;
+    }
+    h1 { font-size: 22px; color: #1A1A1A; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #8A7A60; margin-bottom: 20px; line-height: 1.5; }
+    label { display: block; font-size: 12px; color: #8A7A60; margin: 14px 0 6px; }
+    input, textarea {
+      width: 100%; padding: 13px 14px; border: 1px solid #E8E6E1; border-radius: 14px;
+      font-size: 15px; background: #FAFAFA; outline: none; font-family: inherit; resize: vertical;
+    }
+    input:focus, textarea:focus { border-color: #C0A080; }
+    button {
+      width: 100%; margin-top: 22px; padding: 14px; border: none; border-radius: 999px;
+      background: #C0A080; color: #fff; font-size: 15px; font-weight: bold;
+      font-family: inherit; cursor: pointer; letter-spacing: .5px;
+    }
+    button:disabled { opacity: .5; cursor: default; }
+    .msg { margin-top: 16px; font-size: 13px; line-height: 1.5; text-align: center; }
+    .msg.err { color: #C0392B; }
+    .msg.ok { color: #1E8449; }
+    .en { color: #A39A8C; font-size: 11px; }
+    .policy {
+      margin-top: 24px; padding-top: 18px; border-top: 1px solid #EFEDE8;
+      font-size: 12px; color: #8A7A60; line-height: 1.6;
+    }
+    .policy b { color: #6B5C42; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hesabını Sil <span class="en">/ Delete Account</span></h1>
+    <p class="sub">
+      Frejya hesabını silmek için kayıtlı e-posta adresini gir. Talebin ekibimize ulaşır ve hesabın silinir.
+      <span class="en">Enter your registered email to request deletion of your Frejya account. Your request reaches our team and your account is deleted.</span>
+    </p>
+
+    <div id="form-area">
+      <label for="email">E-posta <span class="en">/ Email</span></label>
+      <input id="email" type="email" autocomplete="email" placeholder="ornek@eposta.com" />
+      <label for="note">Not (isteğe bağlı) <span class="en">/ Note (optional)</span></label>
+      <textarea id="note" rows="2" placeholder="Eklemek istediğin bir şey varsa..."></textarea>
+      <button id="submit" disabled>Silme Talebi Gönder <span class="en">/ Request Deletion</span></button>
+      <div id="msg" class="msg"></div>
+    </div>
+
+    <div class="policy">
+      <b>Ne silinir?</b> Onaylandığında profilin, mesajların, fotoğrafların ve etkileşimlerin kalıcı olarak kaldırılır. Hesap <b>15 gün</b> geri-alma penceresinden sonra kalıcı silinir. Yasal yükümlülük gereği sınırlı denetim kaydı saklanabilir; aynı e-posta <b>60 gün</b> yeniden kayıt için bekletilir.
+      <br><br>
+      <span class="en"><b>What is deleted?</b> Once approved, your profile, messages, photos and interactions are permanently removed. The account is permanently deleted after a <b>15-day</b> recovery window. Limited audit records may be retained for legal compliance; the same email is held for <b>60 days</b> before re-registration.</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    var SUPABASE_URL = 'https://fgbnngtsecmxrqjoplmh.supabase.co';
+    var SUPABASE_ANON = 'sb_publishable_qHSMPVngoGSBYzOzXUgRsQ_tlBtnt_F';
+    var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
+      auth: { persistSession: false }
+    });
+
+    var email = document.getElementById('email');
+    var note = document.getElementById('note');
+    var btn = document.getElementById('submit');
+    var msg = document.getElementById('msg');
+    var formArea = document.getElementById('form-area');
+
+    function setMsg(text, cls) { msg.textContent = text; msg.className = 'msg ' + (cls || ''); }
+    function validEmail(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+    function refresh() { btn.disabled = !validEmail(email.value.trim()); }
+    email.addEventListener('input', refresh);
+
+    btn.addEventListener('click', function () {
+      var e = email.value.trim();
+      if (!validEmail(e)) { setMsg('Geçerli bir e-posta gir. / Enter a valid email.', 'err'); return; }
+      btn.disabled = true; setMsg('Gönderiliyor... / Sending...', '');
+      client.rpc('rpc_submit_deletion_request', { p_email: e, p_note: note.value.trim() || null })
+        .then(function (res) {
+          if (res.error) {
+            btn.disabled = false;
+            setMsg('Bir hata oluştu, lütfen tekrar dene. / Something went wrong, please try again.', 'err');
+            return;
+          }
+          formArea.innerHTML = '<div class="msg ok">Talebin alındı. Hesabın en kısa sürede silinecek; bu işlem onay sonrası tamamlanır.<br><span class="en">Your request has been received. Your account will be deleted shortly after review.</span></div>';
+        })
+        .catch(function () {
+          btn.disabled = false;
+          setMsg('Bir hata oluştu, lütfen tekrar dene. / Something went wrong, please try again.', 'err');
+        });
+    });
+  </script>
+</body>
+</html>
