@@ -319,6 +319,7 @@
         <li data-i18n="s1-l2">Doğum tarihini girersin; uygulama yalnız yaşı tutar, tarih başka kullanıcıya gösterilmez.</li>
         <li data-i18n="s1-l3">İstersen <strong>davet kodu</strong> yazarsın — seni davet edene 1 ay Premium hediye edilir (sen ücret ödemezsin).</li>
         <li data-i18n="s1-l4">Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>'nı görmen gerekir.</li>
+        <li data-i18n="s1-l5"><strong>Biyometrik giriş:</strong> İlk girişinden sonra Frejya, bir dahaki sefere parmak izi veya Face ID ile şifresiz girmeyi teklif eder. Kabul edersen sonraki açılışlarda saniyede girersin; istemediğin açılışta ekranı yana kaydırıp şifrenle girersin. Profili Düzenle'den istediğin an kapatabilirsin.</li>
       </ul>
       <div class="callout" data-i18n="s1-callout"><strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.</div>
       <div class="screenshot-inline">
@@ -497,6 +498,7 @@
         <li data-i18n="s9-l3"><strong>Şikayet ve engelleme:</strong> Her profil kartında, her sohbet ekranında "Şikayet et" ve "Engelle" butonları vardır. Engellediğin kişiyle bir daha karşılaşmazsın.</li>
         <li data-i18n="s9-l4"><strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini ve ilçeni sorar. Bu bilgi yalnız eşleşme için kullanılır.</li>
         <li data-i18n="s9-l5"><strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).</li>
+        <li data-i18n="s9-l6"><strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.</li>
       </ul>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
@@ -528,7 +530,7 @@
           <tr><td data-i18n="row-aura">Aura paylaşımı, FIFO <em style="color:#888;font-style:normal;">(Genel Toplam)</em></td><td>50</td><td>50</td><td>100</td></tr>
         </tbody>
       </table>
-      <p style="font-size: 13px; color: #888;" data-i18n="s10-footnote">*Onaylı: Telefon numarası doğrulanmış kullanıcı (SMS altyapısı yakında aktifleşecek).</p>
+      <p style="font-size: 13px; color: #888;" data-i18n="s10-footnote">*Onaylı: E-postanı doğrula (uygulama içinden 6 haneli kod) veya Google/Apple ile giriş yap → otomatik Onaylı olursun. Telefon (SMS) doğrulaması yakında.</p>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
           <img src="app-gorseller/uyelik-tipleri.jpeg" alt="Üyelik ekranı — Premium hero kart ve 3 kademe (Normal/Onaylı/Premium)" loading="lazy" />
@@ -691,6 +693,7 @@
     's1-l2': { tr: 'Doğum tarihini girersin; uygulama yalnız yaşı tutar, tarih başka kullanıcıya gösterilmez.', en: 'You enter your date of birth; the app only stores your age and never shows the date to others.' },
     's1-l3': { tr: 'İstersen <strong>davet kodu</strong> yazarsın — seni davet edene 1 ay Premium hediye edilir (sen ücret ödemezsin).', en: 'You can optionally enter an <strong>invite code</strong> — whoever invited you gets 1 month of Premium as a gift (you pay nothing).' },
     's1-l4': { tr: 'Uygulamayı kullanmadan önce <strong>Kullanım Şartları</strong> ve <strong>Gizlilik Politikası</strong>\'nı görmen gerekir.', en: 'Before using the app you have to read the <strong>Terms of Service</strong> and <strong>Privacy Policy</strong>.' },
+    's1-l5': { tr: "<strong>Biyometrik giriş:</strong> İlk girişinden sonra Frejya, bir dahaki sefere parmak izi veya Face ID ile şifresiz girmeyi teklif eder. Kabul edersen sonraki açılışlarda saniyede girersin; istemediğin açılışta ekranı yana kaydırıp şifrenle girersin. Profili Düzenle'den istediğin an kapatabilirsin.", en: "<strong>Biometric login:</strong> After your first sign-in, Frejya offers to log you in next time with your fingerprint or Face ID — no password. Accept it and later launches take a second; on any launch you'd rather not, swipe the screen aside and sign in with your password. You can turn it off anytime from Edit Profile." },
     's1-callout': { tr: '<strong>Yaş kuralı:</strong> Frejya yalnızca 18 yaş ve üzeri içindir. 18 yaşın altındaki kayıtlar otomatik reddedilir.', en: '<strong>Age rule:</strong> Frejya is for 18 and older only. Sign-ups under 18 are rejected automatically.' },
 
     // 02 — Profile
@@ -781,6 +784,7 @@
     's9-l3': { tr: '<strong>Şikayet ve engelleme:</strong> Her profil kartında, her sohbet ekranında "Şikayet et" ve "Engelle" butonları vardır. Engellediğin kişiyle bir daha karşılaşmazsın.', en: '<strong>Report and block:</strong> Every profile card and every chat screen has "Report" and "Block" buttons. You\'ll never run into someone you\'ve blocked again.' },
     's9-l4': { tr: '<strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini ve ilçeni sorar. Bu bilgi yalnız eşleşme için kullanılır.', en: '<strong>Location privacy:</strong> Frejya never asks for your exact location — only your city and district. This information is used solely for matching.' },
     's9-l5': { tr: '<strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).', en: '<strong>Screenshot alert:</strong> You\'re notified if the other side takes a screenshot in your chat (Android).' },
+    's9-l6': { tr: "<strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.", en: "<strong>Biometric data stays on your device:</strong> Your fingerprint or face data is never sent to Frejya's servers; verification happens entirely in your phone's secure hardware. The on-device login key is wiped on logout, ban or password change." },
 
     // 10 — Tiers
     's10-title': { tr: 'Üyelik katmanları', en: 'Membership tiers' },
@@ -794,7 +798,7 @@
     'row-search': { tr: 'Detaylı arama sonucu <em style="color:#888;font-style:normal;">(Günlük)</em>', en: 'Detailed search results <em style="color:#888;font-style:normal;">(Daily)</em>' },
     'row-follow-total': { tr: 'Takip listesi limiti <em style="color:#888;font-style:normal;">(Genel Toplam)</em>', en: 'Follow list cap <em style="color:#888;font-style:normal;">(General Total)</em>' },
     'row-aura': { tr: 'Aura paylaşımı, FIFO <em style="color:#888;font-style:normal;">(Genel Toplam)</em>', en: 'Aura posts, FIFO <em style="color:#888;font-style:normal;">(General Total)</em>' },
-    's10-footnote': { tr: '*Onaylı: Telefon numarası doğrulanmış kullanıcı (SMS altyapısı yakında aktifleşecek).', en: '*Verified: Users whose phone number has been verified (SMS infrastructure goes live soon).' },
+    's10-footnote': { tr: '*Onaylı: E-postanı doğrula (uygulama içinden 6 haneli kod) veya Google/Apple ile giriş yap → otomatik Onaylı olursun. Telefon (SMS) doğrulaması yakında.', en: '*Verified: Confirm your email (6-digit code in the app) or sign in with Google/Apple → you become Verified automatically. Phone (SMS) verification coming soon.' },
 
     // 11 — Invite
     's11-title': { tr: 'Arkadaşını davet et', en: 'Invite a friend' },
