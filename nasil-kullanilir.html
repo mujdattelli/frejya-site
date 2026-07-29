@@ -355,12 +355,12 @@
       <span class="sub" data-i18n="s3-sub">Yapay zekâ doğrulaması · Sahte profil yok</span>
       <p data-i18n="s3-p1"><em>İnsan, bir fotoğraftan büyüktür.</em> Frejya'ya gerçek bir <strong>yüz fotoğrafı</strong> yüklemen gerekir; ancak bu fotoğraf eşleştiğin kişiye <strong>doğrudan gösterilmez</strong> — perdenin arkasında kalır ve sohbet ettikçe yavaşça açılır.</p>
       <ul>
-        <li data-i18n="s3-l1">Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: tek kişi olmalı, yüz net görünmeli, ünlü/internet fotoğrafı olmamalı, uygunsuz içerik içermemeli.</li>
-        <li data-i18n="s3-l2">İnceleme en fazla 5 dakika sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün. Bu süre boyunca uygulamayı normal şekilde kullanabilirsin.</li>
-        <li data-i18n="s3-l3">Reddedilirse açıklama gösterilir, başka bir fotoğrafla tekrar denersin.</li>
+        <li data-i18n="s3-l1">Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: gerçek ve net bir insan yüzü görünmeli, beyan ettiğin cinsiyetle uyumlu olmalı, çıplaklık veya 18 yaş altı içerik olmamalı.</li>
+        <li data-i18n="s3-l2">İnceleme genelde birkaç dakika sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün. 5 dakikayı aşarsa uygulama fotoğraf onayı bekleme ekranına düşer.</li>
+        <li data-i18n="s3-l3">Reddedilirse açıklama gösterilir; 5 dakika arayla, günde 5 ve ayda 20 deneme hakkın vardır. Art arda 5 redde fotoğraf yükleme 1 gün kapanır.</li>
         <li data-i18n="s3-l4">Onaylanmamış kullanıcı eşleşmelerde görünmez ve mesaj atamaz — bu, herkesin gerçek olduğundan emin olmanın yoludur.</li>
       </ul>
-      <div class="callout" data-i18n="s3-callout"><strong>Önemli:</strong> Fotoğrafın sunucuda şifreli tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.</div>
+      <div class="callout" data-i18n="s3-callout"><strong>Önemli:</strong> Fotoğrafın özel (private) depoda tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.</div>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
           <img src="app-gorseller/karakter-testi.jpeg" alt="Kayıt adımı — Görsel Kimliğiniz: cinsiyet, profil fotoğrafı ve avatar" loading="lazy" />
@@ -396,7 +396,7 @@
     <section class="guide-block" id="kesfet">
       <h2><span class="step-num">05</span> <span data-i18n="s5-title">Keşfet ve eşleş</span></h2>
       <span class="sub" data-i18n="s5-sub">Detaylı arama · Karakter uyumu</span>
-      <p data-i18n="s5-p1">Detaylı Arama ekranında yaş, şehir, ilgi alanları gibi filtreleri ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.</p>
+      <p data-i18n="s5-p1">Detaylı Arama ekranında yaş, boy, şehir, eğitim ve meslek filtrelerini ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.</p>
       <p data-i18n="s5-p2">Algoritma şu unsurlara göre uyumu hesaplar:</p>
       <ul>
         <li data-i18n="s5-l1">Psikolojik karakter tipi uyumu</li>
@@ -414,7 +414,7 @@
           <img src="app-gorseller/detayli-arama-2.jpeg" alt="Eşleşme sonucu — 5 vintage anahtarda 5 aday, fotoğraf konuştukça açılır" loading="lazy" />
         </div></div>
         <div class="phone-mini"><div class="notch"></div><div class="screen">
-          <img src="app-gorseller/baska-profil.jpeg" alt="Premium kullanıcıda sayfalama (1, 2, 3) — toplam 15 sonuç" loading="lazy" />
+          <img src="app-gorseller/baska-profil.jpeg" alt="Premium kullanıcıda sayfalama — toplam 25 sonuç (5 sayfa)" loading="lazy" />
         </div></div>
         <div class="phone-mini"><div class="notch"></div><div class="screen">
           <img src="app-gorseller/baska-profil-2.jpeg" alt="Bir adayın profili — Kuşçu, 44 yaş, Terazi, Avukat, sesli tanıtım" loading="lazy" />
@@ -425,11 +425,11 @@
     <section class="guide-block" id="zil">
       <h2><span class="step-num">06</span> <span data-i18n="s6-title">Zil çal — kapıyı çal</span></h2>
       <span class="sub" data-i18n="s6-sub">Davetli sohbet · Karşılıklı rıza</span>
-      <p data-i18n="s6-p1">Birini beğendiysen profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa "biri seni çaldı" bildirimi gider — kim olduğunu kabul edene kadar görmez.</p>
+      <p data-i18n="s6-p1">Birini beğendiysen önce <strong>takip eder</strong>, sonra profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa bildirim gider ve <strong>kimin çaldığını görür</strong>; kabul edip etmemek ona kalmıştır.</p>
       <ul>
         <li data-i18n="s6-l1">Karşı taraf <strong>"Kapıyı Aç"</strong> derse sohbet başlar.</li>
         <li data-i18n="s6-l2">Reddederse veya görmezden gelirse zil sessizce kaybolur — kim olduğun ona bildirilmez.</li>
-        <li data-i18n="s6-l3">Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 2 zil, ayda en fazla 4 zil. Aralarda 5 dakika beklersin.</li>
+        <li data-i18n="s6-l3">Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 10 zil, ayda en fazla 100 zil. Aralarda 5 dakika beklersin.</li>
         <li data-i18n="s6-l4">Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).</li>
       </ul>
       <div class="callout" data-i18n="s6-callout"><strong>Tek sohbet kuralı:</strong> Frejya'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.</div>
@@ -448,12 +448,12 @@
       <span class="sub" data-i18n="s-watch-sub">Takip ettiklerinin uygunluk durumu · Sessiz davet</span>
       <p data-i18n="s-watch-p1">Sohbetler ekranında <strong>İZLEME</strong> sekmesi, takip ettiğin kişilerden <strong>şu an sohbete açık olanları</strong> listeler. Sohbette olan kişiler bu listede gözükmez — sohbetlerini bitirip uygun hâle geldiklerinde otomatik düşerler.</p>
       <ul>
-        <li data-i18n="s-watch-l1"><strong>Müsait olma bildirimi:</strong> Takip ettiğin biri sohbetini bitirip uygun hâle gelince haber alırsın. Uygulama açıksa ekranda küçük bir <strong>siyah balon</strong> belirir: "X şimdi sohbete müsait." Uygulama arka plandaysa veya kapalıysa <strong>işletim sistemi bildirimi</strong> düşer.</li>
+        <li data-i18n="s-watch-l1"><strong>Müsait olma bildirimi:</strong> Takip ettiğin biri sohbetini bitirip uygun hâle gelince haber alırsın. Bildirim İzleme sekmesindeki rozetle görünür; uygulama arka plandaysa veya kapalıysa <strong>işletim sistemi bildirimi</strong> düşer.</li>
         <li data-i18n="s-watch-l2"><strong>Zil çal — geri al:</strong> Zil sekmesinde çaldığın bir zili geri alırsan, karşı taraf <strong>aktif mesajlaşmada değilse</strong> İzleme listene tekrar düşer. Sohbetteyse listede yer almaz; sohbet bitince düşer.</li>
         <li data-i18n="s-watch-l3"><strong>Sohbette olana zil çalmak yasak değildir:</strong> İzleme listesinde gözükmese bile profil sayfasından zilini çalabilirsin. Kişi sohbetini bitirdiğinde kapısına bıraktığın zil bekler.</li>
-        <li data-i18n="s-watch-l4"><strong>Sessiz akış:</strong> İzleme sekmesinin kendisi rozet göstermez — günde 5–10 kez sohbet başlayıp biten birinin sürekli rozet tetiklemesini engeller. Yalnız Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.</li>
+        <li data-i18n="s-watch-l4"><strong>Sessiz akış:</strong> İzleme sekmesinde sayı rozeti çıkar; sohbetteyken veya sekme zaten açıkken bastırılır. Ayrıca Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.</li>
       </ul>
-      <div class="callout" data-i18n="s-watch-callout"><strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, müsait olma, foto onay/red ve destek dışında hiçbir şey için bildirim almazsın.</div>
+      <div class="callout" data-i18n="s-watch-callout"><strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, kapının açılması, müsait olma, foto onay/red ve hesap/şikâyet kararları dışında hiçbir şey için bildirim almazsın; destek yanıtı yalnız uygulama içinde görünür.</div>
     </section>
 
     <section class="guide-block" id="sohbet">
@@ -463,8 +463,8 @@
       <ul>
         <li data-i18n="s7-l1">Karşılıklı sohbet ettikçe perde küçük küçük açılır — emek karşılığı keşif.</li>
         <li data-i18n="s7-l2"><strong>Kazıma karşılıklıdır:</strong> ikiniz de karşı tarafın perdesini kendi parmağınızla kazırsınız. Ama perdeyi kazıma hakkı kazanmak için <strong>iki tarafın da sohbete katılıp yazması</strong> gerekir — biri sessiz kalırsa kimse perdeyi açamaz.</li>
-        <li data-i18n="s7-l3">Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.</li>
-        <li data-i18n="s7-l4">İstediğin zaman <strong>"Bitir"</strong> diyerek sohbeti sonlandırırsın ve iki seçenek çıkar: <strong>Sadece bitir</strong> (mesajlar silinir, ikiniz tekrar müsait olursunuz) ya da <strong>Bitir ve engelle</strong> (kişiyi kalıcı engellersin, bir daha karşılaşmazsınız).</li>
+        <li data-i18n="s7-l3">Yazılı mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz. Sesli mesajlar yalnızca sohbetin iki tarafına açık özel depoda tutulur.</li>
+        <li data-i18n="s7-l4">İstediğin zaman <strong>"Bitir"</strong> diyerek sohbeti sonlandırırsın ve iki seçenek çıkar: <strong>Sadece bitir</strong> (mesajlar arşivlenir ve 15 gün içinde silinir, birbirinizi takipten çıkarsınız, ikiniz tekrar müsait olursunuz) ya da <strong>Bitir ve engelle</strong> (kişiyi kalıcı engellersin, bir daha karşılaşmazsınız).</li>
       </ul>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
@@ -479,7 +479,7 @@
     <section class="guide-block" id="ses">
       <h2><span class="step-num">09</span> <span data-i18n="s8-title">Sesli mesaj</span></h2>
       <span class="sub" data-i18n="s8-sub">Perde açıldıktan sonra · 15 gün ömür</span>
-      <p data-i18n="s8-p1">Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.</p>
+      <p data-i18n="s8-p1">Sohbette sesli mesaj göndermek için <strong>iki tarafın da 9 kazıma hakkını harcamış</strong> olması gerekir — perdenin görünür şekilde açılmış olması tek başına yetmez. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.</p>
       <p data-i18n="s8-p2">Perde tam açıldığında mikrofon ikonu aktifleşir. Sesli mesajlar da metin mesajları gibi uçtan uca şifrelenir.</p>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
@@ -496,8 +496,7 @@
         <li data-i18n="s9-l1"><strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca seninle karşı tarafın görür. Sunucu okuyamaz.</li>
         <li data-i18n="s9-l2"><strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, çocuk fotoğrafı, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.</li>
         <li data-i18n="s9-l3"><strong>Şikayet ve engelleme:</strong> Her profil kartında ve her sohbet ekranında koruma var: <strong>"Şikayet et"</strong> (kişiyi kalıcı engeller) ve sohbeti bitirirken <strong>"Engelle"</strong> seçeneği. Engellediğin kişiyle bir daha karşılaşmazsın.</li>
-        <li data-i18n="s9-l4"><strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini ve ilçeni sorar. Bu bilgi yalnız eşleşme için kullanılır.</li>
-        <li data-i18n="s9-l5"><strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).</li>
+        <li data-i18n="s9-l4"><strong>Konum gizliliği:</strong> Frejya konum izni ister ama yalnız il/ilçe bilgini saklar; koordinatın kaydedilmez. Bu bilgi yalnız eşleşme için kullanılır.</li>
         <li data-i18n="s9-l6"><strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.</li>
       </ul>
       <div class="screenshot-inline">
@@ -548,7 +547,7 @@
       <ul>
         <li data-i18n="s11-l1">Arkadaşın kayıt olurken kodunu girer.</li>
         <li data-i18n="s11-l2">Arkadaşının profil fotoğrafı onaylanınca <strong>sana otomatik olarak +1 ay Premium</strong> eklenir.</li>
-        <li data-i18n="s11-l3">Premium sürelerin birikir — 5 arkadaş davet edersen 5 ay Premium kullanırsın.</li>
+        <li data-i18n="s11-l3">Premium süreleri birikir; en fazla 5 davet ödüllendirilir (toplam 5 ay). Hesabın Onaylı değilse süre biriktirilir, onay verdiğinde uygulanır.</li>
         <li data-i18n="s11-l4">Çift hesap istismarını engellemek için aynı cihazdan davet edilen hesaplar ödüllendirilmez.</li>
       </ul>
       <div class="screenshot-inline">
@@ -565,8 +564,8 @@
       <ul>
         <li data-i18n="s12-l1">Profilin, fotoğraflarının, mesajlarının, paylaşımlarının ve takipçi listenin tamamı <strong>hemen silinir</strong>.</li>
         <li data-i18n="s12-l2">Sonradan fikir değiştirip <strong>aynı hesabı geri alamazsın</strong>; veriler geri dönüşsüz biçimde kaldırılır.</li>
-        <li data-i18n="s12-l3">Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.</li>
-        <li data-i18n="s12-l4">Frejya'ya tekrar gelmek istersen 15 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.</li>
+        <li data-i18n="s12-l3">Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Aynı e-posta ile yeniden kayıt <strong>60 gün</strong> boyunca engellidir.</li>
+        <li data-i18n="s12-l4">Frejya'ya tekrar gelmek istersen başka bir e-posta ile hemen, aynı e-posta ile 60 gün sonra yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.</li>
       </ul>
       <p><span data-i18n="s12-p2">Verilerinin kullanımı hakkında detayları</span> <a id="link-privacy" href="https://mujdattelli.github.io/frejya-legal/privacy.tr.html" data-i18n="link-privacy">Gizlilik Politikası</a><span data-i18n="s12-p3">nda bulabilirsin.</span></p>
       <div class="screenshot-inline">
@@ -717,11 +716,11 @@
     's3-title': { tr: 'Fotoğraf onayı', en: 'Photo approval' },
     's3-sub': { tr: 'Yapay zekâ doğrulaması · Sahte profil yok', en: 'AI verification · No fake profiles' },
     's3-p1': { tr: "<em>İnsan, bir fotoğraftan büyüktür.</em> Frejya'ya gerçek bir <strong>yüz fotoğrafı</strong> yüklemen gerekir; ancak bu fotoğraf eşleştiğin kişiye <strong>doğrudan gösterilmez</strong> — perdenin arkasında kalır ve sohbet ettikçe yavaşça açılır.", en: '<em>A person is more than a photo.</em> You must upload a real <strong>face photo</strong> to Frejya; but this photo is <strong>never shown directly</strong> to your match — it stays behind a curtain and slowly reveals itself as you chat.' },
-    's3-l1': { tr: 'Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: tek kişi olmalı, yüz net görünmeli, ünlü/internet fotoğrafı olmamalı, uygunsuz içerik içermemeli.', en: 'Your photo is reviewed by <strong>AI</strong>: it must show one person, a clear face, not be a celebrity/stock photo, and contain no inappropriate content.' },
-    's3-l2': { tr: 'İnceleme en fazla 5 dakika sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün. Bu süre boyunca uygulamayı normal şekilde kullanabilirsin.', en: 'Review takes up to 5 minutes; you\'ll see "Approved" or "Try again" at the end. You can use the app normally during this time.' },
-    's3-l3': { tr: 'Reddedilirse açıklama gösterilir, başka bir fotoğrafla tekrar denersin.', en: 'If it\'s rejected, a reason is shown and you can try again with another photo.' },
+    's3-l1': { tr: 'Yüklediğin fotoğraf <strong>yapay zekâ</strong> tarafından incelenir: gerçek ve net bir insan yüzü görünmeli, beyan ettiğin cinsiyetle uyumlu olmalı, çıplaklık veya 18 yaş altı içerik olmamalı.', en: 'Your photo is reviewed by <strong>AI</strong>: it must show a real, clearly visible human face, match your declared gender, and contain no nudity or minors.' },
+    's3-l2': { tr: 'İnceleme genelde birkaç dakika sürer; sonuçta "Onaylandı" veya "Yeniden dene" mesajı görürsün. 5 dakikayı aşarsa uygulama fotoğraf onayı bekleme ekranına düşer.', en: 'Review usually takes a few minutes; you\'ll see "Approved" or "Try again" at the end. If it exceeds 5 minutes, the app switches to the photo-approval waiting screen.' },
+    's3-l3': { tr: 'Reddedilirse açıklama gösterilir; 5 dakika arayla, günde 5 ve ayda 20 deneme hakkın vardır. Art arda 5 redde fotoğraf yükleme 1 gün kapanır.', en: 'If it\'s rejected, a reason is shown; you may retry every 5 minutes, up to 5 times a day and 20 a month. After 5 consecutive rejections, uploading is locked for 1 day.' },
     's3-l4': { tr: 'Onaylanmamış kullanıcı eşleşmelerde görünmez ve mesaj atamaz — bu, herkesin gerçek olduğundan emin olmanın yoludur.', en: 'Unapproved users don\'t appear in matches and can\'t send messages — this is how we make sure everyone is real.' },
-    's3-callout': { tr: '<strong>Önemli:</strong> Fotoğrafın sunucuda şifreli tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.', en: '<strong>Important:</strong> Your photo is stored encrypted on the server. No one outside the Frejya team — including your match — can see it before the curtain opens.' },
+    's3-callout': { tr: '<strong>Önemli:</strong> Fotoğrafın özel (private) depoda tutulur. Frejya ekibi dışındaki hiç kimse — eşleştiğin kişi dahil — perde açılmadan fotoğrafını göremez.', en: '<strong>Important:</strong> Your photo is kept in private storage. No one outside the Frejya team — including your match — can see it before the curtain opens.' },
 
     // 04 — Aura
     's4-title': { tr: 'Frejya Aura — sosyal akış', en: 'Frejya Aura — the social feed' },
@@ -737,7 +736,7 @@
     // 05 — Discover
     's5-title': { tr: 'Keşfet ve eşleş', en: 'Discover and match' },
     's5-sub': { tr: 'Detaylı arama · Karakter uyumu', en: 'Detailed search · Character compatibility' },
-    's5-p1': { tr: "Detaylı Arama ekranında yaş, şehir, ilgi alanları gibi filtreleri ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.", en: 'On the Detailed Search screen you set filters like age, city and interests, and see <strong>the most compatible people</strong>. Results come in a <strong>single search</strong>; you flip through them with page numbers.' },
+    's5-p1': { tr: "Detaylı Arama ekranında yaş, boy, şehir, eğitim ve meslek filtrelerini ayarlayıp <strong>en uyumlu kişileri</strong> görürsün. Sonuçlar bir <strong>tek aramada</strong> gelir; sayfa numaralarıyla aralarında gezersin.", en: 'On the Detailed Search screen you set filters for age, height, city, education and profession, and see <strong>the most compatible people</strong>. Results come in a <strong>single search</strong>; you flip through them with page numbers.' },
     's5-p2': { tr: 'Algoritma şu unsurlara göre uyumu hesaplar:', en: 'The algorithm computes compatibility based on:' },
     's5-l1': { tr: 'Psikolojik karakter tipi uyumu', en: 'Psychological character-type compatibility' },
     's5-l2': { tr: 'Ortak ilgi alanları ve hashtag örtüşmesi', en: 'Shared interests and hashtag overlap' },
@@ -749,10 +748,10 @@
     // 06 — Ring
     's6-title': { tr: 'Zil çal — kapıyı çal', en: 'Ring the bell' },
     's6-sub': { tr: 'Davetli sohbet · Karşılıklı rıza', en: 'Invited chat · Mutual consent' },
-    's6-p1': { tr: 'Birini beğendiysen profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa "biri seni çaldı" bildirimi gider — kim olduğunu kabul edene kadar görmez.', en: 'If you like someone, you <strong>ring their bell</strong> from the profile card. They get a notification saying "someone rang you" — but they don\'t see who until they accept.' },
+    's6-p1': { tr: 'Birini beğendiysen önce <strong>takip eder</strong>, sonra profil kartından <strong>zilini çalarsın</strong>. Karşı tarafa bildirim gider ve <strong>kimin çaldığını görür</strong>; kabul edip etmemek ona kalmıştır.', en: 'If you like someone, you <strong>follow them first</strong>, then <strong>ring their bell</strong> from the profile card. They get a notification that <strong>shows who rang</strong>; accepting is up to them.' },
     's6-l1': { tr: 'Karşı taraf <strong>"Kapıyı Aç"</strong> derse sohbet başlar.', en: 'If they tap <strong>"Open the Door"</strong>, the chat begins.' },
     's6-l2': { tr: 'Reddederse veya görmezden gelirse zil sessizce kaybolur — kim olduğun ona bildirilmez.', en: 'If they decline or ignore, the bell quietly disappears — they\'re never told who you were.' },
-    's6-l3': { tr: 'Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 2 zil, ayda en fazla 4 zil. Aralarda 5 dakika beklersin.', en: 'You can\'t spam-ring the same person: max 2 rings per day, max 4 per month to the same person, with 5 minutes between rings.' },
+    's6-l3': { tr: 'Aynı kişiye art arda zil çalamazsın: aynı kişiye günde en fazla 10 zil, ayda en fazla 100 zil. Aralarda 5 dakika beklersin.', en: 'You can\'t spam-ring the same person: max 10 rings per day, max 100 per month to the same person, with 5 minutes between rings.' },
     's6-l4': { tr: 'Günlük toplam zil hakkın üyelik katmanına bağlıdır (aşağıda).', en: 'Your total daily rings depend on your membership tier (see below).' },
     's6-callout': { tr: '<strong>Tek sohbet kuralı:</strong> Frejya\'da aynı anda yalnızca <strong>bir aktif sohbet</strong> olabilir. Sohbet açıkken yeni bir zili kabul etmek için önce mevcut sohbeti bitirmen gerekir. Bu, dikkat dağınıklığını ve "hep birden, hiçbiriyle" hissini önler.', en: '<strong>One-chat rule:</strong> On Frejya you can have <strong>only one active chat</strong> at a time. To accept a new ring you must end your current chat first. This prevents the scattered "everyone at once, no one really" feeling.' },
 
@@ -761,25 +760,25 @@
     's-watch-title': { tr: 'İzleme — sohbete uygun olanlar', en: 'Watch — who\'s available to chat' },
     's-watch-sub': { tr: 'Takip ettiklerinin uygunluk durumu · Sessiz davet', en: 'Availability of people you follow · Quiet invite' },
     's-watch-p1': { tr: 'Sohbetler ekranında <strong>İZLEME</strong> sekmesi, takip ettiğin kişilerden <strong>şu an sohbete açık olanları</strong> listeler. Sohbette olan kişiler bu listede gözükmez — sohbetlerini bitirip uygun hâle geldiklerinde otomatik düşerler.', en: 'On the Chats screen, the <strong>WATCH</strong> tab lists the people you follow who are <strong>currently open to chat</strong>. People in active chats don\'t appear in this list — they drop into it automatically once they finish their chat and become available again.' },
-    's-watch-l1': { tr: '<strong>Müsait olma bildirimi:</strong> Takip ettiğin biri sohbetini bitirip uygun hâle gelince haber alırsın. Uygulama açıksa ekranda küçük bir <strong>siyah balon</strong> belirir: "X şimdi sohbete müsait." Uygulama arka plandaysa veya kapalıysa <strong>işletim sistemi bildirimi</strong> düşer.', en: '<strong>Available-to-chat notification:</strong> When someone you follow finishes their chat and becomes available, you\'re notified. If the app is open, a small <strong>black bubble</strong> appears: "X is now available to chat." If the app is in the background or closed, you receive an <strong>OS-level notification</strong>.' },
+    's-watch-l1': { tr: '<strong>Müsait olma bildirimi:</strong> Takip ettiğin biri sohbetini bitirip uygun hâle gelince haber alırsın. Bildirim İzleme sekmesindeki rozetle görünür; uygulama arka plandaysa veya kapalıysa <strong>işletim sistemi bildirimi</strong> düşer.', en: '<strong>Available-to-chat notification:</strong> When someone you follow finishes their chat and becomes available, you\'re notified. It appears as a badge on the Watch tab; if the app is in the background or closed, you receive an <strong>OS-level notification</strong>.' },
     's-watch-l2': { tr: '<strong>Zil çal — geri al:</strong> Zil sekmesinde çaldığın bir zili geri alırsan, karşı taraf <strong>aktif mesajlaşmada değilse</strong> İzleme listene tekrar düşer. Sohbetteyse listede yer almaz; sohbet bitince düşer.', en: '<strong>Ring — withdraw:</strong> If you withdraw a bell you rang from the Bells tab, the recipient falls back into your Watch list <strong>only if they are not in an active chat</strong>. If they are chatting, they\'ll appear once their chat ends.' },
     's-watch-l3': { tr: '<strong>Sohbette olana zil çalmak yasak değildir:</strong> İzleme listesinde gözükmese bile profil sayfasından zilini çalabilirsin. Kişi sohbetini bitirdiğinde kapısına bıraktığın zil bekler.', en: '<strong>Ringing someone in a chat is allowed:</strong> Even if they\'re not in your Watch list, you can ring their bell from their profile page. The bell waits at their door until they finish their current chat.' },
-    's-watch-l4': { tr: '<strong>Sessiz akış:</strong> İzleme sekmesinin kendisi rozet göstermez — günde 5–10 kez sohbet başlayıp biten birinin sürekli rozet tetiklemesini engeller. Yalnız Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.', en: '<strong>Quiet stream:</strong> The Watch tab itself doesn\'t show a badge — this prevents someone who starts and ends 5–10 chats a day from constantly triggering badges. Only a small red dot appears on the Chats icon as a cue.' },
-    's-watch-callout': { tr: '<strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, müsait olma, foto onay/red ve destek dışında hiçbir şey için bildirim almazsın.', en: '<strong>Zero-Stress principle:</strong> Frejya does NOT send OS notifications for likes, comments, or follows. The available-to-chat notification is the exception because it\'s a precondition for <em>being invitable to a chat</em> — a functional signal, not engagement. You never receive notifications for anything other than messages, bells, availability, photo approval/rejection, and support replies.' },
+    's-watch-l4': { tr: '<strong>Sessiz akış:</strong> İzleme sekmesinde sayı rozeti çıkar; sohbetteyken veya sekme zaten açıkken bastırılır. Ayrıca Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.', en: '<strong>Quiet stream:</strong> The Watch tab shows a count badge; it is suppressed while you are in a chat or already on that tab. A small red dot also appears on the Chats icon.' },
+    's-watch-callout': { tr: '<strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, kapının açılması, müsait olma, foto onay/red ve hesap/şikâyet kararları dışında hiçbir şey için bildirim almazsın; destek yanıtı yalnız uygulama içinde görünür.', en: '<strong>Zero-Stress principle:</strong> Frejya does NOT send OS notifications for likes, comments, or follows. The available-to-chat notification is the exception because it\'s a precondition for <em>being invitable to a chat</em> — a functional signal, not engagement. You never receive notifications for anything other than messages, bells, a door being opened, availability, photo approval/rejection, and account/report decisions; support replies appear in-app only.' },
 
     // 08 — Chat (eski 07)
     's7-title': { tr: 'Sohbet ve kazıma', en: 'Chat and reveal' },
     's7-sub': { tr: 'Karşılıklı emek · Fotoğraf perdesi', en: 'Mutual effort · The photo curtain' },
     's7-p1': { tr: '<em>Konuştukça tanırsın. Tanıdıkça görürsün.</em> Sohbet açıldığında karşı tarafın fotoğrafı <strong>karanlık bir perdenin arkasındadır</strong>; mesajlaştıkça perde adım adım kazınır ve fotoğraf yavaş yavaş açılır.', en: '<em>Talk to know. Know to see.</em> When the chat opens, their photo is <strong>behind a dark curtain</strong>; as you message back and forth, the curtain is scratched away step by step and the photo gradually appears.' },
     's7-l1': { tr: 'Karşılıklı sohbet ettikçe perde küçük küçük açılır — emek karşılığı keşif.', en: 'As you chat back and forth, the curtain opens little by little — discovery in exchange for effort.' },
-    's7-l2': { tr: '<strong>Kazıma karşılıklıdır:</strong> ikiniz de karşı tarafın perdesini kendi parmağınızla kazırsınız. Ama perdeyi kazıma hakkı kazanmak için <strong>iki tarafın da sohbete katılıp yazması</strong> gerekir — biri sessiz kalırsa kimse perdeyi açamaz. Sen <strong>30</strong> + karşı taraf <strong>30 kelime</strong> = <strong>1 kazıma hakkı</strong>; toplam <strong>9 hakla yüz tamamen açılır</strong>.', en: "<strong>Scratching is mutual:</strong> both of you scratch the other's curtain with your own finger. But to earn the right to scratch, <strong>both sides must take part in the chat and write</strong> — if one stays silent, neither curtain opens. You write <strong>30</strong> + the other writes <strong>30 words</strong> = <strong>1 scratch</strong>; <strong>9 scratches fully reveal the face</strong>." },
-    's7-l3': { tr: 'Mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz.', en: 'Messages are <strong>end-to-end encrypted</strong> (E2EE) — Frejya servers, staff or anyone else cannot read the content.' },
-    's7-l4': { tr: 'İstediğin zaman <strong>"Bitir"</strong> diyerek sohbeti sonlandırırsın ve iki seçenek çıkar: <strong>Sadece bitir</strong> (mesajlar silinir, ikiniz tekrar müsait olursunuz) ya da <strong>Bitir ve engelle</strong> (kişiyi kalıcı engellersin, bir daha karşılaşmazsınız).', en: 'Whenever you want, tap <strong>"End"</strong> to close the chat and pick one of two options: <strong>Just end</strong> (messages are deleted and you both become available again) or <strong>End &amp; block</strong> (you permanently block the person and never run into them again).' },
+    's7-l2': { tr: '<strong>Kazıma karşılıklıdır:</strong> ikiniz de karşı tarafın perdesini kendi parmağınızla kazırsınız. Ama perdeyi kazıma hakkı kazanmak için <strong>iki tarafın da sohbete katılıp yazması</strong> gerekir — biri sessiz kalırsa kimse perdeyi açamaz. Sen <strong>20</strong> + karşı taraf <strong>20 kelime</strong> = <strong>1 kazıma hakkı</strong> (bir mesajdan en çok 2 hak çıkar); yaklaşık <strong>5 hakta yüz tamamen açılır</strong>, toplam hak sayısı 9&#39;dur.', en: "<strong>Scratching is mutual:</strong> both of you scratch the other's curtain with your own finger. But to earn the right to scratch, <strong>both sides must take part in the chat and write</strong> — if one stays silent, neither curtain opens. You write <strong>20</strong> + the other writes <strong>20 words</strong> = <strong>1 scratch</strong> (at most 2 per message); about <strong>5 scratches fully reveal the face</strong>, out of 9 in total." },
+    's7-l3': { tr: 'Yazılı mesajlar <strong>uçtan uca şifrelenir</strong> (E2EE) — Frejya sunucusu, çalışanları veya başka kimse içeriği okuyamaz. Sesli mesajlar yalnızca sohbetin iki tarafına açık özel depoda tutulur.', en: 'Text messages are <strong>end-to-end encrypted</strong> (E2EE) — Frejya servers, staff or anyone else cannot read the content. Voice messages are kept in private storage open only to the two people in the chat.' },
+    's7-l4': { tr: 'İstediğin zaman <strong>"Bitir"</strong> diyerek sohbeti sonlandırırsın ve iki seçenek çıkar: <strong>Sadece bitir</strong> (mesajlar arşivlenir ve 15 gün içinde silinir, birbirinizi takipten çıkarsınız, ikiniz tekrar müsait olursunuz) ya da <strong>Bitir ve engelle</strong> (kişiyi kalıcı engellersin, bir daha karşılaşmazsınız).', en: 'Whenever you want, tap <strong>"End"</strong> to close the chat and pick one of two options: <strong>Just end</strong> (messages are archived and deleted within 15 days, you unfollow each other, and you both become available again) or <strong>End &amp; block</strong> (you permanently block the person and never run into them again).' },
 
     // 08 — Voice
     's8-title': { tr: 'Sesli mesaj', en: 'Voice messages' },
     's8-sub': { tr: 'Perde açıldıktan sonra · 15 gün ömür', en: 'After the curtain opens · 15-day lifespan' },
-    's8-p1': { tr: 'Sohbette sesli mesaj göndermek için önce <strong>fotoğraf perdesinin tamamen açılmış</strong> olması gerekir. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.', en: 'To send a voice message in a chat, <strong>the photo curtain must be fully open</strong> first. This way your voice gains meaning only after a real acquaintance has been built.' },
+    's8-p1': { tr: 'Sohbette sesli mesaj göndermek için <strong>iki tarafın da 9 kazıma hakkını harcamış</strong> olması gerekir — perdenin görünür şekilde açılmış olması tek başına yetmez. Bu, sesinin gerçek bir tanışıklığa kavuştuğunda anlam kazanmasını sağlar.', en: 'To send a voice message, <strong>both sides must have spent all 9 scratches</strong> — a visually open curtain is not enough on its own. This way your voice gains meaning only after a real acquaintance has been built.' },
     's8-p2': { tr: 'Perde tam açıldığında mikrofon ikonu aktifleşir. En fazla <strong>60 saniye</strong> sesli mesaj gönderebilirsin; mesajlar <strong>15 gün</strong> sonra iz bırakmadan silinir. Sesli mesajlar da metin gibi uçtan uca şifrelenir.', en: 'Once the curtain is fully open, the microphone icon activates. You can send a voice message of up to <strong>60 seconds</strong>; messages are deleted without a trace after <strong>15 days</strong>. Voice messages are end-to-end encrypted just like text.' },
     's8-callout': { tr: '<strong>Süre sınırı:</strong> Sesli mesajlar gönderildikten <strong>15 gün</strong> sonra otomatik olarak silinir; sohbet penceresinde "Sesli mesajın süresi doldu" yazısı görünür. Süresi dolmuş bir sesli mesaja tıklarsan kısa bir uyarı çıkar. Bu kural mahremiyetin için: ses kaydın gereğinden uzun saklanmaz.', en: '<strong>Time limit:</strong> Voice messages are automatically deleted <strong>15 days</strong> after they\'re sent; the chat shows a "Voice message expired" label in their place. If you tap an expired voice message you\'ll see a short notice. This rule is for your privacy: voice recordings are not kept longer than necessary.' },
 
@@ -789,8 +788,7 @@
     's9-l1': { tr: '<strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca seninle karşı tarafın görür. Sunucu okuyamaz.', en: '<strong>End-to-end encryption:</strong> Only you and your match can read your messages. The server cannot.' },
     's9-l2': { tr: '<strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, çocuk fotoğrafı, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.', en: '<strong>AI photo moderation:</strong> Every uploaded photo is reviewed by AI — fake profiles, nudity, child photos, celebrity photos and inappropriate content are filtered out.' },
     's9-l3': { tr: '<strong>Şikayet ve engelleme:</strong> Her profil kartında ve her sohbet ekranında koruma var: <strong>"Şikayet et"</strong> (kişiyi kalıcı engeller) ve sohbeti bitirirken <strong>"Engelle"</strong> seçeneği. Engellediğin kişiyle bir daha karşılaşmazsın.', en: '<strong>Report and block:</strong> Every profile card and chat screen has protection: <strong>"Report"</strong> (permanently blocks the person) and an <strong>"End &amp; block"</strong> option when you end a chat. You\'ll never run into someone you\'ve blocked again.' },
-    's9-l4': { tr: '<strong>Konum gizliliği:</strong> Frejya tam konumunu istemez, yalnız şehrini ve ilçeni sorar. Bu bilgi yalnız eşleşme için kullanılır.', en: '<strong>Location privacy:</strong> Frejya never asks for your exact location — only your city and district. This information is used solely for matching.' },
-    's9-l5': { tr: '<strong>Ekran görüntüsü bildirimi:</strong> Sohbette karşı taraf ekran görüntüsü alırsa bildirim alırsın (Android).', en: '<strong>Screenshot alert:</strong> You\'re notified if the other side takes a screenshot in your chat (Android).' },
+    's9-l4': { tr: '<strong>Konum gizliliği:</strong> Frejya konum izni ister ama yalnız il/ilçe bilgini saklar; koordinatın kaydedilmez. Bu bilgi yalnız eşleşme için kullanılır.', en: '<strong>Location privacy:</strong> Frejya requests location permission but stores only your city/district; your coordinates are never saved. This information is used solely for matching.' },
     's9-l6': { tr: "<strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.", en: "<strong>Biometric data stays on your device:</strong> Your fingerprint or face data is never sent to Frejya's servers; verification happens entirely in your phone's secure hardware. The on-device login key is wiped on logout, ban or password change." },
 
     // 10 — Tiers
@@ -813,7 +811,7 @@
     's11-p1': { tr: 'Profil ekranında <strong>kişisel davet kodun</strong> görünür. Bu kodu bir arkadaşına gönderirsin:', en: 'Your <strong>personal invite code</strong> is shown on your profile screen. Send it to a friend:' },
     's11-l1': { tr: 'Arkadaşın kayıt olurken kodunu girer.', en: 'Your friend enters the code when signing up.' },
     's11-l2': { tr: 'Arkadaşının profil fotoğrafı onaylanınca <strong>sana otomatik olarak +1 ay Premium</strong> eklenir.', en: 'Once their profile photo is approved, you automatically get <strong>+1 month of Premium</strong>.' },
-    's11-l3': { tr: 'Premium sürelerin birikir — 5 arkadaş davet edersen 5 ay Premium kullanırsın.', en: 'Premium durations stack — invite 5 friends and you get 5 months of Premium.' },
+    's11-l3': { tr: 'Premium süreleri birikir; en fazla 5 davet ödüllendirilir (toplam 5 ay). Hesabın Onaylı değilse süre biriktirilir, onay verdiğinde uygulanır.', en: 'Premium durations stack; at most 5 invites are rewarded (5 months total). If your account is not Verified yet, the time is held and applied once you verify.' },
     's11-l4': { tr: 'Çift hesap istismarını engellemek için aynı cihazdan davet edilen hesaplar ödüllendirilmez.', en: 'To prevent abuse, invites coming from the same device as the inviter are not rewarded.' },
 
     // 12 — Delete
@@ -822,8 +820,8 @@
     's12-p1': { tr: 'Profil ekranındaki <strong>"Hesabımı Sil"</strong> butonuyla hesabını istediğin an silebilirsin. Silme <strong>kalıcıdır</strong> — onay verdikten sonra geri alınmaz.', en: 'You can delete your account any time with the <strong>"Delete My Account"</strong> button on the profile screen. Deletion is <strong>permanent</strong> — once confirmed, it cannot be undone.' },
     's12-l1': { tr: 'Profilin, fotoğraflarının, mesajlarının, paylaşımlarının ve takipçi listenin tamamı <strong>hemen silinir</strong>.', en: 'Your profile, photos, messages, posts and follower list are <strong>deleted immediately</strong>.' },
     's12-l2': { tr: 'Sonradan fikir değiştirip <strong>aynı hesabı geri alamazsın</strong>; veriler geri dönüşsüz biçimde kaldırılır.', en: "If you later change your mind, you <strong>cannot recover the same account</strong>; the data is removed irreversibly." },
-    's12-l3': { tr: 'Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Bu süre boyunca <strong>aynı e-posta ile yeniden kayıt olamazsın</strong>.', en: 'For legal obligations (for example to investigate a fraud complaint) the account record is kept <strong>anonymous for 15 days</strong>, then erased entirely. During this period you <strong>cannot re-register with the same email</strong>.' },
-    's12-l4': { tr: "Frejya'ya tekrar gelmek istersen 15 gün dolduktan sonra başka veya aynı e-posta ile yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.", en: 'If you want to come back to Frejya, you can sign up again with a different (or the same) email after 15 days — but your old profile and past chats will not return.' },
+    's12-l3': { tr: 'Yasal yükümlülükler için (örneğin bir dolandırıcılık şikâyetinin incelenmesi) hesap kaydı <strong>15 gün boyunca anonim</strong> tutulur, sonra tamamen silinir. Aynı e-posta ile yeniden kayıt <strong>60 gün</strong> boyunca engellidir.', en: 'For legal obligations (for example to investigate a fraud complaint) the account record is kept <strong>anonymous for 15 days</strong>, then erased entirely. Re-registering with the same email is blocked for <strong>60 days</strong>.' },
+    's12-l4': { tr: "Frejya'ya tekrar gelmek istersen başka bir e-posta ile hemen, aynı e-posta ile 60 gün sonra yeni bir hesap açabilirsin — ama eski profilin ve geçmiş sohbetlerin geri gelmez.", en: 'If you want to come back to Frejya, you can sign up again immediately with a different email, or with the same email after 60 days — but your old profile and past chats will not return.' },
     's12-p2': { tr: 'Verilerinin kullanımı hakkında detayları', en: 'You can find more about how your data is handled in our' },
     's12-p3': { tr: 'nda bulabilirsin.', en: '.' },
     'link-privacy': { tr: 'Gizlilik Politikası', en: 'Privacy Policy' },
