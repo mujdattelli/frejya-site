@@ -379,6 +379,7 @@
         <li data-i18n="s4-l3">Paylaşımına başkaları <strong>kalp</strong> bırakır, yorum yazar veya hashtagleri üzerinden seni keşfeder.</li>
         <li data-i18n="s4-l4">Profilinde en fazla <strong>50 paylaşım</strong> tutulur (Premium'da 100). Yeni paylaşım eklediğinde en eski silinir.</li>
         <li data-i18n="s4-l5">Aura akışındaki gönderiler son 20 paylaşımının hashtag'leri üzerinden eşleşme algoritmasına da girer — yani ne paylaşırsan, kimle eşleşirsen.</li>
+        <li data-i18n="s4-l6"><strong>İkonlarla filtrele:</strong> Aura'nın <strong>Genel</strong> sekmesindeki arama çubuğuna dokunup en fazla <strong>5 ikon</strong> seçersin; yalnızca o ikonların <strong>hepsini birden</strong> içeren paylaşımlar listelenir (AND mantığı).</li>
       </ul>
       <div class="screenshot-inline">
         <div class="phone-mini"><div class="notch"></div><div class="screen">
@@ -389,6 +390,9 @@
         </div></div>
         <div class="phone-mini"><div class="notch"></div><div class="screen">
           <img src="app-gorseller/aura-yorum.jpeg" alt="Aura paylaşım detayı — hiyeroglif ikonlarla sembolik post" loading="lazy" />
+        </div></div>
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="app-gorseller/aura-ikon-filtre.jpeg" alt="İkonlarla Filtrele — en fazla 5 ikon, hepsini birden içeren paylaşımlar (AND mantığı)" loading="lazy" />
         </div></div>
       </div>
     </section>
@@ -454,6 +458,12 @@
         <li data-i18n="s-watch-l4"><strong>Sessiz akış:</strong> İzleme sekmesinde sayı rozeti çıkar; sohbetteyken veya sekme zaten açıkken bastırılır. Ayrıca Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.</li>
       </ul>
       <div class="callout" data-i18n="s-watch-callout"><strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, kapının açılması, müsait olma, foto onay/red ve hesap/şikâyet kararları dışında hiçbir şey için bildirim almazsın; destek yanıtı yalnız uygulama içinde görünür.</div>
+      <p data-i18n="s-watch-p2">Sana düşen tüm uygulama bildirimlerini Profilim ekranındaki <strong>Uygulama Bildirimleri</strong> sekmesinden geçmişe dönük görebilirsin — sohbetin sonlanması, fotoğraf onayı veya reddi gibi kararlar burada tarihiyle durur.</p>
+      <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="app-gorseller/uygulama-bildirimleri.jpeg" alt="Profilim — Uygulama Bildirimleri sekmesi: sohbet sonlandı, fotoğraf onay/red kayıtları" loading="lazy" />
+        </div></div>
+      </div>
     </section>
 
     <section class="guide-block" id="sohbet">
@@ -495,11 +505,14 @@
       <ul>
         <li data-i18n="s9-l1"><strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca seninle karşı tarafın görür. Sunucu okuyamaz.</li>
         <li data-i18n="s9-l2"><strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, çocuk fotoğrafı, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.</li>
-        <li data-i18n="s9-l3"><strong>Şikayet ve engelleme:</strong> Bir profilin sağ üstündeki uyarı işareti <strong>"Engelle ve Bildir"</strong> diyaloğunu açar — kişiyi hem kalıcı engeller hem moderasyona bildirir. Sohbeti bitirirken de <strong>"Bitir ve engelle"</strong> seçeneği vardır. Engellediğin kişi seni aramada, akışta ve bildirimlerde bir daha göremez. Kişiye bağlı olmayan sorunlar için Ayarlar &rsaquo; <strong>Destek / Şikayet İlet</strong> formunu kullanırsın.</li>
+        <li data-i18n="s9-l3"><strong>Şikayet ve engelleme:</strong> Dört ayrı yol var. <strong>1)</strong> Bir profilin sağ üstündeki uyarı işareti <strong>"Engelle ve Bildir"</strong> diyaloğunu açar — kişiyi hem kalıcı engeller hem moderasyona bildirir. <strong>2)</strong> Sohbet başlığındaki uyarı işareti <strong>"Şikayet Et"</strong> formunu açar (en fazla 150 kelime): şikayetin moderasyon ekibine gider, sohbet sonlandırılır ve kişi kalıcı olarak engellenir. <strong>3)</strong> Sohbeti bitirirken <strong>"Bitir ve engelle"</strong> seçeneği vardır. <strong>4)</strong> Kişiye bağlı olmayan sorunlar için Ayarlar &rsaquo; <strong>Destek / Şikayet İlet</strong> formunu kullanırsın. Engellediğin kişi seni aramada, akışta ve bildirimlerde bir daha göremez.</li>
         <li data-i18n="s9-l4"><strong>Konum gizliliği:</strong> Frejya konum izni ister ama yalnız il/ilçe bilgini saklar; koordinatın kaydedilmez. Bu bilgi yalnız eşleşme için kullanılır.</li>
         <li data-i18n="s9-l6"><strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.</li>
       </ul>
       <div class="screenshot-inline">
+        <div class="phone-mini"><div class="notch"></div><div class="screen">
+          <img src="app-gorseller/sohbet-sikayet.jpeg" alt="Sohbet içinden Şikayet Et — 150 kelimelik form; sohbet biter ve kişi kalıcı engellenir" loading="lazy" />
+        </div></div>
         <div class="phone-mini"><div class="notch"></div><div class="screen">
           <img src="app-gorseller/destek-sikayet.jpeg" alt="Destek / Şikayet İlet — en fazla 150 kelimelik sorun bildirimi formu" loading="lazy" />
         </div></div>
@@ -764,6 +777,8 @@
     's-watch-l2': { tr: '<strong>Zil çal — geri al:</strong> Zil sekmesinde çaldığın bir zili geri alırsan, karşı taraf <strong>aktif mesajlaşmada değilse</strong> İzleme listene tekrar düşer. Sohbetteyse listede yer almaz; sohbet bitince düşer.', en: '<strong>Ring — withdraw:</strong> If you withdraw a bell you rang from the Bells tab, the recipient falls back into your Watch list <strong>only if they are not in an active chat</strong>. If they are chatting, they\'ll appear once their chat ends.' },
     's-watch-l3': { tr: '<strong>Sohbette olana zil çalmak yasak değildir:</strong> İzleme listesinde gözükmese bile profil sayfasından zilini çalabilirsin. Kişi sohbetini bitirdiğinde kapısına bıraktığın zil bekler.', en: '<strong>Ringing someone in a chat is allowed:</strong> Even if they\'re not in your Watch list, you can ring their bell from their profile page. The bell waits at their door until they finish their current chat.' },
     's-watch-l4': { tr: '<strong>Sessiz akış:</strong> İzleme sekmesinde sayı rozeti çıkar; sohbetteyken veya sekme zaten açıkken bastırılır. Ayrıca Sohbetler ikonu üzerinde küçük bir kırmızı nokta uyarı verir.', en: '<strong>Quiet stream:</strong> The Watch tab shows a count badge; it is suppressed while you are in a chat or already on that tab. A small red dot also appears on the Chats icon.' },
+    's4-l6': { tr: '<strong>İkonlarla filtrele:</strong> Aura\'nın <strong>Genel</strong> sekmesindeki arama çubuğuna dokunup en fazla <strong>5 ikon</strong> seçersin; yalnızca o ikonların <strong>hepsini birden</strong> içeren paylaşımlar listelenir (AND mantığı).', en: '<strong>Filter by icons:</strong> Tap the search bar on Aura\'s <strong>Global Feed</strong> tab and pick up to <strong>5 icons</strong>; only posts that contain <strong>all</strong> of them are listed (AND logic).' },
+    's-watch-p2': { tr: 'Sana düşen tüm uygulama bildirimlerini Profilim ekranındaki <strong>Uygulama Bildirimleri</strong> sekmesinden geçmişe dönük görebilirsin — sohbetin sonlanması, fotoğraf onayı veya reddi gibi kararlar burada tarihiyle durur.', en: 'You can review every in-app notification you have received from the <strong>App Notifications</strong> tab on your Profile screen — decisions such as a chat ending or a photo being approved or rejected stay there with their timestamp.' },
     's-watch-callout': { tr: '<strong>Zero-Stress ilkesi:</strong> Frejya beğeni, yorum, takip için OS bildirimi GÖNDERMEZ. Müsait olma bildirimi istisnadır çünkü <em>sohbete davet edilebilirliğin</em> ön koşuludur — engagement değil, fonksiyonel sinyaldir. Mesaj, zil, kapının açılması, müsait olma, foto onay/red ve hesap/şikâyet kararları dışında hiçbir şey için bildirim almazsın; destek yanıtı yalnız uygulama içinde görünür.', en: '<strong>Zero-Stress principle:</strong> Frejya does NOT send OS notifications for likes, comments, or follows. The available-to-chat notification is the exception because it\'s a precondition for <em>being invitable to a chat</em> — a functional signal, not engagement. You never receive notifications for anything other than messages, bells, a door being opened, availability, photo approval/rejection, and account/report decisions; support replies appear in-app only.' },
 
     // 08 — Chat (eski 07)
@@ -787,7 +802,7 @@
     's9-sub': { tr: 'E2EE · AI moderasyon · Engelle/şikayet', en: 'E2EE · AI moderation · Block/report' },
     's9-l1': { tr: '<strong>Uçtan uca şifreleme:</strong> Mesajların yalnızca seninle karşı tarafın görür. Sunucu okuyamaz.', en: '<strong>End-to-end encryption:</strong> Only you and your match can read your messages. The server cannot.' },
     's9-l2': { tr: '<strong>AI fotoğraf moderasyonu:</strong> Her yüklenen fotoğraf yapay zekâ ile denetlenir — sahte profil, çıplaklık, çocuk fotoğrafı, ünlü fotoğrafı ve uygunsuz içerik filtrelenir.', en: '<strong>AI photo moderation:</strong> Every uploaded photo is reviewed by AI — fake profiles, nudity, child photos, celebrity photos and inappropriate content are filtered out.' },
-    's9-l3': { tr: '<strong>Şikayet ve engelleme:</strong> Bir profilin sağ üstündeki uyarı işareti <strong>"Engelle ve Bildir"</strong> diyaloğunu açar — kişiyi hem kalıcı engeller hem moderasyona bildirir. Sohbeti bitirirken de <strong>"Bitir ve engelle"</strong> seçeneği vardır. Engellediğin kişi seni aramada, akışta ve bildirimlerde bir daha göremez. Kişiye bağlı olmayan sorunlar için Ayarlar &rsaquo; <strong>Destek / Şikayet İlet</strong> formunu kullanırsın.', en: '<strong>Report and block:</strong> The warning icon at the top right of a profile opens the <strong>"Block and Report"</strong> dialog — it both blocks the person permanently and reports them to moderation. Ending a chat also offers <strong>"End &amp; block"</strong>. Someone you block can no longer see you in search, the feed or notifications. For issues not tied to a person, use Settings &rsaquo; <strong>Support / Report</strong>.' },
+    's9-l3': { tr: '<strong>Şikayet ve engelleme:</strong> Dört ayrı yol var. <strong>1)</strong> Bir profilin sağ üstündeki uyarı işareti <strong>"Engelle ve Bildir"</strong> diyaloğunu açar — kişiyi hem kalıcı engeller hem moderasyona bildirir. <strong>2)</strong> Sohbet başlığındaki uyarı işareti <strong>"Şikayet Et"</strong> formunu açar (en fazla 150 kelime): şikayetin moderasyon ekibine gider, sohbet sonlandırılır ve kişi kalıcı olarak engellenir. <strong>3)</strong> Sohbeti bitirirken <strong>"Bitir ve engelle"</strong> seçeneği vardır. <strong>4)</strong> Kişiye bağlı olmayan sorunlar için Ayarlar &rsaquo; <strong>Destek / Şikayet İlet</strong> formunu kullanırsın. Engellediğin kişi seni aramada, akışta ve bildirimlerde bir daha göremez.', en: '<strong>Report and block:</strong> There are four routes. <strong>1)</strong> The warning icon at the top right of a profile opens the <strong>"Block and Report"</strong> dialog — it blocks the person permanently and reports them to moderation. <strong>2)</strong> The warning icon in the chat header opens the <strong>"Report"</strong> form (150 words max): your report goes to the moderation team, the chat is ended and the person is permanently blocked. <strong>3)</strong> Ending a chat also offers <strong>"End &amp; block"</strong>. <strong>4)</strong> For issues not tied to a person, use Settings &rsaquo; <strong>Support / Report</strong>. Someone you block can no longer see you in search, the feed or notifications.' },
     's9-l4': { tr: '<strong>Konum gizliliği:</strong> Frejya konum izni ister ama yalnız il/ilçe bilgini saklar; koordinatın kaydedilmez. Bu bilgi yalnız eşleşme için kullanılır.', en: '<strong>Location privacy:</strong> Frejya requests location permission but stores only your city/district; your coordinates are never saved. This information is used solely for matching.' },
     's9-l6': { tr: "<strong>Biyometrik veri cihazında kalır:</strong> Parmak izin veya yüz verin asla Frejya sunucusuna gönderilmez; doğrulama tamamen telefonunun güvenli donanımında yapılır. Çıkış, ban veya şifre değişiminde cihazdaki giriş anahtarı silinir.", en: "<strong>Biometric data stays on your device:</strong> Your fingerprint or face data is never sent to Frejya's servers; verification happens entirely in your phone's secure hardware. The on-device login key is wiped on logout, ban or password change." },
 
