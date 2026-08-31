@@ -402,13 +402,19 @@
   .closing p { color: var(--muted); max-width: 440px; margin: 20px auto 40px; }
   .badges { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
   .badge {
-    display: inline-flex; align-items: center; gap: 11px; background: var(--ink); color: #fff;
-    padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .25s ease;
+    display: inline-flex; align-items: center; gap: 11px; background: var(--ink); color: #fff; text-decoration: none;
+    padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    border: 1px solid rgba(192,160,128,.35); box-shadow: 0 10px 24px -10px rgba(0,0,0,.5);
   }
-  .badge:hover { transform: translateY(-2px); }
-  .badge svg { width: 19px; height: 19px; }
-  .badge small { display: block; font-size: 10px; opacity: .55; font-weight: 500; letter-spacing: .04em; }
-  .badge .big { font-size: 14px; font-weight: 600; line-height: 1.1; }
+  .badge.badge-link { cursor: pointer; }
+  .badge.badge-link:hover { transform: translateY(-3px); background: #1c1814; border-color: var(--gold); box-shadow: 0 14px 28px -10px rgba(212,175,55,.35); text-decoration: none; }
+  .badge.badge-disabled { opacity: .75; cursor: default; }
+  .badge svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
+  .badge small { display: block; font-size: 10px; color: #b4ada2; font-weight: 500; letter-spacing: .04em; }
+  .badge .big { font-size: 14px; font-weight: 600; line-height: 1.1; color: #fff; }
+  .nav-download { background: rgba(192,160,128,.15); border: 1px solid rgba(192,160,128,.4); padding: 5px 14px; border-radius: 999px; color: var(--gold) !important; font-weight: 600 !important; transition: background .25s ease, color .25s ease; }
+  .nav-download:hover { background: var(--gold) !important; color: #100F0E !important; text-decoration: none; }
+  .hero-badges { margin-top: 24px; }
 
   /* ===== FOOTER ===== */
   footer { background: var(--night); color: #b4ada2; padding: clamp(56px,8vh,72px) 24px 42px; font-size: 13.5px; }
@@ -429,6 +435,7 @@
 <nav class="top-nav" aria-label="Site">
   <a href="/" class="active" data-i18n="nav-home">Ana Sayfa</a>
   <a href="/nasil-kullanilir.html" data-i18n="nav-guide">Nasıl Kullanılır</a>
+  <a href="https://play.google.com/store/apps/details?id=com.freyja.app2" target="_blank" rel="noopener noreferrer" class="nav-download" data-i18n="nav-download">İndir</a>
 </nav>
 
 <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Language / Dil">EN</button>
@@ -452,7 +459,19 @@
     <p class="kicker th-kicker reveal" data-i18n="hero-eyebrow">Önce söz, sonra yüz</p>
     <h1 class="th-title reveal d1" data-i18n="hero-title">İnsan,<br /><em>bir fotoğraftan büyüktür.</em></h1>
     <p class="th-lede reveal d2" data-i18n="hero-sub">Anonim tanışırsın: profil fotoğrafı baştan gizli kalır, karşılıklı sohbet ettikçe yavaşça açılır. Hızlı kaydırma yok; önce kişiyi tanırsın.</p>
-    <div class="wl-wrap reveal d3">
+    <div class="hero-actions reveal d3">
+      <div class="badges hero-badges">
+        <a href="https://play.google.com/store/apps/details?id=com.freyja.app2" target="_blank" rel="noopener noreferrer" class="badge badge-link" aria-label="Google Play'den İndir">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1.3 1.3 0 0 0-.6 1.1v17a1.3 1.3 0 0 0 .6 1.1l9.9-9.6zm11.3 7.5L5.7 1.2l11.6 6.7zM5.7 22.8l9.2-8.7 2.4 2.4zm12.9-9.3 2.9-1.7c.8-.5.8-1.6 0-2l-2.9-1.7-2.7 2.7z"/></svg>
+          <span><small data-i18n="download-now">Hemen İndir</small><span class="big">Google Play</span></span>
+        </a>
+        <span class="badge badge-disabled" aria-label="App Store Yakında">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.9c.02 2.5 2.2 3.33 2.22 3.34-.02.06-.35 1.2-1.15 2.37-.69 1.02-1.41 2.03-2.55 2.05-1.11.02-1.47-.66-2.75-.66s-1.67.64-2.72.68c-1.09.04-1.92-1.1-2.62-2.12-1.43-2.07-2.53-5.86-1.05-8.41.73-1.27 2.04-2.07 3.46-2.09 1.07-.02 2.09.72 2.75.72.66 0 1.9-.89 3.2-.76.54.02 2.07.22 3.05 1.65-.08.05-1.82 1.07-1.8 3.21M14.28 6.34c.58-.71.98-1.7.87-2.69-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.88 2.58.94.08 1.89-.48 2.47-1.15"/></svg>
+          <span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span>
+        </span>
+      </div>
+    </div>
+    <div class="wl-wrap reveal d3" style="margin-top:28px;">
       <p class="wl-gift">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5"/><path d="M2 9h20M12 9v11.5"/><path d="M12 9S10.2 4.5 7.8 5.7 9.9 9 12 9ZM12 9s1.8-4.5 4.2-3.3S14.1 9 12 9Z"/></svg>
         <span data-i18n="wl-gift">İlk 1000 kişiye 3 ay premium hediye.</span>
@@ -692,13 +711,13 @@
     <h2 id="closing-title" data-i18n="closing-title">Acele etme.</h2>
     <p data-i18n="closing-desc">İyi bir tanışma zaman ister. Frejya 18–60 yaş arası içindir.</p>
     <div class="badges">
-      <span class="badge">
+      <a href="https://play.google.com/store/apps/details?id=com.freyja.app2" target="_blank" rel="noopener noreferrer" class="badge badge-link" aria-label="Google Play'den İndir">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1.3 1.3 0 0 0-.6 1.1v17a1.3 1.3 0 0 0 .6 1.1l9.9-9.6zm11.3 7.5L5.7 1.2l11.6 6.7zM5.7 22.8l9.2-8.7 2.4 2.4zm12.9-9.3 2.9-1.7c.8-.5.8-1.6 0-2l-2.9-1.7-2.7 2.7z"/></svg>
+        <span><small data-i18n="download-now">Hemen İndir</small><span class="big">Google Play</span></span>
+      </a>
+      <span class="badge badge-disabled" aria-label="App Store Yakında">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.36 12.9c.02 2.5 2.2 3.33 2.22 3.34-.02.06-.35 1.2-1.15 2.37-.69 1.02-1.41 2.03-2.55 2.05-1.11.02-1.47-.66-2.75-.66s-1.67.64-2.72.68c-1.09.04-1.92-1.1-2.62-2.12-1.43-2.07-2.53-5.86-1.05-8.41.73-1.27 2.04-2.07 3.46-2.09 1.07-.02 2.09.72 2.75.72.66 0 1.9-.89 3.2-.76.54.02 2.07.22 3.05 1.65-.08.05-1.82 1.07-1.8 3.21M14.28 6.34c.58-.71.98-1.7.87-2.69-.84.04-1.86.56-2.46 1.26-.54.62-1.01 1.62-.88 2.58.94.08 1.89-.48 2.47-1.15"/></svg>
         <span><small data-i18n="soon">Yakında</small><span class="big">App Store</span></span>
-      </span>
-      <span class="badge">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4a1.3 1.3 0 0 0-.6 1.1v17a1.3 1.3 0 0 0 .6 1.1l9.9-9.6zm11.3 7.5L5.7 1.2l11.6 6.7zM5.7 22.8l9.2-8.7 2.4 2.4zm12.9-9.3 2.9-1.7c.8-.5.8-1.6 0-2l-2.9-1.7-2.7 2.7z"/></svg>
-        <span><small data-i18n="soon">Yakında</small><span class="big">Google Play</span></span>
       </span>
     </div>
   </div>
@@ -773,6 +792,8 @@
     'hero-secondary': { tr: 'Nasıl çalışır?', en: 'How does it work?' },
     'scroll-cue': { tr: 'Eşikten geç', en: 'Cross the threshold' },
     'soon': { tr: 'Yakında', en: 'Coming soon' },
+    'download-now': { tr: 'Hemen İndir', en: 'Download Now' },
+    'nav-download': { tr: 'İndir', en: 'Download' },
     'wl-title': { tr: 'Lansmanda ilk sen haberdar ol.', en: 'Be the first to know at launch.' },
     'wl-gift': { tr: 'İlk 1000 kişiye 3 ay premium hediye.', en: 'First 1,000 people get 3 months of premium — free.' },
     'wl-gift-sub': { tr: 'Hediye için e-postanı bırak; uygulamada aynı e-postayla üye olup profil fotoğrafın onaylandığında Premium tanımlanır.', en: 'Leave your email below; Premium is granted when you sign up with the same address and your profile photo is approved.' },
