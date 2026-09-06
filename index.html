@@ -417,6 +417,97 @@
   .nav-download:hover { background: var(--gold) !important; color: #100F0E !important; text-decoration: none; }
   .hero-badges { margin-top: 24px; }
 
+  /* ===== VIDEO SECTION ===== */
+  .video-sec {
+    background: #14110E;
+    color: var(--on-dark);
+    padding: var(--space) 24px;
+    border-top: 1px solid rgba(192,160,128,.15);
+    border-bottom: 1px solid rgba(192,160,128,.15);
+  }
+  .video-grid {
+    max-width: 980px;
+    margin: 36px auto 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 680px) {
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+  .video-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(192,160,128,.2);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,0,0,.3);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 14px 34px rgba(192,160,128,.14);
+  }
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
+  }
+  .video-card-body {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .video-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .video-card-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #FCFAF6;
+    margin: 0 0 8px;
+    line-height: 1.3;
+  }
+  .video-card-desc {
+    font-size: 13px;
+    color: var(--on-dark-mut);
+    line-height: 1.55;
+    margin: 0 0 14px;
+    flex: 1;
+  }
+  .video-link {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--gold-bright);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .2s ease;
+  }
+  .video-link:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
   /* ===== FOOTER ===== */
   footer { background: var(--night); color: #b4ada2; padding: clamp(56px,8vh,72px) 24px 42px; font-size: 13.5px; }
   .fwrap { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-start; }
@@ -668,6 +759,73 @@
   <p class="slider-hint" data-i18n="slider-hint">← kaydır →</p>
   <div class="guide-cta reveal">
     <a href="/nasil-kullanilir.html" data-i18n="guide-cta">Adım adım kullanım kılavuzu</a>
+  </div>
+</section>
+
+<!-- ===== ACT V-B — VIDEO GUIDES ===== -->
+<section class="video-sec" id="videolar" aria-labelledby="video-sec-title">
+  <div class="sec-head reveal">
+    <p class="kicker center" data-i18n="vid-kicker">Canlı Video Kılavuz</p>
+    <h2 class="sec-title" id="video-sec-title" data-i18n="vid-title">Nasıl Kullanılır? — Video Anlatımlar</h2>
+    <p style="font-size:clamp(14.5px,2vw,16px);color:var(--on-dark-mut);max-width:560px;margin:14px auto 0;line-height:1.6;" data-i18n="vid-lead">Frejya'nın eşsiz özelliklerini ve sakin işleyişini 1 dakikalık kısa video anlatımlarla canlı izleyin.</p>
+  </div>
+
+  <div class="video-grid">
+    <!-- Video 1 -->
+    <div class="video-card reveal">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/UR2P195YcZ8" title="Frejya — Aura ile Ortak Etkinlik" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-badge" data-i18n="vid-b1">AURA AKIŞI</span>
+        <h3 class="video-card-title" data-i18n="vid-t1">Aura ile Ortak Etkinlik</h3>
+        <p class="video-card-desc" data-i18n="vid-d1">Ortak ilgi alanlarını ve anlık aktiviteleri hiyeroglif ikonlarla keşfedip benzer auralarla eşleşme.</p>
+        <a href="https://www.youtube.com/watch?v=UR2P195YcZ8" target="_blank" rel="noopener noreferrer" class="video-link" data-i18n="vid-yt">YouTube'da İzle &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-card reveal d1">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/oZvVkKSvdmY" title="Frejya — Zil Çalma (Sohbet İsteği)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-badge" data-i18n="vid-b2">KAPIYI ÇAL</span>
+        <h3 class="video-card-title" data-i18n="vid-t2">Zil Çalma (Sohbet İsteği)</h3>
+        <p class="video-card-desc" data-i18n="vid-d2">Beğendiğin kişinin kapı zilini çalma ve 150 karakterlik ilk mesaj ile sohbet başlatma daveti gönderme.</p>
+        <a href="https://www.youtube.com/watch?v=oZvVkKSvdmY" target="_blank" rel="noopener noreferrer" class="video-link" data-i18n="vid-yt">YouTube'da İzle &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="video-card reveal">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/yOKSulkgrU4" title="Frejya — Kapı Açma (İsteği Kabul Etme)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-badge" data-i18n="vid-b3">SOHBETE BAŞLA</span>
+        <h3 class="video-card-title" data-i18n="vid-t3">Kapı Açma (İsteği Kabul Etme)</h3>
+        <p class="video-card-desc" data-i18n="vid-d3">Gelen zili inceleme, kimin kapıyı çaldığını görme ve kapıyı açarak sohbeti başlatma.</p>
+        <a href="https://www.youtube.com/watch?v=yOKSulkgrU4" target="_blank" rel="noopener noreferrer" class="video-link" data-i18n="vid-yt">YouTube'da İzle &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Video 4 -->
+    <div class="video-card reveal d1">
+      <div class="video-embed">
+        <iframe src="https://www.youtube-nocookie.com/embed/IoOCjJ2kjKQ" title="Frejya — Fotoğraf Kazıma" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card-body">
+        <span class="video-badge" data-i18n="vid-b4">GİZEMİ ÇÖZ</span>
+        <h3 class="video-card-title" data-i18n="vid-t4">Fotoğraf Kazıma</h3>
+        <p class="video-card-desc" data-i18n="vid-d4">Mesajlaştıkça perdenin arkasındaki fotoğrafı adım adım karşılıklı kazıyarak açma.</p>
+        <a href="https://www.youtube.com/watch?v=IoOCjJ2kjKQ" target="_blank" rel="noopener noreferrer" class="video-link" data-i18n="vid-yt">YouTube'da İzle &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:38px;" class="reveal">
+    <a href="/nasil-kullanilir.html#videolar" style="display:inline-flex;align-items:center;gap:8px;padding:12px 30px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-bright);font-size:13.5px;font-weight:600;text-decoration:none;transition:background .25s ease,color .25s ease;" data-i18n="vid-all-btn">Tüm Detaylı Kılavuzu İncele &rarr;</a>
   </div>
 </section>
 
@@ -928,6 +1086,38 @@
     'phone6': { tr: 'Profiller', en: 'Profiles' },
     'phone6-sub': { tr: 'Hayvan avatarı', en: 'Animal avatar' },
     'slider-hint': { tr: '← kaydır →', en: '← swipe →' },
+    'vid-kicker': { tr: 'Canlı Video Kılavuz', en: 'Live Video Guides' },
+    'vid-title': { tr: 'Nasıl Kullanılır? — Video Anlatımlar', en: 'How to Use? — Video Guides' },
+    'vid-lead': {
+      tr: "Frejya'nın eşsiz özelliklerini ve sakin işleyişini 1 dakikalık kısa video anlatımlarla canlı izleyin.",
+      en: "Watch Frejya's unique features and calm mechanics in quick 1-minute video walkthroughs."
+    },
+    'vid-b1': { tr: 'AURA AKIŞI', en: 'AURA FEED' },
+    'vid-t1': { tr: 'Aura ile Ortak Etkinlik', en: 'Shared Activity with Aura' },
+    'vid-d1': {
+      tr: 'Ortak ilgi alanlarını ve anlık aktiviteleri hiyeroglif ikonlarla keşfedip benzer auralarla eşleşme.',
+      en: 'Discover shared interests and real-time activities using hieroglyphic icons to match with kindred auras.'
+    },
+    'vid-b2': { tr: 'KAPIYI ÇAL', en: 'RING THE BELL' },
+    'vid-t2': { tr: 'Zil Çalma (Sohbet İsteği)', en: 'Ringing the Bell (Chat Request)' },
+    'vid-d2': {
+      tr: 'Beğendiğin kişinin kapı zilini çalma ve 150 karakterlik ilk mesaj ile sohbet başlatma daveti gönderme.',
+      en: 'Ring the doorbell of someone you like and send a 150-character first message as an invite to chat.'
+    },
+    'vid-b3': { tr: 'SOHBETE BAŞLA', en: 'OPEN THE DOOR' },
+    'vid-t3': { tr: 'Kapı Açma (İsteği Kabul Etme)', en: 'Opening the Door (Accepting the Request)' },
+    'vid-d3': {
+      tr: 'Gelen zili inceleme, kimin kapıyı çaldığını görme ve kapıyı açarak sohbeti başlatma.',
+      en: 'Review the incoming ring, see who rang your bell, and open the door to start the conversation.'
+    },
+    'vid-b4': { tr: 'GİZEMİ ÇÖZ', en: 'REVEAL THE PHOTO' },
+    'vid-t4': { tr: 'Fotoğraf Kazıma', en: 'Scratch-to-Reveal Photo' },
+    'vid-d4': {
+      tr: 'Mesajlaştıkça perdenin arkasındaki fotoğrafı adım adım karşılıklı kazıyarak açma.',
+      en: 'Scratch away the curtain step-by-step together as you message to reveal the underlying photo.'
+    },
+    'vid-yt': { tr: "YouTube'da İzle &rarr;", en: 'Watch on YouTube &rarr;' },
+    'vid-all-btn': { tr: 'Tüm Detaylı Kılavuzu İncele &rarr;', en: 'Explore the Full User Guide &rarr;' },
     'footer-site': { tr: 'Site', en: 'Site' },
     'footer-social': { tr: 'Sosyal', en: 'Social' },
     'footer-legal': { tr: 'Yasal', en: 'Legal' },
